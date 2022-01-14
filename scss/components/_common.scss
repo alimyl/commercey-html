@@ -1,0 +1,818 @@
+/* SCROLLBAR */
+@import "styles/scrollbar";
+
+/* COLORS STYLES */
+@import "styles/colors";
+
+/* BUTTONS STYLES */
+@import "styles/buttons";
+
+/* TEXT STYLES */
+@import "styles/text";
+
+/* HEADING STYLES */
+@import "styles/headings";
+
+/* FORMS STYLES */
+@import "styles/form";
+
+/* FLEX RELATED CLASSES */
+@import "styles/flex";
+
+/* CURSOR RELATED CLASSES */
+@import "styles/cursor";
+
+/* MENU  STYLES */
+@import "styles/menu";
+
+/* MENU  STYLES */
+@import "styles/st-gutter";
+
+/* IMAGE  STYLES */
+@import "styles/images";
+
+/* MODALS  STYLES */
+@import "styles/modals";
+
+// border radius
+.st-default-rounded-block {
+    border-radius: $common-border-radius !important;
+}
+// no top border
+.st-border-no-top {
+    border-top-width: 0px !important;
+    border-top-right-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+}
+
+.st-border-no-left {
+    border-left-width: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+}
+
+// app main content
+.app-main-content {
+    // height: 100vh;
+    margin-left: $appLeftBarWidth;
+    // overflow: auto;
+    // @include transition;
+}
+.app-left-menu.shrunk + .app-main-content {
+    margin-left: $appLeftBarWidthWhenShrunked;
+}
+
+// create or edit page bottom buttons
+.page-eorc-wrapper {
+    padding-bottom: 90px;
+    position: relative;
+}
+.page-bottom-action-btns {
+    border-radius: 0;
+    position: fixed;
+    z-index: 2;
+    bottom: 0;
+    left: $appLeftBarWidthWhenShrunked;
+    width: calc(100% - (#{$appLeftBarWidthWhenShrunked}));
+    &.sidebar-expanded {
+        left: $appLeftBarWidth;
+        width: calc(100% - (#{$appLeftBarWidth}));
+    }
+    .app-card-content {
+        padding: 10px 15px;
+    }
+}
+
+// st container
+.st-container {
+    @include min_width($sm-min) {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
+
+// app card
+.app-card {
+    .acc_top-bar {
+        padding: 15px;
+    }
+}
+
+// st listing table
+.st-listing-table {
+    padding: 15px;
+    position: relative;
+    tbody {
+        tr {
+            @include transition(0.1s);
+            &:hover {
+                background-color: $bg__dashboard;
+            }
+        }
+    }
+    th,
+    td {
+        padding: 12px;
+        border-bottom: 1px solid $borderColor__light !important;
+        color: $text__light-color;
+        line-height: normal;
+        vertical-align: top;
+    }
+    th {
+        font-weight: 600;
+        color: $text__dark-color;
+    }
+    td {
+        &.column__actions {
+            padding: 8px 8px 8px 12px;
+        }
+    }
+
+    // PADDING
+    // padding sm
+    &.st-table-padding-sm {
+        th,
+        td {
+            padding: 10px 12px 8px;
+        }
+    }
+
+    // HEADINGS
+    // dashboard color
+    &.st-table-heading-dashboard {
+        thead {
+            > tr {
+                background-color: $bg__dashboard;
+            }
+        }
+    }
+
+    // primary color
+    &.st-table-heading-primary {
+        thead {
+            > tr {
+                background-color: $primary-color;
+                th,
+                td {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    // dark color
+    &.st-table-heading-dark {
+        thead {
+            > tr {
+                background-color: $text__dark-color;
+                th,
+                td {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    // light color
+    &.st-table-heading-light {
+        thead {
+            > tr {
+                background-color: $text__light-color;
+                th,
+                td {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    // disabled
+    tr.status_disabled {
+        opacity: 0.5;
+    }
+
+    // responsive
+    @include max_width($lg-max) {
+        thead {
+            display: none !important;
+        }
+        table,
+        tbody,
+        tr,
+        td {
+            display: block;
+        }
+        tr {
+            border-top: 1px solid $borderColor__light !important;
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+        td {
+            padding: 0 0 5px !important;
+            border-bottom: none !important;
+            &.column__checkbox {
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
+
+// images
+.img-fluid-height {
+    max-height: 100%;
+}
+
+// no data found
+.no-data-found {
+    color: #777;
+}
+
+// st bs dropdown
+.st-bs-dropdown {
+    &.no-down-icon {
+        .dropdown-toggle::after {
+            content: none !important;
+        }
+    }
+
+    .dropdown-menu {
+        background: #fff !important;
+        box-shadow: 0 0px 100px rgba(0, 0, 0, 0.1);
+        border-color: $bg__dashboard;
+        // padding: 10px 0;
+        padding: 0;
+        margin-top: 2px !important;
+
+        .dropdown-item {
+            @include transition;
+            padding: 8px 15px;
+            font-size: 15px;
+            color: $text__light-color;
+            &:hover {
+                color: $text__dark-color;
+                background-color: $bg__dashboard;
+            }
+            &:focus,
+            &:active {
+                background-color: darken($color: $bg__dashboard, $amount: 2);
+            }
+        }
+        // .dropdown-item > span {
+        //     width: 100%;
+        // }
+    }
+}
+
+// bootstrap tooltip
+.tooltip {
+    .tooltip-inner {
+        border-radius: $common-border-radius;
+        font-size: 11px;
+        padding: 4px 7px 5px;
+        line-height: normal;
+    }
+}
+
+// toast notifications
+/** Used to define container behavior: width, position: fixed etc... **/
+.Toastify__toast-container {
+}
+
+/** Used to define the position of the ToastContainer **/
+.Toastify__toast-container--top-left {
+}
+.Toastify__toast-container--top-center {
+}
+.Toastify__toast-container--top-right {
+    top: 1.5em;
+    right: 2.5em;
+}
+.Toastify__toast-container--bottom-left {
+}
+.Toastify__toast-container--bottom-center {
+}
+.Toastify__toast-container--bottom-right {
+}
+
+/** Classes for the displayed toast **/
+.Toastify__toast {
+    border-radius: $common-border-radius;
+    // padding: 8px 15px;
+    // min-height: 55px;
+    padding: 4px 8px 4px 15px;
+    min-height: 40px;
+}
+.Toastify__toast--rtl {
+}
+.Toastify__toast--dark {
+}
+.Toastify__toast--default {
+}
+.Toastify__toast--info {
+}
+.Toastify__toast--success {
+    background-color: $bg__success;
+}
+.Toastify__toast--warning {
+}
+.Toastify__toast--error {
+    background-color: $bg__danger;
+}
+.Toastify__toast-body {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    border-radius: $common-border-radius;
+    padding: 0;
+    // margin: 9px 0 8px;
+    margin: 5.5px 0 0;
+}
+
+/** Classes for the close button. Better use your own closeButton **/
+.Toastify__close-button {
+}
+.Toastify__close-button--default {
+}
+.Toastify__close-button > svg {
+}
+.Toastify__close-button:hover,
+.Toastify__close-button:focus {
+}
+
+/** Classes for the progress bar **/
+.Toastify__progress-bar {
+}
+.Toastify__progress-bar--animated {
+}
+.Toastify__progress-bar--controlled {
+}
+.Toastify__progress-bar--rtl {
+}
+.Toastify__progress-bar--default {
+}
+.Toastify__progress-bar--dark {
+}
+
+// app info box
+.app-info-box {
+    background: $bg__dashboard;
+    padding: 8px 10px;
+    // border: 1px solid #f5f5f5;
+    border-left: 5px solid $primary-color;
+
+    // COLORS
+    // dark
+    &.app-info-box-dark {
+        border-left-color: $text__dark-color;
+    }
+    // light
+    &.app-info-box-light {
+        border-left-color: $text__light-color;
+    }
+}
+
+// back button wrapper
+.back-button-wrapper {
+    a,
+    p {
+        &:hover {
+            span {
+            }
+        }
+    }
+}
+
+// global loading
+.global-loading-container {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+// section loading
+.section-loading-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+// date picker
+.DayPicker {
+    margin-top: 5px;
+}
+.DayPicker-Day {
+    padding: 7px 10px !important;
+    font-size: 14px;
+    // font-weight: 600;
+}
+.DayPicker-Day--today {
+    color: $primary-color !important;
+}
+.DayPicker-wrapper {
+    border: 1px solid $defaultInputBorderColor;
+    background-color: #fff;
+    border-radius: $common-border-radius;
+    padding-bottom: 0 !important;
+}
+.DayPicker-Footer {
+    text-align: center;
+    border-top: 1px solid $defaultInputBorderColor;
+    margin-top: 10px;
+    padding-top: 7px !important;
+    padding-bottom: 9px;
+
+    button {
+        font-weight: 600;
+    }
+}
+
+.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+    background-color: $primary-color !important;
+    color: #fff !important;
+}
+
+.DayPicker:not(.DayPicker--interactionDisabled)
+    .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
+    background-color: lighten($color: $primary-color, $amount: 45) !important;
+}
+.date-picker-container {
+    position: relative;
+    > input + div {
+        position: absolute;
+        top: 100%;
+        z-index: 1;
+    }
+}
+.align-left {
+    text-align: left !important;
+}
+.border-right {
+    border-right: 2px solid $borderColor__light !important;
+}
+
+.border-left {
+    border-left: 2px solid $borderColor__light !important;
+}
+
+.st-border-none {
+    border: none !important;
+}
+.min-height-auto {
+    min-height: auto !important;
+}
+
+.width-auto {
+    width: auto !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+.bg-gray {
+    background-color: $light-gray-color2 !important;
+}
+
+.st-tab-link {
+    padding: 0 0 2px;
+    margin-right: 20px;
+    border: none !important;
+    border-bottom: 3px solid transparent !important;
+    font-weight: 600;
+    font-size: 16px;
+    color: $text__dark-color;
+    &.hover {
+        color: $primary-color !important;
+    }
+    &.active {
+        color: $primary-color !important;
+        border-color: $primary-color !important;
+    }
+}
+
+// border boxes
+.page-border-box {
+    > .pbb-inner {
+        border: 1px solid $borderBoxColor;
+        background-color: #fff;
+        border-radius: $borderBoxRadius;
+        padding: 15px;
+    }
+}
+.page-border-box2 {
+    > .pbb2-inner {
+        border: 1px solid $borderBoxColorDarker;
+        background-color: $borderBoxBgColor;
+        border-radius: $borderBoxRadius2;
+        padding: 15px;
+    }
+    &.not-available {
+        opacity: 0.7;
+    }
+    &.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+        user-select: none;
+    }
+}
+
+// st tabs links
+.st-tabs-links {
+    margin-bottom: 20px;
+    .stl-inner {
+        border-bottom: 1px solid $borderColor__light;
+    }
+
+    .stl-link {
+        text-decoration: none !important;
+        padding: 0 10px 10px;
+        margin-right: 5px;
+        margin-bottom: -1.4px;
+        font-weight: 600;
+        color: $textColor;
+        @include transition(0.1s);
+        border-bottom: 2px solid transparent;
+        &:hover {
+            color: darken($color: $textColor, $amount: 15);
+        }
+        &.active {
+            color: $primary-color;
+            border-bottom-color: $primary-color;
+        }
+        &.has-error {
+            color: $text__danger-color;
+            border-bottom-color: $bg__danger;
+        }
+    }
+}
+
+// st tabs bootstrap
+.st-tabs-bootstrap {
+    border-bottom: none;
+    .nav-item {
+        text-decoration: none !important;
+        padding: 0 10px 10px;
+        margin-right: 5px;
+        // margin-bottom: -1px;
+        font-weight: 600;
+        color: $textColor;
+        @include transition(0.1s);
+        border: none;
+        border-bottom: 1px solid transparent;
+        &:hover {
+            color: darken($color: $textColor, $amount: 15);
+            border-bottom-color: transparent;
+        }
+        &.active {
+            color: $primary-color;
+            border-bottom-color: $primary-color;
+        }
+    }
+}
+
+// round feather icon with bg
+.round-feather-icon-with-bg {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: $primary-color;
+    color: #fff;
+    line-height: 0;
+
+    &.hoverable {
+        @include transition;
+        &:hover {
+            background-color: darken($color: $primary-color, $amount: 10);
+        }
+    }
+}
+
+// round feather icon outlined
+.round-feather-icon-outlined {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    border: 1px solid $primary-color;
+    color: $primary-color;
+    line-height: 0;
+
+    &.hoverable {
+        @include transition;
+        &:hover {
+            background-color: darken($color: $primary-color, $amount: 10);
+        }
+    }
+}
+
+.w100 {
+    width: 100%;
+}
+.ptb-16 {
+    padding: 16px 0px;
+}
+
+.text-currentcolor {
+    color: currentColor !important;
+}
+
+.min80 {
+    min-width: 80px !important;
+}
+
+// froala editor
+.fr-wrapper > div:first-child,
+.fr-second-toolbar > a {
+    display: none !important;
+}
+.text__dark-color {
+    color: #272b2f !important;
+}
+
+// fixed left page view container
+.fixed-left-page-view-container {
+    .flpvc-lt-sec {
+        @include min_width($md-min) {
+            width: 300px;
+        }
+    }
+}
+
+.text-danger {
+    color: #fe4c4c !important;
+}
+
+// img uploader container
+.img-uploader-container {
+    .add-img,
+    .img-block {
+        height: 125px;
+        width: 125px;
+        border: 1px solid $borderBoxColorDarker;
+        border-radius: 10px;
+        margin-right: 15px;
+        margin-bottom: 15px;
+        overflow: hidden;
+        > .inner {
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: $borderBoxBgColor;
+            padding: 5px;
+        }
+    }
+
+    .img-block {
+        .options {
+            top: 0;
+            left: 0;
+            padding: 5px;
+            background-color: rgba(255, 255, 255, 0.9);
+            @include transition;
+            opacity: 0;
+        }
+
+        &:hover,
+        &.to-be-deleted {
+            .options {
+                opacity: 1;
+            }
+        }
+
+        .removed-text {
+            margin-top: 35px;
+        }
+
+        &:not(.to-be-deleted) {
+            .removed-text,
+            .restore-text {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    }
+
+    .icon-box {
+        border: 2px dashed $primary-color;
+        height: 35px;
+        width: 35px;
+        border-radius: 50%;
+        .icon {
+            bottom: 0.3px;
+            left: 0.2px;
+        }
+    }
+
+    .add-img {
+        border-width: 2px;
+        border-style: dashed;
+        border-color: $primary-color;
+        user-select: none;
+        > .inner {
+            @include transition;
+            &:hover {
+                background-color: darken($color: $borderBoxBgColor, $amount: 5);
+            }
+            &:active {
+                background-color: darken(
+                    $color: $borderBoxBgColor,
+                    $amount: 10
+                );
+            }
+        }
+
+        &.has-category-image {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+    }
+
+    // when error
+    &.has-error {
+        .add-img,
+        .icon-box {
+            border-color: $text__danger-color;
+            p {
+                color: $text__danger-color !important;
+            }
+        }
+        .icon-box {
+            .icon {
+                color: $text__danger-color !important;
+            }
+        }
+    }
+}
+
+// disabled elem
+.disabled-elem {
+    pointer-events: none !important;
+    opacity: .5;
+}
+
+// app table container
+.app-table-container {
+    
+}
+
+// ----- PAGINATION STYLES START ----- //
+#st-pagination {
+}
+.st-pagination {
+    .pagination-link {
+        padding: 6px 5px;
+        background: #fff;
+        color: $text__dark-color;
+        border: 1px solid $borderColor__light;
+        border-radius: $common-border-radius;
+        min-width: 30px;
+        min-height: 30px;
+        text-align: center;
+        margin: 0 2px;
+        @include transition;
+        // &.active,
+        // &:hover {
+        //     background: $primary-color;
+        //     color: #fff;
+        // }
+        &.active {
+            background: $primary-color;
+            color: #fff;
+        }
+        &.active {
+            font-weight: 600;
+        }
+        &.disabled {
+            pointer-events: none !important;
+        }
+        &.disabled:not(.link-count) {
+            opacity: .7;
+        }
+    }
+}
+// ----- PAGINATION STYLES END ----- //
+
+// ----- SITE TABLE STYLES START ----- //
+// .st-table {
+//     display: table;
+
+//     .st-table-head,
+//     .st-table-body {
+
+//     }
+//     .st-table-row {
+//         display: table-row;
+//     }
+//     .st-table-cell {
+//         display: table-cell;
+//     }
+// }

@@ -1,0 +1,42 @@
+$headingColor: #3e4f67;
+$descColor: #3e4f67;
+
+/* HEADING STYLES */
+.app-header-wrapper {
+    margin-bottom: 15px;
+    .app-heading {
+        font-size: 25px;
+        font-weight: 600;
+        color: $headingColor;
+    }
+
+    .app-heading-bold {
+        font-size: 18px;
+        font-weight: 600;
+        color: $headingColor;
+    }
+
+    /* SIZES */
+    // sm
+    &.heading-sm {
+        .app-heading {
+            font-size: 20px;
+            font-weight: 500;
+        }
+    }
+
+    /* md */
+    &.heading-md {
+        .app-heading {
+            font-size: 25px;
+            font-weight: 500;
+        }
+    }
+
+    // description
+    .app-desc {
+        color: $descColor;
+        font-size: 13px;
+        padding-left: 1px;
+    }
+}
