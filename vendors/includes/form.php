@@ -5,7 +5,7 @@
     <div class="app-card-content bg-white border st-border-light st-default-rounded-block pad-20-LR pad-20-T">
         <div class="xs-12 col-md-9 col-lg-6 px-0">
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
                 <label>
                     First Name
                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -16,7 +16,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
                 <label>
                     Last Name
                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -27,7 +27,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
                 <label>
                     Company Name
                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -38,7 +38,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
                 <label>
                     Tax Id/EIN
                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -49,7 +49,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
                 <label>
                     Email
                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -60,7 +60,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
                 <label>
                     Address
                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -71,7 +71,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
                 <label>
                     Address1
                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -82,7 +82,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
                 <label>
                     Country
                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -97,7 +97,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
                 <label>
                     State
                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -112,7 +112,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
                 <label>
                     City
                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -127,7 +127,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
                 <label>
                     Zipcode
                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -138,7 +138,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
                 <label>
                     Phone
                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -149,7 +149,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
                 <label>
                     Mobile
                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -160,7 +160,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
                 <label>
                     Fax
                     <span class="required ms-1 st-fs-12">(required)</span>

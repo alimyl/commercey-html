@@ -38,7 +38,7 @@
             </a>
 
             <!-- sub menu -->
-            <div class="alm_sub-menu">
+            <div class="alm_sub-menu" style="display: none;">
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
                     <a href="http://localhost/VEZIRE/commercey-html/customers" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
@@ -87,7 +87,7 @@
             </a>
 
             <!-- sub menu -->
-            <div class="alm_sub-menu">
+            <div class="alm_sub-menu" style="display: none;">
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
                     <a href="http://localhost/VEZIRE/commercey-html/products" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
@@ -171,7 +171,7 @@
             </a>
 
             <!-- sub menu -->
-            <div class="alm_sub-menu">
+            <div class="alm_sub-menu" style="display: none;">
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
                     <a href="http://localhost/VEZIRE/commercey-html/users" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">

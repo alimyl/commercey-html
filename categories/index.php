@@ -21,33 +21,61 @@
                         ?>
 
                         <!-- content -->
-                        <section id="app-customers" class="st-def-mar-TB">
+                        <section id="app-categories" class="st-def-mar-TB">
                             <div class="container-fluid st-container">
-                                <div class="app-customers">
+                                <div class="app-categories">
                                     <!-- header -->
                                     <div class="app-header-wrapper d-flex mb-2">
-                                        <p class="app-heading text-capitalize">customers</p>
+                                        <p class="app-heading text-capitalize">Categories</p>
                                     </div>
                         
-                                    <!-- content -->
-                                    <div class="app-content-container">
-                                        <div class="app-card">
-                                            <div class="app-card-content bg-white border st-border-light st-default-rounded-block mb-3">
-                                                <!-- top bar -->
-                                                <div class="acc_top-bar border-bottom st-border-light">
-                                                    <?php
-                                                        include "includes/top-bar.php"
-                                                    ?>
-                                                </div>
-                        
-                                                <!-- listting table -->
-                                                <div class="st-listing-table customers-table table-responsive">
-                                                    <?php
-                                                        include "includes/table.php"
-                                                    ?>
-                                                </div>
+                                    <!-- CONTENT WRAPPER -->
+                                    <div class="app-content-container categories-wrapper">
+                                        <!-- top btns} -->
+                                        <div class="cats-all-btns mb-3">
+                                            <div class="cats-all-btns-inner d-flex flex-wrap align-items-center">
+                                                <!-- add root cat -->
+                                                <button
+                                                    class="st-btn st-btn-primary d-flex align-items-center justify-content-center me-2">
+                                                    <i class="feather-plus icon me-2 st-fs-15"></i>
+                                                    <span>Add Root category</span>
+                                                </button>
+
+                                                <!-- add sub cat -->
+                                                <button
+                                                    class="st-btn st-btn-secondary d-flex align-items-center justify-content-center me-2">
+                                                    <i class="feather-plus icon me-2 st-fs-15"></i>
+                                                    <span>Add Sub category</span>
+                                                </button>
+
+                                                <!-- delete cat -->
+                                                <button
+                                                    class="st-btn st-btn-secondary d-flex align-items-center justify-content-center me-2">
+                                                    <i class="feather-trash icon me-2 st-fs-15"></i>
+                                                    <span>Delete category</span>
+                                                </button>
+
+                                                <!-- delete cat -->
+                                                <button
+                                                    class="st-btn st-btn-primary d-flex align-items-center justify-content-center ms-auto">
+                                                    <span>Create Category</span>
+                                                </button>
                                             </div>
                                         </div>
+
+                                        <!-- categories main -->
+                                        <div class="categories-wrapper-inner d-flex flex-wrap">
+                                            <!-- categories list -->
+                                            <?php
+                                                include "./includes/listing.php"
+                                            ?>
+
+                                            <!-- form data -->
+                                            <?php
+                                                include "./includes/form-data.php"
+                                            ?>
+                                        </div>
+
                                     </div>
 
                                     <!-- pagination -->

@@ -5,7 +5,7 @@
     <div class="app-card-content bg-white border st-border-light st-default-rounded-block pad-20-LR pad-20-T">
         <div class="xs-12 col-md-9 col-lg-6 px-0">
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
                 <label>
                     First Name
                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -16,7 +16,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
                 <label>
                     Last Name
                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -27,7 +27,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
                 <label>
                     Email
                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -38,7 +38,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
                 <label>
                     Email
                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -49,7 +49,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
                 <label>
                     Two Factor
                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -64,7 +64,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
                 <label>
                     Type
                     <span class="required ms-1 st-fs-12">(required)</span>

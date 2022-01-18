@@ -1,8 +1,10 @@
+// sass --watch scss/style.scss:css/style.css --style compressed
+
 @import "components/reset";
 @import "components/fonts";
 @import "components/variables";
-@import "components/mixins";
-@import "components/common";
+@import "components/mixins"; 
+@import "components/common"; 
 
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
 // font-family: 'Source Sans Pro', sans-serif;
@@ -15,6 +17,242 @@ body {
     color: $text__light-color;
     // background: $bg__dashboard;
 }
+
+// ====== HEADER PAGE START ====== //
+// HEADER
+header {
+    margin-top: -1px;
+}
+
+.header {
+    height: $headerHeight;
+    padding: 10px 0;
+
+    .hm_item {
+        position: relative;
+
+        .header-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            padding-top: 10px;
+            min-width: 130px;
+            @include transition;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 12;
+            .hd_inner {
+                background: #fff;
+                box-shadow: 0 50px 100px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        &:hover {
+            > a {
+                background-color: $primary-color;
+                color: #fff;
+            }
+            .header-dropdown {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    // user profile dropdown
+    .notifications {
+        .header-dropdown {
+            width: 250px;
+            @include min_width($md-min) {
+                width: 350px;
+            }
+        }
+
+        .top-sec,
+        .bottom-sec {
+            padding: 10px 15px;
+        }
+
+        .link-item {
+            @include transition;
+            padding: 8px 15px;
+            color: $text__light-color;
+            &:hover {
+                color: $text__dark-color;
+                background-color: $bg__dashboard;
+            }
+
+            &:focus,
+            &:active {
+                background-color: darken($color: $bg__dashboard, $amount: 2);
+            }
+
+            .img {
+                height: 35px;
+                width: 35px;
+            }
+            .text {
+                width: calc(100% - 35px);
+            }
+
+            .message {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+    // user profile dropdown
+    .user-profile {
+        .header-dropdown {
+            width: 200px;
+        }
+        .hd_inner {
+            padding: 10px 0;
+        }
+        .link-item {
+            @include transition;
+            padding: 8px 15px;
+            color: $text__light-color;
+            font-size: 14px;
+            &:hover {
+                color: $text__dark-color;
+                background-color: $bg__dashboard;
+            }
+
+            &:focus,
+            &:active {
+                background-color: darken($color: $bg__dashboard, $amount: 2);
+            }
+        }
+
+        .bottom-sec {
+            padding-top: 5px;
+        }
+    }
+}
+// ====== HEADER PAGE END ====== //
+
+
+// ====== LEFT MENU PAGE START ====== //
+.app-left-menu {
+    // font-family: "Source Sans Pro", sans-serif;
+    // font-weight: 400;
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: $appLeftBarWidth;
+    z-index: 12;
+
+    @include transition;
+
+    // SCROLLBAR
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+    /* width */
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+    > .inner {
+        overflow: auto;
+    }
+
+    .st-logo {
+        height: $headerHeight;
+        padding: 10px 10px;
+        margin-bottom: 10px;
+        // border-bottom-color: $borderColor__light;
+        img {
+            // width: 120px;
+            width: 150px;
+        }
+        button {
+            margin-left: auto;
+        }
+    }
+
+    .alm_nav-item,
+    .alm_sub-nav-item {
+    }
+    .alm_nav-link,
+    .alm_sub-nav-link {
+        font-size: 15px;
+        color: $text__light-color;
+        outline: none !important;
+        @include transition;
+        &:hover {
+            color: $text__dark-color;
+        }
+        &.active {
+            color: $text__dark-color;
+        }
+        &:not(.active).opened {
+            color: $primary-color;
+        }
+    }
+    .alm_nav-item {
+        margin-bottom: 5px;
+        padding: 0 10px;
+    }
+    .alm_nav-link {
+        padding: 10px 0px 10px 10px;
+        border-radius: $common-border-radius;
+        > .lt {
+            .icon {
+                margin-top: 3px;
+                margin-right: 10px;
+            }
+        }
+        > .rt {
+            width: 30px;
+            .icon {
+                @include transition;
+            }
+        }
+
+        &.active {
+            background-color: $primary-color;
+            > .rt {
+                .icon {
+                    color: $primary-color;
+                    @include transform_rotate(90deg);
+                }
+            }
+        }
+    }
+
+    .alm_sub-menu {
+        padding: 8px 0 5px;
+    }
+    .alm_sub-nav-item {
+        padding-left: 25px;
+    }
+    .alm_sub-nav-link {
+        padding: 6px 10px;
+    }
+
+    // app menu expanded or shrunk
+    &.shrunk {
+        &:not(:hover) {
+            width: $appLeftBarWidthWhenShrunked;
+            .st-logo > a,
+            .alm_nav-link > .lt > span,
+            .alm_nav-link > .rt > .icon,
+            .alm_sub-menu {
+                display: none !important;
+            }
+            .st-logo > button {
+                margin: 0 auto;
+            }
+        }
+    }
+}
+// ====== LEFT MENU PAGE END ====== //
+
 
 // ====== CUSTOMERS PAGE START ====== //
 .app-customer-permissions {
@@ -2641,11 +2879,11 @@ $white-color: #ffffff;
         }
 
         // when frac shrunk
-        &.shrunk {
-            .multilevel-container {
-                display: none;
-            }
+        .multilevel-container {
+            display: none;
         }
+        // &.shrunk {
+        // }
 
         .expand-shrink-icon {
             height: 22px;
@@ -2676,7 +2914,12 @@ $white-color: #ffffff;
 // data view
 .category-data-view {
     > .inner {
-        padding-left: 20px;
+        @include min_width($md-min) {
+            padding-left: 20px;
+        }
+        @include max_width($md-max) {
+            border-left: none !important;
+        }
     }
 }
 
@@ -4464,7 +4707,7 @@ $white-color: #ffffff;
         th {
             font-weight: 600;
             color: #7d8d9e;
-        }
+        } 
     }
 
     tbody {
@@ -4472,3 +4715,22 @@ $white-color: #ffffff;
     }
 }
 // ====== GOOGLE SHOPPING PAGE END ====== //
+
+// ====== SHIPPING PAGE NEW STYLE START ====== //
+.new-shippings-container {
+    .shipping-item {
+        .switch-btn {
+            label {
+                .round-outer {
+                    height: 32px;
+                    width: 54px;
+                }
+                .round {
+                    height: calc(32px - 5px);
+                    width: calc(32px - 5px);
+                }
+            }
+        }
+    }
+} 
+// ====== SHIPPING PAGE NEW STYLE END ====== //

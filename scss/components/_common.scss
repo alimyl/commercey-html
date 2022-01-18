@@ -816,3 +816,12 @@
 //         display: table-cell;
 //     }
 // }
+
+
+// ----- DROPDOWN CONTAINER STYLES START ----- //
+.app-dropdown-container {
+    >.dropdown-content {
+        display: none;
+    }
+}
+// ----- DROPDOWN CONTAINER STYLES START ----- //
