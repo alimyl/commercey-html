@@ -21,41 +21,55 @@
                         ?>
 
                         <!-- content -->
-                        <section id="app-customers__create-details" class="st-def-mar-TB page-eorc-wrapper">
+                        <section id="app-shipping" class="st-def-mar-TB page-eorc-wrapper mb-0">
                             <div class="container-fluid st-container">
-                                <div class="app-customers__create-details">
+                                <div class="app-shipping">
                                     <!-- back or save -->
-                                    <div class="page-save-button-block d-flex align-items-center">
+                                    <div class="page-save-button-block d-flex align-items-center mb-3">
                                         <!-- back btn -->
                                         <div class="back-button-wrapper st-line-height-0">
                                             <a 
                                                 class="text-decoration-none st-text-primary d-inline-flex align-items-center cursor-pointer st-fs-14 st-fw-600" 
                                                 href="http://localhost/VEZIRE/commercey-html/customer-groups/">
                                                 <i class="feather feather-arrow-left icon me-1"></i>
-                                                <span>Cancel and go back to customer group</span>
+                                                <span>Back</span>
                                             </a>
                                         </div>
-
-                                        <!-- save btn -->
-                                        <button
-                                            class="st-btn st-btn-primary ms-auto">
-                                            <span>Save</span>
-                                        </button>
                                     </div>
 
                                     <!-- header -->
                                     <div class="app-header-wrapper mb-3">
-                                        <p class="app-heading text-capitalize heading-sm">Edit Customer</p>
-                                        <p class="app-desc">
-                                            Customer have access to different parts of your store.
-                                            you can assign different customers different roles.
-                                        </p>
+                                        <p class="app-heading text-capitalize">New Shipping Method</p>
                                     </div>
                         
                                     <!-- content -->
-                                    <?php
-                                        include "./includes/form.php"
-                                    ?>
+                                    <div class="app-content-container add-shipping-method-container">
+                                        <!-- loading -->
+                                        <div class="add-shipping-loading mb-3 mb-lg-4">
+                                            <div class="progress-indicator">
+                                                <!-- text -->
+                                                <div class="text st-fw-600 st-fs-17 mb-2">
+                                                    <span class="st-text-success me-2 st-text-color">
+                                                        Step 1 from 3.
+                                                    </span>
+                                                    <span>Select shipping method</span>
+                                                </div>
+
+                                                <!-- progress -->
+                                                <div class="progress-main step-1">
+                                                    <div class="inner" style="width: 33.3%;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- table -->
+                                        <?php
+                                            include "./includes/add-shipping-step1.php"
+                                        ?>
+
+
+
+                                    </div>
                                 </div>
                             </div>
                         </section>

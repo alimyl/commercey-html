@@ -199,7 +199,7 @@ header {
         padding: 0 10px;
     }
     .alm_nav-link {
-        padding: 10px 0px 10px 10px;
+        padding: 8px 0px 8px 10px;
         border-radius: $common-border-radius;
         > .lt {
             .icon {
@@ -216,9 +216,10 @@ header {
 
         &.active {
             background-color: $primary-color;
+            color: #fff;
             > .rt {
                 .icon {
-                    color: $primary-color;
+                    color: #fff;
                     @include transform_rotate(90deg);
                 }
             }
@@ -4718,7 +4719,50 @@ $white-color: #ffffff;
 
 // ====== SHIPPING PAGE NEW STYLE START ====== //
 .new-shippings-container {
+    .shipping-item,
+    .add-shipping-item {
+        .pbb2-inner {
+            padding: 20px;
+        }
+    }
     .shipping-item {
+        .pbb2-inner {
+            .edit-text {
+                opacity: 0;
+                visibility: hidden;
+                transition: .2s;
+            }
+            .text {
+                &:hover {
+                    .edit-text {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
+        }
+
+        .dropdown-content {
+            width: 100%;
+            z-index: 99;
+            background: #fff !important;
+            box-shadow: 0 0px 100px rgb(0 0 0 / 10%);
+            border-color: #f7f9fa;
+            padding: 0;
+            margin-top: 2px !important;
+            .link {
+                transition: 0.2s;
+                padding: 8px 15px;
+                font-size: 15px;
+                color: #4c545d;
+                @include transition;
+                &:hover {
+                    opacity: .8;
+                }
+            }
+
+        }
+
         .switch-btn {
             label {
                 .round-outer {
@@ -4732,5 +4776,85 @@ $white-color: #ffffff;
             }
         }
     }
+
+    .add-shipping-item {
+        .lt-sec {
+            @include max-width($md-max) {
+                border-right: none;
+            }
+            @include min-width($md-min) {
+                padding-right: 20px;
+            }
+        }
+
+        .rt-sec {
+            @include min-width($md-min) {
+                padding-left: 20px;
+                width: 310px;
+            }
+        }
+        .supported-methods {
+            img {
+                &:not(:last-child) {
+                    margin-right: 10px;
+                }
+            }
+        }
+        .methods-details {
+            .item {
+                &:not(:last-child) {
+                    margin-bottom: 2px;
+                }
+            }
+        }
+    }
+
+    .add-shipping-method-container {
+        .add-method-step1 {
+            .pbb2-inner {
+                padding: 20px;
+            }
+            .rt {
+                .st-btn {
+                    min-width: 200px;
+                }
+            }
+        }
+    }
 } 
 // ====== SHIPPING PAGE NEW STYLE END ====== //
+
+// ====== AUTH PAGE STYLE START ====== //
+.st-auth {
+    height: 100vh;
+    > .inner,
+    > .other-details {
+        @include min_width($md-min) {
+            width: 450px;
+        }
+    }
+    > .inner {
+        padding: 20px;
+        border-color: $borderColor__light !important;
+        @include min_width($md-min) {
+            padding: 40px 40px 60px;
+        }
+    }
+    
+    // top sec
+    .top-sec {
+        margin-bottom: 26px;
+    }
+    .head {
+    }
+
+    // form
+    .form-sec {
+        .btns {
+            button {
+                letter-spacing: 2px;
+            }
+        }
+    }
+}
+// ====== AUTH PAGE STYLE END ====== //
