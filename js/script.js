@@ -143,6 +143,26 @@ $(function() {
             $(".page-border-box2 .normal-head").show() // changing heading
             $(".page-border-box2 .select-head").hide() // changing heading
         })
+
+        // tabs on page load
+        const windowHash = window.location.hash
+        if(windowHash) {
+            $('.app-products__create-details .st-tabs-links .stl-link[href="' + windowHash + '"]').addClass("active").siblings().removeClass("active") // active
+            $('.main-content[data-id="' + windowHash + '"]').show().siblings().hide() // visibility
+        }
+        // tabs on click
+        $('.app-products__create-details .st-tabs-links .stl-link').on("click", function(ev) {
+            ev.preventDefault()
+
+            const moveTo = $(this).attr("href")
+            if(moveTo) {
+                $('.app-products__create-details .st-tabs-links .stl-link[href="' + moveTo + '"]').addClass("active").siblings().removeClass("active") // active
+                $('.main-content[data-id="' + moveTo + '"]').show().siblings().hide() // visibility
+                window.location.hash = moveTo
+            }
+        });
+
+
     })();
     // PAGE - products: purchasability
     (function() {
@@ -225,13 +245,108 @@ $(function() {
     (function() {
         // change on click
         $('.google-shopping-categories-listing .dropdown-content .expand-sub-category').on("click", function(ev) {
-            ev.preventDefault()
-                
+            ev.preventDefault()                
             $(".icon", this).toggleClass("feather-chevron-right feather-chevron-down") // icon
-            $(this).closest("label").next(".sub-menu").slideToggle(200) // dropdown
-            
+            $(this).closest("label").next(".sub-menu").slideToggle(200) // dropdown          
+        })
+    })();
+
+    // PAGE - shippings
+    (function() {
+        // change on click | add description, limit availability, shipping region
+        $('.shipping-setup-add-description .top-sec .head, .shipping-setup-limit-availability .top-sec .head, .shipping-setup-shipping-region .top-sec .head').on("click", function(ev) {
+            ev.preventDefault()
+
+            $("i", this).toggleClass("feather-chevron-right feather-chevron-down") // icon
+            $(this).closest(".frac-inner").find('.form-container').slideToggle(200) // form data
         })
 
+        // change on change | estimated delivery date
+        $('.shipping-setup-estimated-delivery-date #shouldDeliveryDate').on("change", function(ev) {
+            ev.preventDefault()
+            if($(this).is(":checked")) {
+                $(this).closest(".frac-inner").find('.form-container').slideDown(200) // form data
+            } else {
+                $(this).closest(".frac-inner").find('.form-container').slideUp(200) // form data
+            }
+        })
+
+        // change on change | order preparation time
+        $('.shipping-setup-order-preparation-time #order_preparation_time').on("change", function(ev) {
+            ev.preventDefault()
+            const val = $(this).val()
+
+            if(val === "4") {
+                $(this).closest(".form-container").find('.shipping-setup-custom-time').slideDown(200) // form data
+            } else {
+                $(this).closest(".form-container").find('.shipping-setup-custom-time').slideUp(200) // form data
+            }
+        })
+
+        // change on change | order packing days
+        $('.shipping-setup-order-packing-days #days_when_you_pack_orders_').on("change", function(ev) {
+            ev.preventDefault()
+            const val = $(this).val()
+
+            if(val === "4") {
+                $(this).closest(".form-container").find('.shipping-setup-custom-days').slideDown(200) // form data
+            } else {
+                $(this).closest(".form-container").find('.shipping-setup-custom-days').slideUp(200) // form data
+            }
+        })
+
+        // change on change | shipping region
+        $('.shipping-setup-shipping-region [name=shipping_region]').on("change", function(ev) {
+            ev.preventDefault()
+
+            if($(this).closest(".shipping-setup-shipping-region").find("#shipping_region_advanced-settings").is(":checked")) {
+                $(this).closest(".form-container").find('.shipping-setup-select-country').slideDown(200) // form data
+            } else {
+                $(this).closest(".form-container").find('.shipping-setup-select-country').slideUp(200) // form data
+            }
+        })
+
+        // change on change | shipping rates
+        $('.shipping-setup-shipping-rates #rate_based_on').on("change", function() {
+            const val = $(this).val()
+            if(val === "full") {
+                $(".shipping-setup-shipping-rates .form-container .other-form-items").show() // showing
+            } else {
+                $(".shipping-setup-shipping-rates .form-container .other-form-items").hide() // hiding
+            }
+        })
+        // change on change | shipping rates
+        $('.shipping-setup-shipping-rates #table_based_on').on("change", function() {
+            const val = $(this).val()
+
+            if(val === "weight") {
+                $(".shipping-setup-shipping-rates .weight-fields").removeClass("d-none").addClass("d-flex") // showing
+                $(".shipping-setup-shipping-rates .subtotal-fields").removeClass("d-flex").addClass("d-none") // showing
+            } else {
+                $(".shipping-setup-shipping-rates .subtotal-fields").removeClass("d-none").addClass("d-flex") // showing
+                $(".shipping-setup-shipping-rates .weight-fields").removeClass("d-flex").addClass("d-none") // showing
+            }
+        })
+
+        // change on click | shipping rates
+        $('.shipping-setup-shipping-rates .and-up').on("click", function(ev) {
+            ev.preventDefault()
+            $(this).hide().next().show().find("input").focus() // showing and focus
+        })
+
+        // change on click | flat shipping rates
+        $('.shipping-setup-flat-shipping-rates #amount_type').on("change", function(ev) {
+            ev.preventDefault()
+            const val = $(this).val()
+
+            if(val === "flat") {
+                $('.shipping-setup-flat-shipping-rates .for-percentages').hide()
+                $('.shipping-setup-flat-shipping-rates .for-flat-rate').show()
+            } else {
+                $('.shipping-setup-flat-shipping-rates .for-flat-rate').hide()
+                $('.shipping-setup-flat-shipping-rates .for-percentages').show()
+            }
+        })
     })();
 
 

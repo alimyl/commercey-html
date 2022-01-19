@@ -30,7 +30,7 @@
                                         <div class="back-button-wrapper st-line-height-0">
                                             <a 
                                                 class="text-decoration-none st-text-primary d-inline-flex align-items-center cursor-pointer st-fs-14 st-fw-600" 
-                                                href="http://localhost/VEZIRE/commercey-html/customer-groups/">
+                                                href="https://mycommercey.com/commercey-html/customer-groups/">
                                                 <i class="feather feather-arrow-left icon me-1"></i>
                                                 <span>Cancel and go back to customer group</span>
                                             </a>

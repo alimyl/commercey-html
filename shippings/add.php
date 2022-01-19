@@ -30,7 +30,7 @@
                                         <div class="back-button-wrapper st-line-height-0">
                                             <a 
                                                 class="text-decoration-none st-text-primary d-inline-flex align-items-center cursor-pointer st-fs-14 st-fw-600" 
-                                                href="http://localhost/VEZIRE/commercey-html/customer-groups/">
+                                                href="https://mycommercey.com/commercey-html/shippings/">
                                                 <i class="feather feather-arrow-left icon me-1"></i>
                                                 <span>Back</span>
                                             </a>
@@ -62,9 +62,29 @@
                                             </div>
                                         </div>
 
-                                        <!-- table -->
+                                        <!-- steps 1 -->
                                         <?php
                                             include "./includes/add-shipping-step1.php"
+                                        ?>
+
+                                        <!-- steps 2 -->
+                                        <?php
+                                            include "./includes/add-shipping-step2.php"
+                                        ?>
+
+                                        <!-- free shipping -->
+                                        <?php
+                                            include "./includes/free-shipping-set-up.php"
+                                        ?>
+
+                                        <!-- condtional free shipping -->
+                                        <?php
+                                            include "./includes/condtional-free-shipping-set-up.php"
+                                        ?>
+
+                                        <!-- falt shipping -->
+                                        <?php
+                                            include "./includes/flat-shipping-set-up.php"
                                         ?>
 
 

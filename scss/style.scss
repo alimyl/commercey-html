@@ -4808,20 +4808,67 @@ $white-color: #ffffff;
             }
         }
     }
+} 
+.add-shipping-method-container {
+    .add-method-step1,
+    .add-method-step2 {
+        .page-border-box2 {
+            .pbb2-inner {
+                padding: 20px;
+                @include transition;
+            }
+            &:not(.other-carriers) {
+                .pbb2-inner {
+                    &:hover {
+                        background-color: #efefef;
+                    }
+                }
+            }
+        }
+        .st-btn {
+            @include min_width($lg-min) {
+                min-width: 200px;
+            }
+        }
+    }
 
-    .add-shipping-method-container {
-        .add-method-step1 {
+    .free-shipping-set-up {
+        .page-border-box2 {
             .pbb2-inner {
                 padding: 20px;
             }
-            .rt {
-                .st-btn {
-                    min-width: 200px;
+        }
+    }
+}
+
+.condtional-free-shipping-set-up {
+}
+.shipping-setup-shipping-rates {
+    
+    .form-container {
+        .frac {
+            &:not(:last-child) {
+                margin-bottom: 15px;
+            }
+            .lt-sec {
+                .seprator,
+                .text {
+                    padding-top: 25px;
+                }
+            }
+            .rt-sec {
+                width: 150px;
+                .other-form-items {
+                    margin-bottom: 0;
+                    margin-top: 15px;
+                    &:not(:last-child) {
+                        margin-bottom: 15px;
+                    }
                 }
             }
         }
     }
-} 
+}
 // ====== SHIPPING PAGE NEW STYLE END ====== //
 
 // ====== AUTH PAGE STYLE START ====== //

@@ -2,7 +2,7 @@
     <!-- lt -->
     <div class="lt">
         <a
-            href="http://localhost/VEZIRE/commercey-html/customer-groups/create.php"
+            href="https://mycommercey.com/commercey-html/customer-groups/create.php"
             class="st-btn st-btn-primary no-min-width st-btn-sm d-flex align-items-center justify-content-center btn btn-primary">
             <i class="feather-plus icon"></i>
             <span class="ms-2 d-none d-md-inline-block">Create Customer Group</span>

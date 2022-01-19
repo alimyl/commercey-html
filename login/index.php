@@ -54,7 +54,7 @@
                             <!-- other details -->
                             <div class="other-details text-center my-3">
                                 <p class="text-decoration-none mb-1">
-                                    I forgot my password. Please <a class="st-text-primary" href="http://localhost/VEZIRE/commercey-html/forgot-password">send me a recovery email.</a>
+                                    I forgot my password. Please <a class="st-text-primary" href="http//lll/alhRst/VEZIRE/commercey-html/forgot-password">send me a recovery email.</a>
                                 </p>
                             </div>
                         </div>

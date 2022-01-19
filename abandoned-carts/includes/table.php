@@ -68,7 +68,7 @@
             <td class="column__userEmail">
                 <a 
                     class="st-text-primary st-fs-15 hover-underline-link" 
-                    href="http://localhost/VEZIRE/commercey-html/abandoned-carts/details.php">asd@as.com</a>
+                    href="https://mycommercey.com/commercey-html/abandoned-carts/details.php">asd@as.com</a>
             </td>
 
             <td class="column__orderDate">
@@ -86,7 +86,7 @@
             <td class="column__actions">
                 <div class="d-flex justify-content-end">
                     <a 
-                        href="http://localhost/VEZIRE/commercey-html/abandoned-carts/details.php"
+                        href="https://mycommercey.com/commercey-html/abandoned-carts/details.php"
                         class="st-round-btn st-btn-transparent st-btn-xs d-flex align-items-center justify-content-center"
                         data-toggle="tooltip"
                         data-placement="right"

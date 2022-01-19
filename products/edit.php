@@ -30,7 +30,7 @@
                                         <div class="back-button-wrapper st-line-height-0">
                                             <a 
                                                 class="text-decoration-none st-text-primary d-inline-flex align-items-center cursor-pointer st-fs-14 st-fw-600" 
-                                                href="http://localhost/VEZIRE/commercey-html/products/">
+                                                href="https://mycommercey.com/commercey-html/products/">
                                                 <i class="feather feather-arrow-left icon me-1"></i>
                                                 <span>Cancel and go back to products</span>
                                             </a>
@@ -94,12 +94,12 @@
                                                             <div class="pc-lt media-body">
                                                                 <!-- general setting -->
                                                                 <?php
-                                                                    // include "./includes/form-components/general.php"
+                                                                    include "./includes/form-components/general.php"
                                                                 ?>
 
                                                                 <!-- attributes settings -->
                                                                 <?php
-                                                                    // include "./includes/form-components/attributes.php"
+                                                                    include "./includes/form-components/attributes.php"
                                                                 ?>
 
                                                                 <!-- variations settings -->
