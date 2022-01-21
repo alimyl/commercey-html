@@ -1,4 +1,4 @@
-<div class="flat-shipping-set-up col-12 col-lg-9">
+<div class="flat-shipping-set-up col-12 col-lg-9" style="display: none">
     <!-- border box-->
     <div class="page-border-box2 mb-3">
         <div class="pbb2-inner d-flex">

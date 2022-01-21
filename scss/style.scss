@@ -4810,8 +4810,28 @@ $white-color: #ffffff;
     }
 } 
 .add-shipping-method-container {
-    .add-method-step1,
-    .add-method-step2 {
+    .progress-indicator {
+        .progress-main {
+            &.step-1 {
+                .inner {
+                    width: 33.3%;
+                }
+            }
+            &.step-2 {
+                .inner {
+                    width: 50%;
+                }
+            }
+            &.step-3 {
+                .inner {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .add-shipping-method-step1,
+    .add-shipping-method-step2 {
         .page-border-box2 {
             .pbb2-inner {
                 padding: 20px;

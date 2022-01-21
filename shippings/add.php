@@ -30,7 +30,9 @@
                                         <div class="back-button-wrapper st-line-height-0">
                                             <a 
                                                 class="text-decoration-none st-text-primary d-inline-flex align-items-center cursor-pointer st-fs-14 st-fw-600" 
-                                                href="https://mycommercey.com/commercey-html/shippings/">
+                                                href="http://localhost/VEZIRE/commercey-html/shippings/"
+                                                data-id="shipping-back-btn"
+                                                data-go-to="">
                                                 <i class="feather feather-arrow-left icon me-1"></i>
                                                 <span>Back</span>
                                             </a>
@@ -45,19 +47,19 @@
                                     <!-- content -->
                                     <div class="app-content-container add-shipping-method-container">
                                         <!-- loading -->
-                                        <div class="add-shipping-loading mb-3 mb-lg-4">
+                                        <div class="add-shipping-method-loading mb-3 mb-lg-4">
                                             <div class="progress-indicator">
                                                 <!-- text -->
                                                 <div class="text st-fw-600 st-fs-17 mb-2">
                                                     <span class="st-text-success me-2 st-text-color">
-                                                        Step 1 from 3.
+                                                        Step <span class="current-step">1</span> from <span class='total-steps'>3</span>.
                                                     </span>
-                                                    <span>Select shipping method</span>
+                                                    <span class='main-text'>Select shipping method</span>
                                                 </div>
 
                                                 <!-- progress -->
                                                 <div class="progress-main step-1">
-                                                    <div class="inner" style="width: 33.3%;"></div>
+                                                    <div class="inner"></div>
                                                 </div>
                                             </div>
                                         </div>

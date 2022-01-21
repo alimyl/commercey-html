@@ -1,7 +1,7 @@
-<div class="add-method-step1 col-12 col-lg-9">
+<div class="add-shipping-method-step1 col-12 col-lg-9">
     <!-- border box-->
     <div class="page-border-box2 mb-3">
-        <div class="pbb2-inner d-flex align-items-center cursor-pointer">
+        <div class="pbb2-inner d-flex align-items-center cursor-pointer" data-shipping-name="FedEx">
             <!-- lt -->
             <div class="lt d-flex">
                 <!-- icon -->
@@ -10,7 +10,7 @@
                 </div>
 
                 <!-- text -->
-                <div class="text media-body ms-2 ms-lg-3">
+                <div class="text media-body px-2 px-lg-3">
                     <p class="head st-fs-17 st-fw-600 mb-1">FedEx</p>
                     <p class="desc">Set up FedEx shipping methods.</p>
                 </div>
@@ -27,7 +27,7 @@
 
     <!-- border box-->
     <div class="page-border-box2 mb-3">
-        <div class="pbb2-inner d-flex align-items-center cursor-pointer">
+        <div class="pbb2-inner d-flex align-items-center cursor-pointer" data-shipping-name="UPS">
             <!-- lt -->
             <div class="lt d-flex">
                 <!-- icon -->
@@ -36,7 +36,7 @@
                 </div>
 
                 <!-- text -->
-                <div class="text media-body ms-2 ms-lg-3">
+                <div class="text media-body px-2 px-lg-3">
                     <p class="head st-fs-17 st-fw-600 mb-1">UPS</p>
                     <p class="desc">Set up UPS shipping methods.</p>
                 </div>
@@ -53,7 +53,7 @@
 
     <!-- border box-->
     <div class="page-border-box2 mb-3">
-        <div class="pbb2-inner d-flex align-items-center cursor-pointer">
+        <div class="pbb2-inner d-flex align-items-center cursor-pointer" data-shipping-name="USPS">
             <!-- lt -->
             <div class="lt d-flex">
                 <!-- icon -->
@@ -62,7 +62,7 @@
                 </div>
 
                 <!-- text -->
-                <div class="text media-body ms-2 ms-lg-3">
+                <div class="text media-body px-2 px-lg-3">
                     <p class="head st-fs-17 st-fw-600 mb-1">USPS</p>
                     <p class="desc">Set up USPS shipping methods.</p>
                 </div>

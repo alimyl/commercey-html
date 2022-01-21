@@ -161,8 +161,6 @@ $(function() {
                 window.location.hash = moveTo
             }
         });
-
-
     })();
     // PAGE - products: purchasability
     (function() {
@@ -229,8 +227,7 @@ $(function() {
         // change on click
         $('.google-shopping-categories-listing .head input').on("focus", function(ev) {
             $(this).closest(".category-listing-main").find(">.head").addClass("active")
-            $(this).closest(".category-listing-main").addClass("active").find(">.dropdown-content").fadeIn(300)
-            
+            $(this).closest(".category-listing-main").addClass("active").find(">.dropdown-content").fadeIn(300)            
         })
 
         // closing on document click
@@ -346,8 +343,153 @@ $(function() {
                 $('.shipping-setup-flat-shipping-rates .for-flat-rate').hide()
                 $('.shipping-setup-flat-shipping-rates .for-percentages').show()
             }
-        })
+        });
+
+
+        // shipping steps
+        (function () {
+            const totalSteps = 3
+    
+            // add current step
+            function addCurrentStep(count) {
+                if(count) {
+                    $(".add-shipping-method-loading .text .current-step").text(count)
+                }
+            }
+            // add current step
+            function setStepText(text) {
+                if(text) {
+                    $(".add-shipping-method-loading .text .main-text").text(text)
+                }
+            }
+            // add total and current step
+            $(".add-shipping-method-loading .text .total-steps").text(totalSteps)
+            addCurrentStep("1")
+    
+            // change on click | shipping steps | step 1
+            $('.add-shipping-method-step1 [data-shipping-name]').on("click", function(ev) {
+                ev.preventDefault()
+                const dataName = $(this).attr('data-shipping-name')
+    
+                if(dataName) {
+                    // back
+                    $('[data-id="shipping-back-btn"]').attr("data-go-to", "step-1") // adding class
+    
+                    // loading
+                    $(".add-shipping-method-loading .progress-main").removeClass("step-1 step-3").addClass("step-2") // adding class
+                    addCurrentStep("2") // step
+                    setStepText("Set up rates for " + dataName)
+    
+                    // step visibility
+                    $('.add-shipping-method-step1').hide()
+                    $('.add-shipping-method-step2').fadeIn(100)
+
+                    // scroll to top
+                    window.scrollTo(0, 0)
+                }
+            })
+            
+            // change on click | shipping steps | step 2
+            $('.add-shipping-method-step2 [data-shipping-name]').on("click", function(ev) {
+                ev.preventDefault()
+                const dataName = $(this).attr('data-shipping-name')
+    
+                if(dataName) {
+                    const innerVal = $(".add-shipping-method-loading .text .main-text").text()
+                    // back
+                    $('[data-id="shipping-back-btn"]').attr("data-go-to", "step-2") // adding class
+                    $('[data-id="shipping-back-btn"]').attr("data-shipping-name", innerVal) // adding shipping name
+    
+                    // loading
+                    $(".add-shipping-method-loading .progress-main").removeClass("step-1 step-2").addClass("step-3") // adding class
+                    addCurrentStep("3") // step
+                    setStepText("Finialize")
+    
+                    // step visibility
+                    $('.add-shipping-method-step2').hide()
+                    if(dataName == "Free Shipping") {
+                        $('.free-shipping-set-up').fadeIn(100)
+                    }
+                    if(dataName == "Conditional Free Shipping") {
+                        $('.condtional-free-shipping-set-up').fadeIn(100)
+                    }
+                    if(dataName == "Flat Rate") {
+                        $('.flat-shipping-set-up').fadeIn(100)
+                    }
+
+                    // scroll to top
+                    window.scrollTo(0, 0)
+                }
+            })
+    
+            // change on click | shipping steps | back btn
+            $('[data-id="shipping-back-btn"]').on("click", function(ev) {
+                ev.preventDefault()
+
+                const goToStep = $(this).attr('data-go-to')
+
+                if(goToStep) {
+                    if(goToStep === "step-1") { // step 1
+                        // step visibility
+                        $('.add-shipping-method-step2').hide(100)
+                        $('.add-shipping-method-step1').fadeIn()
+
+                        addCurrentStep("1") // step
+                        setStepText("Select shipping method")
+
+                        // scroll to top
+                        window.scrollTo(0, 0)
+                    }
+
+                    if(goToStep === "step-2") { // step 2
+                        const dataName = $(this).attr('data-shipping-name')
+                        
+                        // step visibility
+                        $('.free-shipping-set-up').hide(100)
+                        $('.condtional-free-shipping-set-up').hide(100)
+                        $('.flat-shipping-set-up').hide(100)
+                        $('.add-shipping-method-step2').fadeIn(100)
+                        $('[data-id="shipping-back-btn"]').attr("data-go-to", "step-1") // adding class
+
+                        addCurrentStep("2") // step
+                        setStepText(dataName)
+
+                        // scroll to top
+                        window.scrollTo(0, 0)
+                    }
+                } else {
+                    // step visibility
+                    // $('.add-shipping-method-step2').hide(100)   
+                    // $('.add-shipping-method-step1').fadeIn()
+                }
+                
+            })            
+        }());
     })();
 
+    // PAGE - Blogs
+    (function() {
+        // openning on click
+        $('[data-id="create-blog-back-btn"]').on("click", function(ev) {
+            ev.preventDefault()
+
+            console.log("yes")
+
+            $('form#create-blog-form [type="submit"]').trigger('click') // form submission
+        })
+
+        // validation
+        $("#create-blog-form").validate({
+            debug: true,
+
+
+            // on submit
+            submitHandler: function(form) {
+                $(form).submit()
+            }
+        })
+
+
+    })();
 
 });

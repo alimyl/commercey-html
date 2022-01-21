@@ -1,7 +1,7 @@
-<div class="add-method-step2 col-12 col-lg-9">
+<div class="add-shipping-method-step2 col-12 col-lg-9" style="display: none">
     <!-- border box-->
     <div class="page-border-box2 mb-3">
-        <div class="pbb2-inner d-flex align-items-center cursor-pointer">
+        <div class="pbb2-inner d-flex align-items-center cursor-pointer" data-shipping-name="Free Shipping">
             <!-- lt -->
             <div class="lt d-flex">
                 <!-- icon -->
@@ -10,7 +10,7 @@
                 </div>
 
                 <!-- text -->
-                <div class="text media-body ms-2 ms-lg-3">
+                <div class="text media-body px-2 px-lg-3">
                     <p class="head st-fs-17 st-fw-600 mb-1">Free Shipping</p>
                     <p class="desc">Set up a free shipping if you include the shipping cost into the products’ prices or if you cover the expenses in other ways.Offering a free shipping encourages customers to complete their orders.</p>
                 </div>
@@ -27,7 +27,7 @@
 
     <!-- border box-->
     <div class="page-border-box2 mb-3">
-        <div class="pbb2-inner d-flex align-items-center cursor-pointer">
+        <div class="pbb2-inner d-flex align-items-center cursor-pointer" data-shipping-name="Conditional Free Shipping">
             <!-- lt -->
             <div class="lt d-flex">
                 <!-- icon -->
@@ -36,7 +36,7 @@
                 </div>
 
                 <!-- text -->
-                <div class="text media-body ms-2 ms-lg-3">
+                <div class="text media-body px-2 px-lg-3">
                     <p class="head st-fs-17 st-fw-600 mb-1">Conditional Free Shipping</p>
                     <p class="desc">Offer free shipping for all orders over $30.00.Charge $3.00 for orders under that amount.Or set your own rates and conditions.</p>
                 </div>
@@ -53,7 +53,7 @@
 
     <!-- border box-->
     <div class="page-border-box2 mb-3">
-        <div class="pbb2-inner d-flex align-items-center cursor-pointer">
+        <div class="pbb2-inner d-flex align-items-center cursor-pointer" data-shipping-name="Flat Rate">
             <!-- lt -->
             <div class="lt d-flex">
                 <!-- icon -->
@@ -62,7 +62,7 @@
                 </div>
 
                 <!-- text -->
-                <div class="text media-body ms-2 ms-lg-3">
+                <div class="text media-body px-2 px-lg-3">
                     <p class="head st-fs-17 st-fw-600 mb-1">Flat Rate</p>
                     <p class="desc">Set up a flat rate to charge a fixed shipping fee on all orders no matter how many items are ordered.</p>
                 </div>
@@ -79,7 +79,7 @@
 
     <!-- border box-->
     <div class="page-border-box2 mb-3">
-        <div class="pbb2-inner d-flex align-items-center cursor-pointer">
+        <div class="pbb2-inner d-flex align-items-center cursor-pointer" data-shipping-name="Сustom Rates">
             <!-- lt -->
             <div class="lt d-flex">
                 <!-- icon -->
@@ -88,7 +88,7 @@
                 </div>
 
                 <!-- text -->
-                <div class="text media-body ms-2 ms-lg-3">
+                <div class="text media-body px-2 px-lg-3">
                     <p class="head st-fs-17 st-fw-600 mb-1">Сustom Rates</p>
                     <p class="desc">Set your own shipping cost calculation rules based on order price or weight.</p>
                 </div>

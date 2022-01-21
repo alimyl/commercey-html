@@ -41,28 +41,28 @@
             <div class="alm_sub-menu" style="display: none;">
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
-                    <a href="https://mycommercey.com/commercey-html/customers" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
+                    <a href="http://localhost/VEZIRE/commercey-html/customers" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
                         Customers
                     </a>
                 </div>
 
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
-                    <a href="https://mycommercey.com/commercey-html/customer-groups" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
+                    <a href="http://localhost/VEZIRE/commercey-html/customer-groups" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
                         Customer Group
                     </a>
                 </div>
 
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
-                    <a href="https://mycommercey.com/commercey-html/sale-orders" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
+                    <a href="http://localhost/VEZIRE/commercey-html/sale-orders" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
                         Sale Orders
                     </a>
                 </div>
 
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
-                    <a href="https://mycommercey.com/commercey-html/abandoned-carts" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
+                    <a href="http://localhost/VEZIRE/commercey-html/abandoned-carts" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
                         Abandoned Carts
                     </a>
                 </div>
@@ -90,63 +90,63 @@
             <div class="alm_sub-menu" style="display: none;">
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
-                    <a href="https://mycommercey.com/commercey-html/products" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
+                    <a href="http://localhost/VEZIRE/commercey-html/products" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
                         Products
                     </a>
                 </div>
 
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
-                    <a href="https://mycommercey.com/commercey-html/categories" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
+                    <a href="http://localhost/VEZIRE/commercey-html/categories" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
                         Categories
                     </a>
                 </div>
 
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
-                    <a href="https://mycommercey.com/commercey-html/brands" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
+                    <a href="http://localhost/VEZIRE/commercey-html/brands" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
                         Brands
                     </a>
                 </div>
 
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
-                    <a href="https://mycommercey.com/commercey-html/coupons" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
+                    <a href="http://localhost/VEZIRE/commercey-html/coupons" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
                         Coupons
                     </a>
                 </div>
 
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
-                    <a href="https://mycommercey.com/commercey-html/vendors" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
+                    <a href="http://localhost/VEZIRE/commercey-html/vendors" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
                         Vendors
                     </a>
                 </div>
 
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
-                    <a href="https://mycommercey.com/commercey-html/multipliers" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
+                    <a href="http://localhost/VEZIRE/commercey-html/multipliers" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
                         Multipliers
                     </a>
                 </div>
 
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
-                    <a href="https://mycommercey.com/commercey-html/blogs" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
+                    <a href="http://localhost/VEZIRE/commercey-html/blogs" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
                         Blogs
                     </a>
                 </div>
 
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
-                    <a href="https://mycommercey.com/commercey-html/sliders" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
+                    <a href="http://localhost/VEZIRE/commercey-html/sliders" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
                         Sliders
                     </a>
                 </div>
 
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
-                    <a href="https://mycommercey.com/commercey-html/testimonials" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
+                    <a href="http://localhost/VEZIRE/commercey-html/testimonials" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
                         Testimonials
                     </a>
                 </div>
@@ -174,70 +174,70 @@
             <div class="alm_sub-menu" style="display: none;">
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
-                    <a href="https://mycommercey.com/commercey-html/users" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
+                    <a href="http://localhost/VEZIRE/commercey-html/users" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
                         Users
                     </a>
                 </div>
 
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
-                    <a href="https://mycommercey.com/commercey-html/email-templates" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
+                    <a href="http://localhost/VEZIRE/commercey-html/email-templates" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
                         Email Templates
                     </a>
                 </div>
 
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
-                    <a href="https://mycommercey.com/commercey-html/integration" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
+                    <a href="http://localhost/VEZIRE/commercey-html/integration" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
                         Integration
                     </a>
                 </div>
 
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
-                    <a href="https://mycommercey.com/commercey-html/manage" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
+                    <a href="http://localhost/VEZIRE/commercey-html/manage" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
                         Manage
                     </a>
                 </div>
 
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
-                    <a href="https://mycommercey.com/commercey-html/payment" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
+                    <a href="http://localhost/VEZIRE/commercey-html/payment" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
                         Payment
                     </a>
                 </div>
 
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
-                    <a href="https://mycommercey.com/commercey-html/shippings" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
+                    <a href="http://localhost/VEZIRE/commercey-html/shippings" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
                         Shipping & Pickup
                     </a>
                 </div>
 
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
-                    <a href="https://mycommercey.com/commercey-html/notifications" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
+                    <a href="http://localhost/VEZIRE/commercey-html/notifications" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
                         Notifications
                     </a>
                 </div>
 
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
-                    <a href="https://mycommercey.com/commercey-html/product-types" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
+                    <a href="http://localhost/VEZIRE/commercey-html/product-types" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
                         Product Types
                     </a>
                 </div>
 
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
-                    <a href="https://mycommercey.com/commercey-html/product-filters" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
+                    <a href="http://localhost/VEZIRE/commercey-html/product-filters" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
                         Product Filters
                     </a>
                 </div>
 
                 <!-- sub menu nav item -->
                 <div class="alm_sub-nav-item">
-                    <a href="https://mycommercey.com/commercey-html/google-shopping" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
+                    <a href="http://localhost/VEZIRE/commercey-html/google-shopping" class="alm_sub-nav-link text-decoration-none d-flex align-items-center">
                         Google Shopping
                     </a>
                 </div>

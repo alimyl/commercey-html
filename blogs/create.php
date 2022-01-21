@@ -27,10 +27,10 @@
                                     <!-- back or save -->
                                     <div class="page-save-button-block d-flex align-items-center">
                                         <!-- back btn -->
-                                        <div class="back-button-wrapper st-line-height-0">
+                                        <div class="back-button-wrapper st-line-height-0" data-id="create-blog-back-btn">
                                             <a 
                                                 class="text-decoration-none st-text-primary d-inline-flex align-items-center cursor-pointer st-fs-14 st-fw-600" 
-                                                href="https://mycommercey.com/commercey-html/blogs/">
+                                                href="http://localhost/VEZIRE/commercey-html/blogs/">
                                                 <i class="feather feather-arrow-left icon me-1"></i>
                                                 <span>Cancel and go back to blogs</span>
                                             </a>
@@ -52,9 +52,13 @@
                                     </div>
                         
                                     <!-- content -->
-                                    <?php
-                                        include "./includes/form.php"
-                                    ?>
+                                    <form id="create-blog-form" action="google.com">
+                                        <?php
+                                            include "./includes/form.php"
+                                        ?>
+
+                                        <button type="submit" type="hidden">submit</button>
+                                    </form>
                                 </div>
                             </div>
                         </section>

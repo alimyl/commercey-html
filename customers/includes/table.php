@@ -77,7 +77,7 @@
             </td>
 
             <td class="column__customername">
-                <a class="hover-underline-link st-text-primary" href="https://mycommercey.com/commercey-html/customers/edit.php">
+                <a class="hover-underline-link st-text-primary" href="http://localhost/VEZIRE/commercey-html/customers/edit.php">
                     Adriene Carroll
                 </a>
             </td>

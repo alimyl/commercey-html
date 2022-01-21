@@ -36,7 +36,7 @@
                 <div class="pbb2-inner variation-options-view">
                     <!-- btns -->
                     <div class="btns mb-3 d-flex flex-wrap">
-                        <a href="https://mycommercey.com/commercey-html/products/variations.php" class="st-btn st-btn-white-gray-outlined st-btn-sm d-flex align-items-center text-capitalize">
+                        <a href="http://localhost/VEZIRE/commercey-html/products/variations.php" class="st-btn st-btn-white-gray-outlined st-btn-sm d-flex align-items-center text-capitalize">
                             <span class="round-feather-icon-outlined d-inline-flex align-items-center justify-content-center me-2">
                                 <i class="feather-plus icon cursor-pointer"></i>
                             </span>

@@ -87,7 +87,7 @@
                                                                   </div>
                                                                </div>
                                                                <div class="btn-sec">
-                                                                   <a class="st-btn st-btn-sm" href="https://mycommercey.com/commercey-html/google-shopping/settings.php" style="padding-top: 7.5px;">Change Category</a>
+                                                                   <a class="st-btn st-btn-sm" href="http://localhost/VEZIRE/commercey-html/google-shopping/settings.php" style="padding-top: 7.5px;">Change Category</a>
                                                                 </div>
                                                             </div>
                                                         </div>
