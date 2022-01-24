@@ -5,35 +5,35 @@
     <div class="app-card-content bg-white border st-border-light st-default-rounded-block pad-20-LR pad-20-T">
         <div class="xs-12 col-md-9 col-lg-6 px-0">
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap">
                 <label>
                     Title
                     <span class="required ms-1 st-fs-12">(required)</span>
                 </label>
                 <div class="media-body st-form-input-container">
-                    <input type="text" class="form-control" placeholder="Title" value="">
+                    <input type="text" class="form-control" name="title" placeholder="Title" value="" required>
                 </div>
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap">
                 <label>
                     Author Name
                     <!-- <span class="required ms-1 st-fs-12">(required)</span> -->
                 </label>
                 <div class="media-body st-form-input-container">
-                    <input type="text" class="form-control" placeholder="Author Name" value="">
+                    <input type="text" class="form-control" name="author_name" placeholder="Author Name" value="">
                 </div>
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap">
                 <label>
                     Tags
                     <!-- <span class="required ms-1 st-fs-12">(required)</span> -->
                 </label>
                 <div class="media-body st-form-input-container">
-                    <input type="text" class="form-control" placeholder="Tags" value="">
+                    <input type="text" class="form-control" name="tags" placeholder="Tags" value="">
                 </div>
             </div>
         </div>
@@ -58,24 +58,24 @@
     <div class="app-card-content bg-white border st-border-light st-default-rounded-block pad-20-LR pad-20-T">
         <div class="xs-12 col-md-9 col-lg-6 px-0">
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap">
                 <label>
                     Meta Title
                     <span class="required ms-1 st-fs-12">(required)</span>
                 </label>
                 <div class="media-body st-form-input-container">
-                    <input type="text" class="form-control" placeholder="Meta Title" value="">
+                    <input type="text" class="form-control" name="meta_title" placeholder="Meta Title" value="" required>
                 </div>
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap">
                 <label>
                     Meta Description
                     <!-- <span class="required ms-1 st-fs-12">(required)</span> -->
                 </label>
                 <div class="media-body st-form-input-container">
-                    <input type="text" class="form-control" placeholder="Meta Description" value="">
+                    <input type="text" class="form-control" name="meta_description" placeholder="Meta Description" value="">
                 </div>
             </div>
         </div>

@@ -255,7 +255,7 @@
                                         <div class="shipping-setup-custom-days mt-2" style="display: none;">
                                             <div class="inner d-flex flex-wrap">
                                                 <!-- check -->
-                                                <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1 me-2">
+                                                <div class="st-form st-form-with-label-left d-flex flex-wrap mb-1 me-2">
                                                     <div class="media-body" style="text-align: left;">
                                                         <label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer position-relative " style="top: 2px;">
                                                             <input name="monday" type="checkbox" class="d-none" value="">
@@ -268,7 +268,7 @@
                                                 </div>
 
                                                 <!-- check -->
-                                                <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1 me-2">
+                                                <div class="st-form st-form-with-label-left d-flex flex-wrap mb-1 me-2">
                                                     <div class="media-body" style="text-align: left;">
                                                         <label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer position-relative " style="top: 2px;">
                                                             <input name="tuesday" type="checkbox" class="d-none" value="">
@@ -281,7 +281,7 @@
                                                 </div>
 
                                                 <!-- check -->
-                                                <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1 me-2">
+                                                <div class="st-form st-form-with-label-left d-flex flex-wrap mb-1 me-2">
                                                     <div class="media-body" style="text-align: left;">
                                                         <label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer position-relative " style="top: 2px;">
                                                             <input name="thursday" type="checkbox" class="d-none" value="">
@@ -294,7 +294,7 @@
                                                 </div>
 
                                                 <!-- check -->
-                                                <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1 me-2">
+                                                <div class="st-form st-form-with-label-left d-flex flex-wrap mb-1 me-2">
                                                     <div class="media-body" style="text-align: left;">
                                                         <label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer position-relative " style="top: 2px;">
                                                             <input name="friday" type="checkbox" class="d-none" value="">
@@ -307,7 +307,7 @@
                                                 </div>
 
                                                 <!-- check -->
-                                                <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1 me-2">
+                                                <div class="st-form st-form-with-label-left d-flex flex-wrap mb-1 me-2">
                                                     <div class="media-body" style="text-align: left;">
                                                         <label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer position-relative " style="top: 2px;">
                                                             <input name="saturday" type="checkbox" class="d-none" value="">
@@ -320,7 +320,7 @@
                                                 </div>
 
                                                 <!-- check -->
-                                                <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1 me-2">
+                                                <div class="st-form st-form-with-label-left d-flex flex-wrap mb-1 me-2">
                                                     <div class="media-body" style="text-align: left;">
                                                         <label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer position-relative " style="top: 2px;">
                                                             <input name="sunday" type="checkbox" class="d-none" value="">
@@ -333,7 +333,7 @@
                                                 </div>
 
                                                 <!-- check -->
-                                                <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center mb-1 me-2">
+                                                <div class="st-form st-form-with-label-left d-flex flex-wrap mb-1 me-2">
                                                     <div class="media-body" style="text-align: left;">
                                                         <label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer position-relative " style="top: 2px;">
                                                             <input name="wednesday" type="checkbox" class="d-none" value="">

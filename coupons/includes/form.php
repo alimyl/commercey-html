@@ -5,7 +5,7 @@
     <div class="app-card-content bg-white border st-border-light st-default-rounded-block pad-20-LR pad-20-T">
         <div class="xs-12 col-md-9 col-lg-6 px-0">
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap">
                 <label>
                     coupons code
                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -16,7 +16,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap">
                 <label>
                     Discount Type
                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -31,7 +31,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap">
                 <label>
                     Expiry Date
                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -42,7 +42,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap">
                 <label>
                     Category
                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -57,7 +57,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap">
                 <label>
                     Brand
                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -72,7 +72,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap">
                 <label>
                     Discount Percent
                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -87,7 +87,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap">
                 <label>
                     Minimum Order Amount
                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -98,7 +98,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap">
                 <label>
                     Auto Apply
                     <span class="info-icon cursor-pointer st-text-primary ms-2 position-relative" style="top: 2px">
@@ -116,7 +116,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap">
                 <label>
                     Free Shipping
                 </label>
@@ -131,7 +131,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap">
                 <label>
                     Single Use
                 </label>
@@ -146,7 +146,7 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap">
                 <label>
                     Single Use Per User
                 </label>

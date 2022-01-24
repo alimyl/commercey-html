@@ -22,7 +22,7 @@
                     <div class="app-card-content bg-white border st-border-light st-default-rounded-block pad-20-LR pad-20-T">
                         <div class="px-0 col-lg-8 col-md-9 col-12">
                             <!-- form-item -->
-                            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
+                            <div class="st-form st-form-with-label-left d-flex flex-wrap">
                                 <label>
                                     Category Name
                                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -33,7 +33,7 @@
                             </div>
                 
                             <!-- form-item -->
-                            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
+                            <div class="st-form st-form-with-label-left d-flex flex-wrap">
                                 <label>
                                     Status
                                     <span class="required ms-1 st-fs-12">(required)</span>
@@ -101,7 +101,7 @@
                     <div class="app-card-content bg-white border st-border-light st-default-rounded-block pad-20-LR pad-20-T">
                         <div class="px-0 col-lg-8 col-md-9 col-12">
                             <!-- form-item -->
-                            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
+                            <div class="st-form st-form-with-label-left d-flex flex-wrap">
                                 <label>
                                     Meta Title
                                     <!-- <span class="required ms-1 st-fs-12">(required)</span> -->
@@ -123,7 +123,7 @@
                             </div>
 
                             <!-- form-item -->
-                            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
+                            <div class="st-form st-form-with-label-left d-flex flex-wrap">
                                 <label>
                                     Meta Keywords
                                     <!-- <span class="required ms-1 st-fs-12">(required)</span> -->

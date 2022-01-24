@@ -224,7 +224,7 @@
             <p class="box-heading st-fs-15 st-fw-600 st-text-color mb-2">Dimensions</p>
             <div class="fields xs-12 col-md-10">
                 <!-- form item -->
-                <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center ">
+                <div class="st-form st-form-with-label-left d-flex flex-wrap ">
                     <label>Weight</label>
                     <div class="media-body st-form-input-container">
                         <input type="text" class="form-control" placeholder="Weight" id="weight" name="weight" value="">
@@ -232,7 +232,7 @@
                 </div>
     
                 <!-- form item -->
-                <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center ">
+                <div class="st-form st-form-with-label-left d-flex flex-wrap ">
                     <label>Length</label>
                     <div class="media-body st-form-input-container">
                         <input type="text" class="form-control" placeholder="Length" id="length" name="length" value="">
@@ -240,7 +240,7 @@
                 </div>
     
                 <!-- form item -->
-                <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center ">
+                <div class="st-form st-form-with-label-left d-flex flex-wrap ">
                     <label>Width</label>
                     <div class="media-body st-form-input-container">
                         <input type="text" class="form-control" placeholder="Width" id="width" name="width" value="">
@@ -248,7 +248,7 @@
                 </div>
     
                 <!-- form item -->
-                <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center ">
+                <div class="st-form st-form-with-label-left d-flex flex-wrap ">
                     <label>Height</label>
                     <div class="media-body st-form-input-container">
                         <input type="text" class="form-control" placeholder="Height" id="height" name="height" value="">

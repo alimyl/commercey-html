@@ -292,7 +292,7 @@
                     <div class="form">
                         <form action="">
                             <!-- form item -->
-                            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
+                            <div class="st-form st-form-with-label-left d-flex flex-wrap">
                                 <label style="width: 100px;">Length</label>
                                 <div class="media-body st-form-input-container pe-0">
                                     <input type="text" class="form-control" placeholder="Length" value="11.75">
@@ -300,7 +300,7 @@
                             </div>
 
                             <!-- form item -->
-                            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
+                            <div class="st-form st-form-with-label-left d-flex flex-wrap">
                                 <label style="width: 100px;">Width</label>
                                 <div class="media-body st-form-input-container pe-0">
                                     <input type="text" class="form-control" placeholder="Width" value="11.75">
@@ -308,7 +308,7 @@
                             </div>
 
                             <!-- form item -->
-                            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
+                            <div class="st-form st-form-with-label-left d-flex flex-wrap">
                                 <label style="width: 100px;">Height</label>
                                 <div class="media-body st-form-input-container pe-0">
                                     <input type="text" class="form-control" placeholder="Height" value="10.5">
@@ -316,7 +316,7 @@
                             </div>
 
                             <!-- form item -->
-                            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
+                            <div class="st-form st-form-with-label-left d-flex flex-wrap">
                                 <label style="width: 100px;">UPC</label>
                                 <div class="media-body st-form-input-container pe-0">
                                     <input type="text" class="form-control" placeholder="UPC" value="194444074724">
@@ -324,7 +324,7 @@
                             </div>
 
                             <!-- form item -->
-                            <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center">
+                            <div class="st-form st-form-with-label-left d-flex flex-wrap">
                                 <label style="width: 100px;">Description</label>
                                 <div class="media-body st-form-input-container pe-0">
                                     <textarea rows="5" class="form-control" placeholder="Description">The Acadia Pot is a large stoneware pot with a modern silhouette, glazed finish, and drainage hole - designed for outdoor use.</textarea>

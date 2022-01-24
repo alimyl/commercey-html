@@ -470,22 +470,20 @@ $(function() {
     // PAGE - Blogs
     (function() {
         // openning on click
-        $('[data-id="create-blog-back-btn"]').on("click", function(ev) {
+        $('[data-id="create-blog-submit-btn"]').on("click", function(ev) {
             ev.preventDefault()
-
-            console.log("yes")
-
             $('form#create-blog-form [type="submit"]').trigger('click') // form submission
         })
 
         // validation
         $("#create-blog-form").validate({
-            debug: true,
+            // debug: true,
 
 
             // on submit
             submitHandler: function(form) {
-                $(form).submit()
+                console.log("form ", form)
+                form.submit();
             }
         })
 

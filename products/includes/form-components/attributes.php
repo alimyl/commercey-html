@@ -15,7 +15,7 @@
             <!-- form data -->
             <div class="fields xs-12 col-md-10">
                 <!-- form item -->    
-                <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center ">
+                <div class="st-form st-form-with-label-left d-flex flex-wrap ">
                     <label>UPC</label>
                     <div class="media-body st-form-input-container">
                         <input type="text" class="form-control" placeholder="UPC" id="UPC" name="UPC" value="">
@@ -23,7 +23,7 @@
                 </div>
     
                 <!-- form item -->
-                <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center ">
+                <div class="st-form st-form-with-label-left d-flex flex-wrap ">
                     <label>Brand</label>
                     <div class="media-body st-form-input-container">
                         <select class="form-control" id="brandId" name="brandId">
@@ -33,7 +33,7 @@
                 </div>
     
                 <!-- form item -->
-                <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center ">
+                <div class="st-form st-form-with-label-left d-flex flex-wrap ">
                     <label>Material</label>
                     <div class="media-body st-form-input-container">
                         <input type="text" class="form-control" placeholder="Material" name="Material">
@@ -41,7 +41,7 @@
                 </div>
     
                 <!-- form item -->
-                <div class="st-form st-form-with-label-left d-flex flex-wrap align-items-center ">
+                <div class="st-form st-form-with-label-left d-flex flex-wrap ">
                     <label></label>
                     <div class="media-body st-form-input-container text-left">
                         <p class="st-fs-13 st-text-color2">Attributes with the empty value are not displayed in the storefront</p>

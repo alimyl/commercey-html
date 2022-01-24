@@ -27,7 +27,7 @@
                                     <!-- back or save -->
                                     <div class="page-save-button-block d-flex align-items-center">
                                         <!-- back btn -->
-                                        <div class="back-button-wrapper st-line-height-0" data-id="create-blog-back-btn">
+                                        <div class="back-button-wrapper st-line-height-0">
                                             <a 
                                                 class="text-decoration-none st-text-primary d-inline-flex align-items-center cursor-pointer st-fs-14 st-fw-600" 
                                                 href="http://localhost/VEZIRE/commercey-html/blogs/">
@@ -38,7 +38,8 @@
 
                                         <!-- save btn -->
                                         <button
-                                            class="st-btn st-btn-primary ms-auto">
+                                            class="st-btn st-btn-primary ms-auto"
+                                            data-id="create-blog-submit-btn">
                                             <span>Create blog</span>
                                         </button>
                                     </div>
@@ -57,7 +58,7 @@
                                             include "./includes/form.php"
                                         ?>
 
-                                        <button type="submit" type="hidden">submit</button>
+                                        <button type="submit" hidden>submit</button>
                                     </form>
                                 </div>
                             </div>
