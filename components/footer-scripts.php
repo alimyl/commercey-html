@@ -4,6 +4,9 @@
 <!-- jquery | validate -->
 <script src="../assets/jquery/plugins/jquery-validate/jquery.validate.min.js"></script>
 
+<!-- jquery | UI -->
+<script src="../assets/jquery/plugins/jquery-ui/jquery-ui.min.js"></script>
+
 <!-- popper -->
 <script src="../assets/popper/popper.min.js"></script>
 

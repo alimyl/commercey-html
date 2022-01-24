@@ -1,23 +1,23 @@
-$(function() {
+$(function () {
     // tooltip initialize
-    (function() {
+    (function () {
         $('[data-toggle="tooltip"]').tooltip();
     })();
 
     // left menu expand
-    (function() {
-        $('.app-left-menu .st-logo .st-round-btn').on("click", function(ev) {
-            ev.preventDefault()        
+    (function () {
+        $('.app-left-menu .st-logo .st-round-btn').on("click", function (ev) {
+            ev.preventDefault()
             $('.app-left-menu').toggleClass("expanded shrunk") // toggle left bar
         })
     })();
 
     // left menu links expand
-    (function() {
-        $('.alm_nav-item > .alm_nav-link').on("click", function(ev) {
+    (function () {
+        $('.alm_nav-item > .alm_nav-link').on("click", function (ev) {
             ev.preventDefault()
             const topOffset = $(this).offset().top
-            if(!$(this).hasClass("active")) { // if element is active
+            if (!$(this).hasClass("active")) { // if element is active
                 $('.app-left-menu > .inner').animate({ // scrolling to element
                     scrollTop: topOffset
                 }, 200)
@@ -29,8 +29,8 @@ $(function() {
     })();
 
     // PAGE - CATEGORIES: expand left menu item's sub-menu
-    (function() {
-        $('.category-left-bar .frac .expand-shrink-icon').on("click", function(ev) {
+    (function () {
+        $('.category-left-bar .frac .expand-shrink-icon').on("click", function (ev) {
             ev.preventDefault()
             const parentElem = $(this).closest(".frac")
             $("> .icon", this).toggleClass("feather-plus feather-minus") // toggle menu
@@ -40,25 +40,25 @@ $(function() {
     })();
 
     // COMMON: DROPDOWN MENU
-    (function() {
+    (function () {
         // openning the click
-        $('.app-dropdown-container > .dropdown-link').on("click", function(ev) {
+        $('.app-dropdown-container > .dropdown-link').on("click", function (ev) {
             ev.preventDefault()
             $(".app-dropdown-container > .dropdown-content").hide(100) // hiding other dropdown
             $(this).next(".dropdown-content").fadeToggle(200) // toggle dropdown menu
         })
 
         // closing on document click
-        $(document).on("click", function() {
-            if(!$(".app-dropdown-container:hover").length) {
+        $(document).on("click", function () {
+            if (!$(".app-dropdown-container:hover").length) {
                 $(".app-dropdown-container > .dropdown-content").hide(100)
             }
         })
     })();
     // COMMON - active and inactive input
-    (function() {
-        $('.active-inactive-toggle').each(function() {
-            if($("input", this).is(":checked")) { // if checked
+    (function () {
+        $('.active-inactive-toggle').each(function () {
+            if ($("input", this).is(":checked")) { // if checked
                 $(this).find(".text.inactive").hide()
                 $(this).find(".text.active").show()
             } else {
@@ -67,8 +67,8 @@ $(function() {
             }
         })
         // openning on change
-        $('.active-inactive-toggle input').on("change", function() {
-            if($(this).is(":checked")) { // if checked
+        $('.active-inactive-toggle input').on("change", function () {
+            if ($(this).is(":checked")) { // if checked
                 $(this).closest("label").find(".text.inactive").hide()
                 $(this).closest("label").find(".text.active").show()
             } else {
@@ -79,9 +79,9 @@ $(function() {
     })();
 
     // PAGE - SALES ORDER: add note
-    (function() {
+    (function () {
         // openning the click
-        $('.sales-order-add-note-btn').on("click", function(ev) {
+        $('.sales-order-add-note-btn').on("click", function (ev) {
             ev.preventDefault()
 
             $(this).removeClass("d-flex").addClass("d-none") // hiding link
@@ -90,7 +90,7 @@ $(function() {
         })
 
         // closing the click
-        $('.sales-order-cancel-note-btn').on("click", function(ev) {
+        $('.sales-order-cancel-note-btn').on("click", function (ev) {
             ev.preventDefault()
 
             $(".sales-order-add-note-btn").removeClass("d-none").addClass("d-flex") // hiding link
@@ -98,26 +98,26 @@ $(function() {
         })
     })();
     // PAGE - SALES ORDER: with tracking number
-    (function() {
+    (function () {
         // openning on change
-        $('.add-tracking-number-form #withTracking').on("change", function() {
-            if($(this).is(":checked")) { // if checked
-                $(this).closest("form").find('.tracking-input-container').fadeIn(200) 
+        $('.add-tracking-number-form #withTracking').on("change", function () {
+            if ($(this).is(":checked")) { // if checked
+                $(this).closest("form").find('.tracking-input-container').fadeIn(200)
             }
         })
 
         // closing on change
-        $('.add-tracking-number-form #withoutTracking').on("change", function() {
-            if($(this).is(":checked")) { // if checked
-                $(this).closest("form").find('.tracking-input-container').hide() 
+        $('.add-tracking-number-form #withoutTracking').on("change", function () {
+            if ($(this).is(":checked")) { // if checked
+                $(this).closest("form").find('.tracking-input-container').hide()
             }
         })
     })();
 
     // PAGE - products: select category
-    (function() {
+    (function () {
         // openning on click
-        $('.show-product-categories').on("click", function(ev) {
+        $('.show-product-categories').on("click", function (ev) {
             ev.preventDefault()
 
             $(this).parent().hide() // hiding element
@@ -126,8 +126,8 @@ $(function() {
             $(this).closest(".prods-cat-content").find(".prods-cat-content-main").fadeIn(200) // showing menu
         })
         // closing on document click
-        $(document).on("click", function() {
-            if(!$(".prods-cat-content:hover").length) {
+        $(document).on("click", function () {
+            if (!$(".prods-cat-content:hover").length) {
                 $(".prods-cat-content .prods-cat-content-main").hide() // hiding menu
                 $(".prods-cat-content .btns").show() // showing element
                 $(".page-border-box2 .normal-head").show() // changing heading
@@ -135,9 +135,9 @@ $(function() {
             }
         })
         // closing on btn click
-        $(".hide-product-categories").on("click", function(ev) {
+        $(".hide-product-categories").on("click", function (ev) {
             ev.preventDefault()
-            
+
             $(".prods-cat-content .prods-cat-content-main").hide() // hiding menu
             $(".prods-cat-content .btns").show() // showing element
             $(".page-border-box2 .normal-head").show() // changing heading
@@ -146,16 +146,16 @@ $(function() {
 
         // tabs on page load
         const windowHash = window.location.hash
-        if(windowHash) {
+        if (windowHash) {
             $('.app-products__create-details .st-tabs-links .stl-link[href="' + windowHash + '"]').addClass("active").siblings().removeClass("active") // active
             $('.main-content[data-id="' + windowHash + '"]').show().siblings().hide() // visibility
         }
         // tabs on click
-        $('.app-products__create-details .st-tabs-links .stl-link').on("click", function(ev) {
+        $('.app-products__create-details .st-tabs-links .stl-link').on("click", function (ev) {
             ev.preventDefault()
 
             const moveTo = $(this).attr("href")
-            if(moveTo) {
+            if (moveTo) {
                 $('.app-products__create-details .st-tabs-links .stl-link[href="' + moveTo + '"]').addClass("active").siblings().removeClass("active") // active
                 $('.main-content[data-id="' + moveTo + '"]').show().siblings().hide() // visibility
                 window.location.hash = moveTo
@@ -163,28 +163,28 @@ $(function() {
         });
     })();
     // PAGE - products: purchasability
-    (function() {
+    (function () {
         function showingOptions() {  // hidden data visibility
             // closing options by default
             $(".purchasability-wrapper .purchasability-option-can-be-purchased").addClass('d-none')
             $(".purchasability-wrapper .purchasability-option-coming-soon").removeClass('d-flex').addClass("d-none")
-            
+
             $(".purchasability-message-form").addClass("d-none")
 
-            if($(".purchasability-wrapper #purchasability-option-1").is(":checked")) { // option 1 checked
+            if ($(".purchasability-wrapper #purchasability-option-1").is(":checked")) { // option 1 checked
             }
 
-            if($(".purchasability-wrapper #purchasability-option-2").is(":checked")) { // option 2 checked
+            if ($(".purchasability-wrapper #purchasability-option-2").is(":checked")) { // option 2 checked
                 $(".purchasability-wrapper .purchasability-option-can-be-purchased").removeClass('d-none')
             }
-            
-            if($(".purchasability-wrapper #purchasability-option-3").is(":checked")) { // option 3 checked
+
+            if ($(".purchasability-wrapper #purchasability-option-3").is(":checked")) { // option 3 checked
                 $(".purchasability-wrapper .purchasability-option-coming-soon").removeClass('d-none').addClass("d-flex")
             }
         }
 
         function toggleMessageForm() { // message form visibility
-            if($("#purchasability-toggle-message").is(":checked")) {
+            if ($("#purchasability-toggle-message").is(":checked")) {
                 $(".purchasability-message-form").removeClass("d-none")
             } else {
                 $(".purchasability-message-form").addClass("d-none")
@@ -194,23 +194,23 @@ $(function() {
         showingOptions() // on load
 
         // showing on change
-        $('.purchasability-wrapper .st-custom-radio > input').on("change", function() {
+        $('.purchasability-wrapper .st-custom-radio > input').on("change", function () {
             showingOptions()
         })
 
         showingOptions() // on load
         // showing on change
-        $('#purchasability-toggle-message').on("change", function() {
+        $('#purchasability-toggle-message').on("change", function () {
             toggleMessageForm()
         })
     })();
     // PAGE - products: variation options
-    (function() {
+    (function () {
         // changing on load
         $('.variation-options-view .content-item:first-child, .variation-options-view .vov-links-container > a:first-child').addClass("active")
 
         // change on click
-        $('.variation-options-view .vov-links-container > a').on("click", function(ev) {
+        $('.variation-options-view .vov-links-container > a').on("click", function (ev) {
             ev.preventDefault()
             const dataId = $(this).attr('data-id')
 
@@ -223,35 +223,35 @@ $(function() {
     })();
 
     // PAGE - google shipping: category dropdown
-    (function() {
+    (function () {
         // change on click
-        $('.google-shopping-categories-listing .head input').on("focus", function(ev) {
+        $('.google-shopping-categories-listing .head input').on("focus", function (ev) {
             $(this).closest(".category-listing-main").find(">.head").addClass("active")
-            $(this).closest(".category-listing-main").addClass("active").find(">.dropdown-content").fadeIn(300)            
+            $(this).closest(".category-listing-main").addClass("active").find(">.dropdown-content").fadeIn(300)
         })
 
         // closing on document click
-        $(document).on("click", function() {
-            if(!$(".google-shopping-categories-listing:hover").length) {
+        $(document).on("click", function () {
+            if (!$(".google-shopping-categories-listing:hover").length) {
                 $(".google-shopping-categories-listing > .head").removeClass("active")
                 $(".google-shopping-categories-listing").removeClass("active").find(">.dropdown-content").hide()
             }
         })
     })();
     // PAGE - google shipping: category sub menu toggle
-    (function() {
+    (function () {
         // change on click
-        $('.google-shopping-categories-listing .dropdown-content .expand-sub-category').on("click", function(ev) {
-            ev.preventDefault()                
+        $('.google-shopping-categories-listing .dropdown-content .expand-sub-category').on("click", function (ev) {
+            ev.preventDefault()
             $(".icon", this).toggleClass("feather-chevron-right feather-chevron-down") // icon
             $(this).closest("label").next(".sub-menu").slideToggle(200) // dropdown          
         })
     })();
 
     // PAGE - shippings
-    (function() {
+    (function () {
         // change on click | add description, limit availability, shipping region
-        $('.shipping-setup-add-description .top-sec .head, .shipping-setup-limit-availability .top-sec .head, .shipping-setup-shipping-region .top-sec .head').on("click", function(ev) {
+        $('.shipping-setup-add-description .top-sec .head, .shipping-setup-limit-availability .top-sec .head, .shipping-setup-shipping-region .top-sec .head').on("click", function (ev) {
             ev.preventDefault()
 
             $("i", this).toggleClass("feather-chevron-right feather-chevron-down") // icon
@@ -259,9 +259,9 @@ $(function() {
         })
 
         // change on change | estimated delivery date
-        $('.shipping-setup-estimated-delivery-date #shouldDeliveryDate').on("change", function(ev) {
+        $('.shipping-setup-estimated-delivery-date #shouldDeliveryDate').on("change", function (ev) {
             ev.preventDefault()
-            if($(this).is(":checked")) {
+            if ($(this).is(":checked")) {
                 $(this).closest(".frac-inner").find('.form-container').slideDown(200) // form data
             } else {
                 $(this).closest(".frac-inner").find('.form-container').slideUp(200) // form data
@@ -269,11 +269,11 @@ $(function() {
         })
 
         // change on change | order preparation time
-        $('.shipping-setup-order-preparation-time #order_preparation_time').on("change", function(ev) {
+        $('.shipping-setup-order-preparation-time #order_preparation_time').on("change", function (ev) {
             ev.preventDefault()
             const val = $(this).val()
 
-            if(val === "4") {
+            if (val === "4") {
                 $(this).closest(".form-container").find('.shipping-setup-custom-time').slideDown(200) // form data
             } else {
                 $(this).closest(".form-container").find('.shipping-setup-custom-time').slideUp(200) // form data
@@ -281,11 +281,11 @@ $(function() {
         })
 
         // change on change | order packing days
-        $('.shipping-setup-order-packing-days #days_when_you_pack_orders_').on("change", function(ev) {
+        $('.shipping-setup-order-packing-days #days_when_you_pack_orders_').on("change", function (ev) {
             ev.preventDefault()
             const val = $(this).val()
 
-            if(val === "4") {
+            if (val === "4") {
                 $(this).closest(".form-container").find('.shipping-setup-custom-days').slideDown(200) // form data
             } else {
                 $(this).closest(".form-container").find('.shipping-setup-custom-days').slideUp(200) // form data
@@ -293,10 +293,10 @@ $(function() {
         })
 
         // change on change | shipping region
-        $('.shipping-setup-shipping-region [name=shipping_region]').on("change", function(ev) {
+        $('.shipping-setup-shipping-region [name=shipping_region]').on("change", function (ev) {
             ev.preventDefault()
 
-            if($(this).closest(".shipping-setup-shipping-region").find("#shipping_region_advanced-settings").is(":checked")) {
+            if ($(this).closest(".shipping-setup-shipping-region").find("#shipping_region_advanced-settings").is(":checked")) {
                 $(this).closest(".form-container").find('.shipping-setup-select-country').slideDown(200) // form data
             } else {
                 $(this).closest(".form-container").find('.shipping-setup-select-country').slideUp(200) // form data
@@ -304,19 +304,19 @@ $(function() {
         })
 
         // change on change | shipping rates
-        $('.shipping-setup-shipping-rates #rate_based_on').on("change", function() {
+        $('.shipping-setup-shipping-rates #rate_based_on').on("change", function () {
             const val = $(this).val()
-            if(val === "full") {
+            if (val === "full") {
                 $(".shipping-setup-shipping-rates .form-container .other-form-items").show() // showing
             } else {
                 $(".shipping-setup-shipping-rates .form-container .other-form-items").hide() // hiding
             }
         })
         // change on change | shipping rates
-        $('.shipping-setup-shipping-rates #table_based_on').on("change", function() {
+        $('.shipping-setup-shipping-rates #table_based_on').on("change", function () {
             const val = $(this).val()
 
-            if(val === "weight") {
+            if (val === "weight") {
                 $(".shipping-setup-shipping-rates .weight-fields").removeClass("d-none").addClass("d-flex") // showing
                 $(".shipping-setup-shipping-rates .subtotal-fields").removeClass("d-flex").addClass("d-none") // showing
             } else {
@@ -326,17 +326,17 @@ $(function() {
         })
 
         // change on click | shipping rates
-        $('.shipping-setup-shipping-rates .and-up').on("click", function(ev) {
+        $('.shipping-setup-shipping-rates .and-up').on("click", function (ev) {
             ev.preventDefault()
             $(this).hide().next().show().find("input").focus() // showing and focus
         })
 
         // change on click | flat shipping rates
-        $('.shipping-setup-flat-shipping-rates #amount_type').on("change", function(ev) {
+        $('.shipping-setup-flat-shipping-rates #amount_type').on("change", function (ev) {
             ev.preventDefault()
             const val = $(this).val()
 
-            if(val === "flat") {
+            if (val === "flat") {
                 $('.shipping-setup-flat-shipping-rates .for-percentages').hide()
                 $('.shipping-setup-flat-shipping-rates .for-flat-rate').show()
             } else {
@@ -349,37 +349,37 @@ $(function() {
         // shipping steps
         (function () {
             const totalSteps = 3
-    
+
             // add current step
             function addCurrentStep(count) {
-                if(count) {
+                if (count) {
                     $(".add-shipping-method-loading .text .current-step").text(count)
                 }
             }
             // add current step
             function setStepText(text) {
-                if(text) {
+                if (text) {
                     $(".add-shipping-method-loading .text .main-text").text(text)
                 }
             }
             // add total and current step
             $(".add-shipping-method-loading .text .total-steps").text(totalSteps)
             addCurrentStep("1")
-    
+
             // change on click | shipping steps | step 1
-            $('.add-shipping-method-step1 [data-shipping-name]').on("click", function(ev) {
+            $('.add-shipping-method-step1 [data-shipping-name]').on("click", function (ev) {
                 ev.preventDefault()
                 const dataName = $(this).attr('data-shipping-name')
-    
-                if(dataName) {
+
+                if (dataName) {
                     // back
                     $('[data-id="shipping-back-btn"]').attr("data-go-to", "step-1") // adding class
-    
+
                     // loading
                     $(".add-shipping-method-loading .progress-main").removeClass("step-1 step-3").addClass("step-2") // adding class
                     addCurrentStep("2") // step
                     setStepText("Set up rates for " + dataName)
-    
+
                     // step visibility
                     $('.add-shipping-method-step1').hide()
                     $('.add-shipping-method-step2').fadeIn(100)
@@ -388,32 +388,32 @@ $(function() {
                     window.scrollTo(0, 0)
                 }
             })
-            
+
             // change on click | shipping steps | step 2
-            $('.add-shipping-method-step2 [data-shipping-name]').on("click", function(ev) {
+            $('.add-shipping-method-step2 [data-shipping-name]').on("click", function (ev) {
                 ev.preventDefault()
                 const dataName = $(this).attr('data-shipping-name')
-    
-                if(dataName) {
+
+                if (dataName) {
                     const innerVal = $(".add-shipping-method-loading .text .main-text").text()
                     // back
                     $('[data-id="shipping-back-btn"]').attr("data-go-to", "step-2") // adding class
                     $('[data-id="shipping-back-btn"]').attr("data-shipping-name", innerVal) // adding shipping name
-    
+
                     // loading
                     $(".add-shipping-method-loading .progress-main").removeClass("step-1 step-2").addClass("step-3") // adding class
                     addCurrentStep("3") // step
                     setStepText("Finialize")
-    
+
                     // step visibility
                     $('.add-shipping-method-step2').hide()
-                    if(dataName == "Free Shipping") {
+                    if (dataName == "Free Shipping") {
                         $('.free-shipping-set-up').fadeIn(100)
                     }
-                    if(dataName == "Conditional Free Shipping") {
+                    if (dataName == "Conditional Free Shipping") {
                         $('.condtional-free-shipping-set-up').fadeIn(100)
                     }
-                    if(dataName == "Flat Rate") {
+                    if (dataName == "Flat Rate") {
                         $('.flat-shipping-set-up').fadeIn(100)
                     }
 
@@ -421,15 +421,15 @@ $(function() {
                     window.scrollTo(0, 0)
                 }
             })
-    
+
             // change on click | shipping steps | back btn
-            $('[data-id="shipping-back-btn"]').on("click", function(ev) {
+            $('[data-id="shipping-back-btn"]').on("click", function (ev) {
                 ev.preventDefault()
 
                 const goToStep = $(this).attr('data-go-to')
 
-                if(goToStep) {
-                    if(goToStep === "step-1") { // step 1
+                if (goToStep) {
+                    if (goToStep === "step-1") { // step 1
                         // step visibility
                         $('.add-shipping-method-step2').hide(100)
                         $('.add-shipping-method-step1').fadeIn()
@@ -441,9 +441,9 @@ $(function() {
                         window.scrollTo(0, 0)
                     }
 
-                    if(goToStep === "step-2") { // step 2
+                    if (goToStep === "step-2") { // step 2
                         const dataName = $(this).attr('data-shipping-name')
-                        
+
                         // step visibility
                         $('.free-shipping-set-up').hide(100)
                         $('.condtional-free-shipping-set-up').hide(100)
@@ -462,15 +462,15 @@ $(function() {
                     // $('.add-shipping-method-step2').hide(100)   
                     // $('.add-shipping-method-step1').fadeIn()
                 }
-                
-            })            
+
+            })
         }());
     })();
 
     // PAGE - Blogs
-    (function() {
+    (function () {
         // openning on click
-        $('[data-id="create-blog-submit-btn"]').on("click", function(ev) {
+        $('[data-id="create-blog-submit-btn"]').on("click", function (ev) {
             ev.preventDefault()
             $('form#create-blog-form [type="submit"]').trigger('click') // form submission
         })
@@ -481,11 +481,139 @@ $(function() {
 
 
             // on submit
-            submitHandler: function(form) {
+            submitHandler: function (form) {
                 console.log("form ", form)
                 form.submit();
             }
         })
+    })();
+
+    // PAGE - Products | variations
+    (function () {
+        $(".variations-sortable-l1").sortable({
+            revert: false,
+            // toleranceElement: ".move-icon",
+        });
+
+        $(".variations-sortable-l2").sortable({
+            revert: false,
+            // toleranceElement: ".move-icon",
+        });
+
+        // new name field
+        var new_nameField = '<div class="st-form mb-2">'
+        new_nameField += '<label class="mb-1">Name'
+        new_nameField += '<span class="required">*</span>'
+        new_nameField += '</label>'
+        new_nameField += '<input placeholder="Name" type="text" class="form-control" value="">'
+        new_nameField += '</div>'
+
+        // new select box field
+        var new_selectboxField = '<div class="st-form mb-2">'
+        new_selectboxField += '<label class="mb-1">Option'
+        new_selectboxField += '<span class="required">*</span>'
+        new_selectboxField += '</label>'
+        new_selectboxField += '<select class="form-control">'
+        new_selectboxField += '<option disabled="">Select Type</option>'
+        new_selectboxField += '<option value="radio_buttons">Radio Buttons</option>'
+        new_selectboxField += '<option value="rectangle_list" selected="">Rectangle List</option>'
+        new_selectboxField += '<option value="dropdown">Dropdown</option>'
+        new_selectboxField += '</select>'
+        new_selectboxField += '</div>'
+
+        // new value field
+        var new_valueField = '<div class="form-item media-body">'
+        new_valueField += '<div class="st-form mb-2">'
+        new_valueField += '<label class="mb-1">Value'
+        new_valueField += '<span class="required">*</span>'
+        new_valueField += '</label>'
+        new_valueField += '<input placeholder="Name" type="text" class="form-control" value="">'
+        new_valueField += '</div>'
+        new_valueField += '<div class="delete-frac-item mb-2">'
+        new_valueField += '<a href="" class="st-text-danger st-fw-600 text-decoration-none text-danger d-flex align-items-center">'
+        new_valueField += '<i class="feather-trash-2 icon me-1"></i>'
+        new_valueField += '<span>Delete Value</span>'
+        new_valueField += '</a>'
+        new_valueField += '</div>'
+        new_valueField += '</div>'
+
+        // value html
+        var new_VALUE_HTML = '<div class="form-item-outer d-flex flex-wrap">'
+        new_VALUE_HTML += '<div class="move-icon">'
+        new_VALUE_HTML += '<i class="feather-move icon st-fs-20"></i>'
+        new_VALUE_HTML += '</div>'
+        new_VALUE_HTML += '<div class="form-item media-body">'
+        new_VALUE_HTML += new_valueField
+        new_VALUE_HTML += '</div>'
+        new_VALUE_HTML += '<div class="select-default ps-2">'
+        new_VALUE_HTML += '<label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer">'
+        new_VALUE_HTML += '<input type="radio" class="d-none" name="0_0_isDefault">'
+        new_VALUE_HTML += '<span class="box d-flex align-items-center justify-content-center border">'
+        new_VALUE_HTML += '<i class="feather-check icon position-relative"></i>'
+        new_VALUE_HTML += '</span>'
+        new_VALUE_HTML += '<span class="text text-capitalize st-fs-15 ms-2">default</span>'
+        new_VALUE_HTML += '</label>'
+        new_VALUE_HTML += '</div>'
+        new_VALUE_HTML += '</div>'
+
+        var new_FIELD_HTML = '<div class="frac">'
+        new_FIELD_HTML += '<div class="frac-inner d-flex">'
+        new_FIELD_HTML += '<div class="move-icon">'
+        new_FIELD_HTML += '<i class="feather-move icon st-fs-20"></i>'
+        new_FIELD_HTML += '</div>'
+        new_FIELD_HTML += '<div class="d-flex flex-wrap media-body">'
+        new_FIELD_HTML += '<div class="form-item item-name">'
+        new_FIELD_HTML += new_nameField
+        new_FIELD_HTML += '<div class="delete-frac-item">'
+        new_FIELD_HTML += '<a href="/" class="st-text-danger st-fw-600 text-decoration-none text-danger d-flex align-items-center">'
+        new_FIELD_HTML += '<i class="feather-trash-2 st-fs-13 icon me-1"></i>'
+        new_FIELD_HTML += '<span>Delete Option</span>'
+        new_FIELD_HTML += '</a>'
+        new_FIELD_HTML += '</div>'
+        new_FIELD_HTML += '</div>'
+        new_FIELD_HTML += '<div class="form-item item-type">'
+        new_FIELD_HTML += new_selectboxField
+        new_FIELD_HTML += '</div>'
+        new_FIELD_HTML += '<div class="form-item item-values d-flex flex-wrap">'
+        new_FIELD_HTML += '<div class="all-form-fields media-body">'
+        new_FIELD_HTML += new_VALUE_HTML
+        new_FIELD_HTML += '</div>'
+        new_FIELD_HTML += '<div class="add-field w-100 mt-2">'
+        new_FIELD_HTML += '<p class="d-inline-flex align-items-center st-text-primary cursor-pointer">'
+        new_FIELD_HTML += '<i class="feather-plus icon me-1"></i>'
+        new_FIELD_HTML += '<span>Add another field</span>'
+        new_FIELD_HTML += '</p>'
+        new_FIELD_HTML += '</div>'
+        new_FIELD_HTML += '</div>'
+        new_FIELD_HTML += '</div>'
+        new_FIELD_HTML += '</div>'
+        new_FIELD_HTML += '</div>'
+
+        // add new option
+        $("#add-product-variant-view .add-new-option").on("click", function (ev) {
+            ev.preventDefault()
+
+            $("#add-product-variant-view .content-inner > .frac:last-child").after(new_FIELD_HTML) // adding new field
+        });
+        // delete option
+        $("#add-product-variant-view .delete-option").on("click", function (ev) {
+            ev.preventDefault()
+
+            $(this).closest(".frac").remove()
+        });
+
+        // add new option value
+        $("#add-product-variant-view .add-new-option-value").on("click", function (ev) {
+            ev.preventDefault()
+
+            $("#add-product-variant-view .all-form-fields > .form-item-outer:last-child").after(new_VALUE_HTML) // adding new field value
+        });
+        // delete option value
+        $("#add-product-variant-view .delete-option-value").on("click", function (ev) {
+            ev.preventDefault()
+
+            $(this).closest(".form-item-outer").remove()
+        });
 
 
     })();

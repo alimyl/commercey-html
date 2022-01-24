@@ -41,7 +41,7 @@
                             <!-- other details -->
                             <div class="other-details text-center my-3">
                                 <p class="text-decoration-none mb-1">
-                                    I already have an account. Please <a class="st-text-primary" href="http://localhost/VEZIRE/commercey-html/login">take me to the login page.</a>
+                                    I already have an account. Please <a class="st-text-primary" href="http://localhost/commercey-html/login">take me to the login page.</a>
                                 </p>
                             </div>
                         </div>

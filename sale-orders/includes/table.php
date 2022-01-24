@@ -101,7 +101,7 @@
             </td>
 
             <td class="column__saleOrderNumber">
-                <a class="st-text-primary" href="http://localhost/VEZIRE/commercey-html/sale-orders/edit.php">#100246</a>
+                <a class="st-text-primary" href="http://localhost/commercey-html/sale-orders/edit.php">#100246</a>
             </td>
 
             <td class="column__orderDate">
@@ -143,7 +143,7 @@
             <td class="column__actions">
                 <div class="d-flex justify-content-end">
                     <a 
-                        href="http://localhost/VEZIRE/commercey-html/sale-orders/edit.php"
+                        href="http://localhost/commercey-html/sale-orders/edit.php"
                         class="st-round-btn st-btn-transparent st-btn-xs d-flex align-items-center justify-content-center"
                         data-toggle="tooltip"
                         data-placement="right"

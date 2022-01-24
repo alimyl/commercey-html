@@ -88,7 +88,7 @@
                                                                         Ship within your country or internationally. Enable automatic shipping rates from carriers or use your own custom rates if your product requires special shipping fees.
                                                                     </p>
                                                                     
-                                                                    <a href="http://localhost/VEZIRE/commercey-html/shippings/add.php" class="text-decoration-none st-btn st-btn-primary st-btn-sm d-inline-flex align-items-center text-capitalize">
+                                                                    <a href="http://localhost/commercey-html/shippings/add.php" class="text-decoration-none st-btn st-btn-primary st-btn-sm d-inline-flex align-items-center text-capitalize">
                                                                         <i class="feather-plus icon me-1"></i>
                                                                         <span class="st-fw-400">Add Shipping</span>
                                                                     </a>

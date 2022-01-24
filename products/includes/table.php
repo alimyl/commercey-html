@@ -81,7 +81,7 @@
             </td>
 
             <td class="column__ProductName">
-                <a class="text-decoration-none hover-underline-link st-text-primary" href="http://localhost/VEZIRE/commercey-html/products/edit.php#general_tab">Acacia Cutting Board</a>
+                <a class="text-decoration-none hover-underline-link st-text-primary" href="http://localhost/commercey-html/products/edit.php#general_tab">Acacia Cutting Board</a>
                 <p class="variations d-flex align-items-center">
                     <i class="feather feather-copy icon me-2"></i>
                     <span class="me-2">5 Options</span>
@@ -111,7 +111,7 @@
             <td class="column__actions">
                 <div class="d-flex justify-content-end">
                     <a 
-                        href="http://localhost/VEZIRE/commercey-html/products/edit.php#general_tab"
+                        href="http://localhost/commercey-html/products/edit.php#general_tab"
                         class="st-round-btn st-btn-transparent st-btn-xs d-flex align-items-center justify-content-center"
                         data-toggle="tooltip"
                         data-placement="right"

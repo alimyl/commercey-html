@@ -28,7 +28,7 @@
                                     <div class="back-button-wrapper mb-3">
                                         <a 
                                             class="text-decoration-none st-text-primary d-inline-flex align-items-center cursor-pointer st-fs-14 st-fw-600" 
-                                            href="http://localhost/VEZIRE/commercey-html/sale-orders">
+                                            href="http://localhost/commercey-html/sale-orders">
                                             <i class="feather feather-arrow-left icon me-1"></i>
                                             <span>Back to Sales Order</span>
                                         </a>

@@ -116,7 +116,7 @@
             <td class="column__actions">
                 <div class="d-flex justify-content-end">
                     <a 
-                        href="http://localhost/VEZIRE/commercey-html/coupons/edit.php"
+                        href="http://localhost/commercey-html/coupons/edit.php"
                         class="st-round-btn st-btn-transparent st-btn-xs d-flex align-items-center justify-content-center me-1"
                         data-toggle="tooltip"
                         data-placement="right"

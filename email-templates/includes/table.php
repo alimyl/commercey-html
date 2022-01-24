@@ -77,7 +77,7 @@
                 </label>
             </td>
 
-            <td class="column__username"><a class="hover-underline-link st-text-primary" href="http://localhost/VEZIRE/commercey-html/users/edit.php">Rupinder Singh</a></td>
+            <td class="column__username"><a class="hover-underline-link st-text-primary" href="http://localhost/commercey-html/users/edit.php">Rupinder Singh</a></td>
 
             <td class="column__email"><p class="">rupinder@vezire.com</p></td>
 
@@ -92,7 +92,7 @@
             <td class="column__actions">
                 <div class="d-flex justify-content-end">
                     <a 
-                        href="http://localhost/VEZIRE/commercey-html/users/edit.php"
+                        href="http://localhost/commercey-html/users/edit.php"
                         class="st-round-btn st-btn-transparent st-btn-xs d-flex align-items-center justify-content-center me-1"
                         data-toggle="tooltip"
                         data-placement="right"
