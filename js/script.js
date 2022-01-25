@@ -77,6 +77,12 @@ $(function () {
             }
         })
     })();
+    // COMMON: INITIALIZE QUILL EDITOR
+    (function () {
+        new Quill('#app-editor', {        
+            theme: 'snow',
+        });
+    })();
 
     // PAGE - SALES ORDER: add note
     (function () {
@@ -490,15 +496,19 @@ $(function () {
 
     // PAGE - Products | variations
     (function () {
-        $(".variations-sortable-l1").sortable({
-            revert: false,
-            // toleranceElement: ".move-icon",
-        });
+        function sortableLevel1() {
+            $(".variations-sortable-l1").sortable({
+                handle: "> .frac-inner > .move-icon",
+            });
+        }
+        function sortableLevel2() {
+            $(".variations-sortable-l2").sortable({
+                handle: "> .move-icon",
+            });
+        }
+        sortableLevel1() // initialize sortable level 1
+        sortableLevel2() // initialize sortable level 2
 
-        $(".variations-sortable-l2").sortable({
-            revert: false,
-            // toleranceElement: ".move-icon",
-        });
 
         // new name field
         var new_nameField = '<div class="st-form mb-2">'
@@ -530,7 +540,7 @@ $(function () {
         new_valueField += '<input placeholder="Name" type="text" class="form-control" value="">'
         new_valueField += '</div>'
         new_valueField += '<div class="delete-frac-item mb-2">'
-        new_valueField += '<a href="" class="st-text-danger st-fw-600 text-decoration-none text-danger d-flex align-items-center">'
+        new_valueField += '<a href="/" class="st-text-danger st-fw-600 text-decoration-none text-danger d-flex align-items-center delete-option-value">'
         new_valueField += '<i class="feather-trash-2 icon me-1"></i>'
         new_valueField += '<span>Delete Value</span>'
         new_valueField += '</a>'
@@ -547,7 +557,7 @@ $(function () {
         new_VALUE_HTML += '</div>'
         new_VALUE_HTML += '<div class="select-default ps-2">'
         new_VALUE_HTML += '<label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer">'
-        new_VALUE_HTML += '<input type="radio" class="d-none" name="0_0_isDefault">'
+        new_VALUE_HTML += '<input type="radio" class="d-none">'
         new_VALUE_HTML += '<span class="box d-flex align-items-center justify-content-center border">'
         new_VALUE_HTML += '<i class="feather-check icon position-relative"></i>'
         new_VALUE_HTML += '</span>'
@@ -565,7 +575,7 @@ $(function () {
         new_FIELD_HTML += '<div class="form-item item-name">'
         new_FIELD_HTML += new_nameField
         new_FIELD_HTML += '<div class="delete-frac-item">'
-        new_FIELD_HTML += '<a href="/" class="st-text-danger st-fw-600 text-decoration-none text-danger d-flex align-items-center">'
+        new_FIELD_HTML += '<a href="/" class="st-text-danger st-fw-600 text-decoration-none text-danger d-flex align-items-center delete-option">'
         new_FIELD_HTML += '<i class="feather-trash-2 st-fs-13 icon me-1"></i>'
         new_FIELD_HTML += '<span>Delete Option</span>'
         new_FIELD_HTML += '</a>'
@@ -575,11 +585,11 @@ $(function () {
         new_FIELD_HTML += new_selectboxField
         new_FIELD_HTML += '</div>'
         new_FIELD_HTML += '<div class="form-item item-values d-flex flex-wrap">'
-        new_FIELD_HTML += '<div class="all-form-fields media-body">'
+        new_FIELD_HTML += '<div class="all-form-fields media-body variations-sortable-l2">'
         new_FIELD_HTML += new_VALUE_HTML
         new_FIELD_HTML += '</div>'
         new_FIELD_HTML += '<div class="add-field w-100 mt-2">'
-        new_FIELD_HTML += '<p class="d-inline-flex align-items-center st-text-primary cursor-pointer">'
+        new_FIELD_HTML += '<p class="d-inline-flex align-items-center st-text-primary cursor-pointer add-new-option-value">'
         new_FIELD_HTML += '<i class="feather-plus icon me-1"></i>'
         new_FIELD_HTML += '<span>Add another field</span>'
         new_FIELD_HTML += '</p>'
@@ -590,29 +600,78 @@ $(function () {
         new_FIELD_HTML += '</div>'
 
         // add new option
-        $("#add-product-variant-view .add-new-option").on("click", function (ev) {
+        $(document).on("click", "#add-product-variant-view .add-new-option", function (ev) {
             ev.preventDefault()
 
             $("#add-product-variant-view .content-inner > .frac:last-child").after(new_FIELD_HTML) // adding new field
+
+            sortableLevel2() // initialize sortable level 2 again
         });
         // delete option
-        $("#add-product-variant-view .delete-option").on("click", function (ev) {
+        $(document).on("click", "#add-product-variant-view .delete-option", function (ev) {
             ev.preventDefault()
 
             $(this).closest(".frac").remove()
         });
 
         // add new option value
-        $("#add-product-variant-view .add-new-option-value").on("click", function (ev) {
+        $(document).on("click", "#add-product-variant-view .add-new-option-value", function (ev) {
             ev.preventDefault()
 
-            $("#add-product-variant-view .all-form-fields > .form-item-outer:last-child").after(new_VALUE_HTML) // adding new field value
+            $(this).closest(".form-item").find(".all-form-fields").append(new_VALUE_HTML)
+            // $("#add-product-variant-view .all-form-fields > .form-item-outer:last-child").after(new_VALUE_HTML) // adding new field value
         });
         // delete option value
-        $("#add-product-variant-view .delete-option-value").on("click", function (ev) {
+        $(document).on("click", "#add-product-variant-view .delete-option-value", function (ev) {
             ev.preventDefault()
 
             $(this).closest(".form-item-outer").remove()
+        });
+
+        // save option details
+        $(document).on("click", ".save-options-details", function (ev) {
+            ev.preventDefault()
+
+            const nameElems = $("#add-product-variant-view .item-name > .st-form input")
+            const typeElems = $("#add-product-variant-view .item-type > .st-form select")
+            const nameElemsVals = []
+            const typeElemsVals = []
+
+            // getting name values
+            nameElems.each(function (index, elem) {
+                nameElemsVals.push($(elem).val())
+            })
+
+            // getting type values
+            typeElems.each(function (index, elem) {
+                typeElemsVals.push($(elem).val())
+            })
+
+            const allData = []
+            // getting type values
+            $("#add-product-variant-view .content-inner > .frac").each(function (index, elem) {
+                const nameElems = $(elem).find(".item-name > .st-form input")
+                const typeElems = $(elem).find(".item-type > .st-form select")
+                const valuesElems = $(elem).find(".all-form-fields .form-item-outer")
+
+                const allOptions = []
+                valuesElems.each(function (index, elem) {
+                    allOptions.push({
+                        is_default: $(elem).find(".select-default input").is(":checked"),
+                        option_variation_name: nameElems.val(),
+                        value: $(elem).find(".st-form > input").val()
+                    })
+                })
+
+                const mainData = {
+                    display_type: typeElems.val(),
+                    options: allOptions,
+                    variations_name: nameElems.val()
+                }
+                allData.push(mainData)
+            })
+
+            console.log("allData ", allData);
         });
 
 

@@ -13,5 +13,8 @@
 <!-- bootstrap -->
 <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 
+<!-- QUILL EDITOR -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
 <!-- custom -->
 <script src="../js/script.js"></script>

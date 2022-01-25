@@ -38,7 +38,7 @@
 
                                         <!-- save btn -->
                                         <button
-                                            class="st-btn st-btn-primary ms-auto">
+                                            class="st-btn st-btn-primary ms-auto save-options-details">
                                             <span>Save</span>
                                         </button>
                                     </div>
@@ -75,11 +75,11 @@
                                                                                 <div class="form-item item-name">
                                                                                     <!-- input -->
                                                                                     <div class="st-form mb-2">
-                                                                                        <label class="mb-1">
+                                                                                        <label class="mb-1"></label>
                                                                                             Name
                                                                                             <span class="required">*</span>
                                                                                         </label>
-                                                                                        <input placeholder="Name" type="text" class="form-control" value="">
+                                                                                        <input placeholder="Name" type="text" class="form-control" value="Color">
                                                                                     </div>
         
                                                                                     <!-- delete item -->
@@ -126,12 +126,12 @@
                                                                                                         Value
                                                                                                         <span class="required">*</span>
                                                                                                     </label>
-                                                                                                    <input placeholder="Name" type="text" class="form-control" value="">
+                                                                                                    <input placeholder="Name" type="text" class="form-control" value="red">
                                                                                                 </div>
 
                                                                                                 <!-- delete -->
                                                                                                 <div class="delete-frac-item mb-2">
-                                                                                                    <a href="" class="st-text-danger st-fw-600 text-decoration-none text-danger d-flex align-items-center delete-option-value">
+                                                                                                    <a href="/" class="st-text-danger st-fw-600 text-decoration-none text-danger d-flex align-items-center delete-option-value">
                                                                                                         <i class="feather-trash-2 icon me-1"></i>
                                                                                                         <span>Delete Value</span>
                                                                                                     </a>
@@ -141,7 +141,186 @@
                                                                                             <!-- default -->
                                                                                             <div class="select-default ps-2">
                                                                                                 <label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer">
-                                                                                                    <input type="radio" class="d-none" name="0_0_isDefault">
+                                                                                                    <input type="radio" class="d-none">
+                                                                                                    <span class="box d-flex align-items-center justify-content-center border">
+                                                                                                        <i class="feather-check icon position-relative"></i>
+                                                                                                    </span>
+                                                                                                    <span class="text text-capitalize st-fs-15 ms-2">default</span>
+                                                                                                </label>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                        <!-- item field -->
+                                                                                        <div class="form-item-outer d-flex flex-wrap">
+                                                                                            <!-- icon -->
+                                                                                            <div class="move-icon">
+                                                                                                <i class="feather-move icon st-fs-20"></i>
+                                                                                            </div>
+
+                                                                                            <!-- form -->
+                                                                                            <div class="form-item media-body">
+                                                                                                <!-- input -->
+                                                                                                <div class="st-form mb-2">
+                                                                                                    <label class="mb-1">
+                                                                                                        Value
+                                                                                                        <span class="required">*</span>
+                                                                                                    </label>
+                                                                                                    <input placeholder="Name" type="text" class="form-control" value="green">
+                                                                                                </div>
+
+                                                                                                <!-- delete -->
+                                                                                                <div class="delete-frac-item mb-2">
+                                                                                                    <a href="/" class="st-text-danger st-fw-600 text-decoration-none text-danger d-flex align-items-center delete-option-value">
+                                                                                                        <i class="feather-trash-2 icon me-1"></i>
+                                                                                                        <span>Delete Value</span>
+                                                                                                    </a>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                            <!-- default -->
+                                                                                            <div class="select-default ps-2">
+                                                                                                <label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer">
+                                                                                                    <input type="radio" class="d-none">
+                                                                                                    <span class="box d-flex align-items-center justify-content-center border">
+                                                                                                        <i class="feather-check icon position-relative"></i>
+                                                                                                    </span>
+                                                                                                    <span class="text text-capitalize st-fs-15 ms-2">default</span>
+                                                                                                </label>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <!-- add value -->
+                                                                                    <div class="add-field w-100 mt-2">
+                                                                                        <p class="d-inline-flex align-items-center st-text-primary cursor-pointer add-new-option-value">
+                                                                                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus icon me-1"><g><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></g></svg>
+                                                                                            <span>Add another field</span>
+                                                                                        </p>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- frac -->
+                                                                    <div class="frac">
+                                                                        <div class="frac-inner d-flex">
+                                                                            <!-- icon -->
+                                                                            <div class="move-icon">
+                                                                                <i class="feather-move icon st-fs-20"></i>
+                                                                            </div>
+        
+                                                                            <!-- content -->
+                                                                            <div class="d-flex flex-wrap media-body">
+                                                                                <!-- form item : name -->
+                                                                                <div class="form-item item-name">
+                                                                                    <!-- input -->
+                                                                                    <div class="st-form mb-2">
+                                                                                        <label class="mb-1"></label>
+                                                                                            Name
+                                                                                            <span class="required">*</span>
+                                                                                        </label>
+                                                                                        <input placeholder="Name" type="text" class="form-control" value="Size">
+                                                                                    </div>
+        
+                                                                                    <!-- delete item -->
+                                                                                    <div class="delete-frac-item">
+                                                                                        <a href="/" class="st-text-danger st-fw-600 text-decoration-none text-danger d-flex align-items-center delete-option">
+                                                                                            <i class="feather-trash-2 st-fs-13 icon me-1"></i>
+                                                                                            <span>Delete Option</span>
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <!-- form item : type -->
+                                                                                <div class="form-item item-type">
+                                                                                    <div class="st-form mb-2">
+                                                                                        <label class="mb-1">
+                                                                                            Option
+                                                                                            <span class="required">*</span>
+                                                                                        </label>
+                                                                                        <select class="form-control">
+                                                                                            <option disabled="">Select Type</option>
+                                                                                            <option value="radio_buttons">Radio Buttons</option>
+                                                                                            <option value="rectangle_list" selected="">Rectangle List</option>
+                                                                                            <option value="dropdown">Dropdown</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <!-- form item : values -->
+                                                                                <div class="form-item item-values d-flex flex-wrap">
+                                                                                    <!-- all fields -->
+                                                                                    <div class="all-form-fields media-body variations-sortable-l2">
+                                                                                        <!-- item field -->
+                                                                                        <div class="form-item-outer d-flex flex-wrap">
+                                                                                            <!-- icon -->
+                                                                                            <div class="move-icon">
+                                                                                                <i class="feather-move icon st-fs-20"></i>
+                                                                                            </div>
+
+                                                                                            <!-- form -->
+                                                                                            <div class="form-item media-body">
+                                                                                                <!-- input -->
+                                                                                                <div class="st-form mb-2">
+                                                                                                    <label class="mb-1">
+                                                                                                        Value
+                                                                                                        <span class="required">*</span>
+                                                                                                    </label>
+                                                                                                    <input placeholder="Name" type="text" class="form-control" value="XS">
+                                                                                                </div>
+
+                                                                                                <!-- delete -->
+                                                                                                <div class="delete-frac-item mb-2">
+                                                                                                    <a href="/" class="st-text-danger st-fw-600 text-decoration-none text-danger d-flex align-items-center delete-option-value">
+                                                                                                        <i class="feather-trash-2 icon me-1"></i>
+                                                                                                        <span>Delete Value</span>
+                                                                                                    </a>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                            <!-- default -->
+                                                                                            <div class="select-default ps-2">
+                                                                                                <label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer">
+                                                                                                    <input type="radio" class="d-none">
+                                                                                                    <span class="box d-flex align-items-center justify-content-center border">
+                                                                                                        <i class="feather-check icon position-relative"></i>
+                                                                                                    </span>
+                                                                                                    <span class="text text-capitalize st-fs-15 ms-2">default</span>
+                                                                                                </label>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                        <!-- item field -->
+                                                                                        <div class="form-item-outer d-flex flex-wrap">
+                                                                                            <!-- icon -->
+                                                                                            <div class="move-icon">
+                                                                                                <i class="feather-move icon st-fs-20"></i>
+                                                                                            </div>
+
+                                                                                            <!-- form -->
+                                                                                            <div class="form-item media-body">
+                                                                                                <!-- input -->
+                                                                                                <div class="st-form mb-2">
+                                                                                                    <label class="mb-1">
+                                                                                                        Value
+                                                                                                        <span class="required">*</span>
+                                                                                                    </label>
+                                                                                                    <input placeholder="Name" type="text" class="form-control" value="SM">
+                                                                                                </div>
+
+                                                                                                <!-- delete -->
+                                                                                                <div class="delete-frac-item mb-2">
+                                                                                                    <a href="/" class="st-text-danger st-fw-600 text-decoration-none text-danger d-flex align-items-center delete-option-value">
+                                                                                                        <i class="feather-trash-2 icon me-1"></i>
+                                                                                                        <span>Delete Value</span>
+                                                                                                    </a>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                            <!-- default -->
+                                                                                            <div class="select-default ps-2">
+                                                                                                <label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer">
+                                                                                                    <input type="radio" class="d-none">
                                                                                                     <span class="box d-flex align-items-center justify-content-center border">
                                                                                                         <i class="feather-check icon position-relative"></i>
                                                                                                     </span>

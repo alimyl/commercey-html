@@ -45,8 +45,13 @@
         <p class="app-heading text-capitalize">Blog Content</p>
     </div>
     <div class="app-card-content bg-white border st-border-light st-default-rounded-block pad-20-LR pad-20-T">
-        <div class="xs-12 col-md-9 col-lg-6 px-0">
-            
+        <div class="col-12 col-md-9">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap mb-3 ">
+                <label>Description</label>
+                <div class="app-editor-container media-body">
+                    <div id="app-editor"></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -64,7 +69,8 @@
                     <span class="required ms-1 st-fs-12">(required)</span>
                 </label>
                 <div class="media-body st-form-input-container">
-                    <input type="text" class="form-control" name="meta_title" placeholder="Meta Title" value="" required>
+                    <input type="text" class="form-control" name="meta_title" placeholder="Meta Title" value=""
+                        required>
                 </div>
             </div>
 
@@ -75,7 +81,8 @@
                     <!-- <span class="required ms-1 st-fs-12">(required)</span> -->
                 </label>
                 <div class="media-body st-form-input-container">
-                    <input type="text" class="form-control" name="meta_description" placeholder="Meta Description" value="">
+                    <input type="text" class="form-control" name="meta_description" placeholder="Meta Description"
+                        value="">
                 </div>
             </div>
         </div>

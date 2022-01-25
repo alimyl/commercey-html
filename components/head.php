@@ -11,7 +11,10 @@
 
     <!-- icons -->
     <link rel="stylesheet" href="../assets/feather-icons/feather.css">
-    
+
+    <!-- QUILL EDITOR -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
     <!-- custom styles -->
     <link rel="stylesheet" href="../css/style.css">
 </head>

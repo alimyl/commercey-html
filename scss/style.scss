@@ -2124,9 +2124,8 @@ $white-color: #ffffff;
   .move-icon {
     width: 35px;
     padding-top: 33px;
-    cursor: grab;
-    &:active {
-        cursor: grabbing;
+    > i {
+      cursor: grab;
     }
   }
   .content-inner {
@@ -2147,13 +2146,13 @@ $white-color: #ffffff;
     }
 
     .delete-frac-item {
-        display: none;
+      display: none;
     }
     &:not(:first-child) {
-        .delete-frac-item {
-            display: block;
-            width: 100%;
-        }
+      .delete-frac-item {
+        display: block;
+        width: 100%;
+      }
     }
     // padding: 15px;
     &:not(:last-child) {
