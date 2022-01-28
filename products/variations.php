@@ -141,7 +141,7 @@
                                                                                             <!-- default -->
                                                                                             <div class="select-default ps-2">
                                                                                                 <label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer">
-                                                                                                    <input type="radio" class="d-none">
+                                                                                                    <input type="radio" class="d-none" name="is_default_1">
                                                                                                     <span class="box d-flex align-items-center justify-content-center border">
                                                                                                         <i class="feather-check icon position-relative"></i>
                                                                                                     </span>
@@ -180,7 +180,7 @@
                                                                                             <!-- default -->
                                                                                             <div class="select-default ps-2">
                                                                                                 <label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer">
-                                                                                                    <input type="radio" class="d-none">
+                                                                                                    <input type="radio" class="d-none" name="is_default_1">
                                                                                                     <span class="box d-flex align-items-center justify-content-center border">
                                                                                                         <i class="feather-check icon position-relative"></i>
                                                                                                     </span>
@@ -281,7 +281,7 @@
                                                                                             <!-- default -->
                                                                                             <div class="select-default ps-2">
                                                                                                 <label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer">
-                                                                                                    <input type="radio" class="d-none">
+                                                                                                    <input type="radio" class="d-none" name="is_default_2">
                                                                                                     <span class="box d-flex align-items-center justify-content-center border">
                                                                                                         <i class="feather-check icon position-relative"></i>
                                                                                                     </span>
@@ -320,7 +320,7 @@
                                                                                             <!-- default -->
                                                                                             <div class="select-default ps-2">
                                                                                                 <label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer">
-                                                                                                    <input type="radio" class="d-none">
+                                                                                                    <input type="radio" class="d-none" name="is_default_2">
                                                                                                     <span class="box d-flex align-items-center justify-content-center border">
                                                                                                         <i class="feather-check icon position-relative"></i>
                                                                                                     </span>

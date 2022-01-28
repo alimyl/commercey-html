@@ -13,7 +13,7 @@
 
         <!-- nav item -->
         <div class="alm_nav-item">
-            <a href="dashboard" class="alm_nav-link text-decoration-none d-flex align-items-center">
+            <a href="http://localhost/commercey-html/dashboard/" class="alm_nav-link text-decoration-none d-flex align-items-center">
                 <!-- left sec -->
                 <div class="lt d-flex media-body">
                     <i class="feather-home st-fs-15 icon"></i>
@@ -23,7 +23,7 @@
         </div>
 
         <!-- nav item -->
-        <div class="alm_nav-item">
+        <div class="alm_nav-item has-sub-menu">
             <a href="#" class="alm_nav-link text-decoration-none d-flex align-items-center">
                 <!-- left sec -->
                 <div class="lt d-flex media-body">
@@ -72,7 +72,7 @@
         </div>
 
         <!-- nav item -->
-        <div class="alm_nav-item">
+        <div class="alm_nav-item has-sub-menu">
             <a href="#" class="alm_nav-link text-decoration-none d-flex align-items-center">
                 <!-- left sec -->
                 <div class="lt d-flex media-body">
@@ -156,7 +156,7 @@
         </div>
 
         <!-- nav item -->
-        <div class="alm_nav-item">
+        <div class="alm_nav-item has-sub-menu">
             <a href="#" class="alm_nav-link text-decoration-none d-flex align-items-center">
                 <!-- left sec -->
                 <div class="lt d-flex media-body">
@@ -241,11 +241,7 @@
                         Google Shopping
                     </a>
                 </div>
-
-
             </div>
         </div>
-
-
     </div>
 </div>

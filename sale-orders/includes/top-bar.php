@@ -29,10 +29,12 @@
 
                 <div class="dropdown-menu" aria-labelledby="dropdown-edit-column">
                     <!-- item -->    
-                    <label class="dropdown-item st-checkbox d-inline-flex cursor-pointer">
+                    <label class="dropdown-item st-checkbox d-inline-flex cursor-pointer table-column-toggler">
                         <input
                             type="checkbox"
                             class="d-none"
+                            value=""
+                            checked
                         />
                         <span class="box d-flex align-items-center justify-content-center border">
                             <i class="feather-check icon st-fs-15"></i>
@@ -41,10 +43,12 @@
                     </label>
 
                     <!-- item -->
-                    <label class="dropdown-item st-checkbox d-inline-flex cursor-pointer">
+                    <label class="dropdown-item st-checkbox d-inline-flex cursor-pointer table-column-toggler">
                         <input
                             type="checkbox"
                             class="d-none"
+                            value=""
+                            checked
                         />
                         <span class="box d-flex align-items-center justify-content-center border">
                             <i class="feather-check icon st-fs-15"></i>
@@ -53,10 +57,12 @@
                     </label>
 
                     <!-- item -->
-                    <label class="dropdown-item st-checkbox d-inline-flex cursor-pointer">
+                    <label class="dropdown-item st-checkbox d-inline-flex cursor-pointer table-column-toggler">
                         <input
                             type="checkbox"
                             class="d-none"
+                            value=""
+                            checked
                         />
                         <span class="box d-flex align-items-center justify-content-center border">
                             <i class="feather-check icon st-fs-15"></i>
@@ -65,10 +71,12 @@
                     </label>
 
                     <!-- item -->
-                    <label class="dropdown-item st-checkbox d-inline-flex cursor-pointer">
+                    <label class="dropdown-item st-checkbox d-inline-flex cursor-pointer table-column-toggler">
                         <input
                             type="checkbox"
                             class="d-none"
+                            value=""
+                            checked
                         />
                         <span class="box d-flex align-items-center justify-content-center border">
                             <i class="feather-check icon st-fs-15"></i>
@@ -77,10 +85,12 @@
                     </label>
 
                     <!-- item -->
-                    <label class="dropdown-item st-checkbox d-inline-flex cursor-pointer">
+                    <label class="dropdown-item st-checkbox d-inline-flex cursor-pointer table-column-toggler">
                         <input
                             type="checkbox"
                             class="d-none"
+                            value=""
+                            checked
                         />
                         <span class="box d-flex align-items-center justify-content-center border">
                             <i class="feather-check icon st-fs-15"></i>
@@ -89,10 +99,12 @@
                     </label>
 
                     <!-- item -->
-                    <label class="dropdown-item st-checkbox d-inline-flex cursor-pointer">
+                    <label class="dropdown-item st-checkbox d-inline-flex cursor-pointer table-column-toggler">
                         <input
                             type="checkbox"
                             class="d-none"
+                            value=""
+                            checked
                         />
                         <span class="box d-flex align-items-center justify-content-center border">
                             <i class="feather-check icon st-fs-15"></i>
@@ -101,10 +113,12 @@
                     </label>
 
                     <!-- item -->
-                    <label class="dropdown-item st-checkbox d-inline-flex cursor-pointer">
+                    <label class="dropdown-item st-checkbox d-inline-flex cursor-pointer table-column-toggler">
                         <input
                             type="checkbox"
                             class="d-none"
+                            value=""
+                            checked
                         />
                         <span class="box d-flex align-items-center justify-content-center border">
                             <i class="feather-check icon st-fs-15"></i>
@@ -113,10 +127,12 @@
                     </label>
 
                     <!-- item -->
-                    <label class="dropdown-item st-checkbox d-inline-flex cursor-pointer">
+                    <label class="dropdown-item st-checkbox d-inline-flex cursor-pointer table-column-toggler">
                         <input
                             type="checkbox"
                             class="d-none"
+                            value=""
+                            checked
                         />
                         <span class="box d-flex align-items-center justify-content-center border">
                             <i class="feather-check icon st-fs-15"></i>
@@ -125,10 +141,12 @@
                     </label>
 
                     <!-- item -->
-                    <label class="dropdown-item st-checkbox d-inline-flex cursor-pointer">
+                    <label class="dropdown-item st-checkbox d-inline-flex cursor-pointer table-column-toggler">
                         <input
                             type="checkbox"
                             class="d-none"
+                            value=""
+                            checked
                         />
                         <span class="box d-flex align-items-center justify-content-center border">
                             <i class="feather-check icon st-fs-15"></i>
@@ -137,10 +155,12 @@
                     </label>
 
                     <!-- item -->
-                    <label class="dropdown-item st-checkbox d-inline-flex cursor-pointer">
+                    <label class="dropdown-item st-checkbox d-inline-flex cursor-pointer table-column-toggler">
                         <input
                             type="checkbox"
                             class="d-none"
+                            value=""
+                            checked
                         />
                         <span class="box d-flex align-items-center justify-content-center border">
                             <i class="feather-check icon st-fs-15"></i>

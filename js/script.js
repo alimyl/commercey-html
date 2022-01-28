@@ -14,7 +14,7 @@ $(function () {
 
     // left menu links expand
     (function () {
-        $('.alm_nav-item > .alm_nav-link').on("click", function (ev) {
+        $('.alm_nav-item.has-sub-menu > .alm_nav-link').on("click", function (ev) {
             ev.preventDefault()
             const topOffset = $(this).offset().top
             if (!$(this).hasClass("active")) { // if element is active
@@ -36,6 +36,26 @@ $(function () {
             $("> .icon", this).toggleClass("feather-plus feather-minus") // toggle menu
             parentElem.toggleClass("expanded") // toggle active class to parent
             parentElem.find(">.multilevel-container").slideToggle(300) // toggle the multilevel menu
+        })
+    })();
+
+    // PAGE - COUPONS
+    (function () {
+        // datepicker
+        $("#coupons-date-picker").datepicker()
+        // select 2
+        $('.coupons-category-select').select2();
+
+        $(".coupons-discount-type #discountType").on("change", function () {
+            const val = $(this).val()
+            
+            if (val === "percent") {
+                $(".coupons-discount-type-percent").removeClass("d-none").addClass("d-flex")
+                $(".coupons-discount-type-value").removeClass("d-flex").addClass("d-none")
+            } else {
+                $(".coupons-discount-type-percent").removeClass("d-flex").addClass("d-none")
+                $(".coupons-discount-type-value").removeClass("d-none").addClass("d-flex")
+            }
         })
     })();
 
@@ -79,9 +99,34 @@ $(function () {
     })();
     // COMMON: INITIALIZE QUILL EDITOR
     (function () {
-        new Quill('#app-editor', {        
-            theme: 'snow',
-        });
+        const elem = document.getElementById("app-editor")
+        if (elem) {
+            new Quill('#app-editor', {
+                theme: 'snow',
+            });
+        }
+    })();
+    // COMMON: TABLE COLUMN TOGGLER
+    (function () {
+        $(".table-column-toggler:not(.toggle-all) input").on("change", function () {
+            const thisVal = $(this).val()
+            if (thisVal) { // if value exists
+                if ($(this).is(":checked")) {
+                    $("th[data-st-table-for=" + thisVal + "], td[data-st-table-for=" + thisVal + "]").show() // showing
+                } else {
+                    $("th[data-st-table-for=" + thisVal + "], td[data-st-table-for=" + thisVal + "]").hide() // hiding
+                }
+            }
+        })
+    })();
+    // COMMON: inputs with length
+    (function () {
+        $(".input-container-with-text-length > input, .input-container-with-text-length > textarea").on("keyup", function () {
+            const thisVal = $(this).val()
+
+            console.log("thisVal ", thisVal);
+
+        })
     })();
 
     // PAGE - SALES ORDER: add note
@@ -161,6 +206,7 @@ $(function () {
             ev.preventDefault()
 
             const moveTo = $(this).attr("href")
+            console.log("moveTo ", moveTo);
             if (moveTo) {
                 $('.app-products__create-details .st-tabs-links .stl-link[href="' + moveTo + '"]').addClass("active").siblings().removeClass("active") // active
                 $('.main-content[data-id="' + moveTo + '"]').show().siblings().hide() // visibility
@@ -216,7 +262,7 @@ $(function () {
         $('.variation-options-view .content-item:first-child, .variation-options-view .vov-links-container > a:first-child').addClass("active")
 
         // change on click
-        $('.variation-options-view .vov-links-container > a').on("click", function (ev) {
+        $(document).on("click", '.variation-options-view .vov-links-container > a', function (ev) {
             ev.preventDefault()
             const dataId = $(this).attr('data-id')
 
@@ -225,6 +271,1569 @@ $(function () {
             // adding active class
             $(this).addClass('active')
             $('.variation-options-view .content-item[data-id=' + dataId + ']').addClass("active")
+        })
+    })();
+    // PAGE - Products | variations
+    (function () {
+        function sortableLevel1() {
+            $(".variations-sortable-l1").sortable({
+                handle: "> .frac-inner > .move-icon",
+            });
+        }
+        function sortableLevel2() {
+            $(".variations-sortable-l2").sortable({
+                handle: "> .move-icon",
+            });
+        }
+        sortableLevel1() // initialize sortable level 1
+        sortableLevel2() // initialize sortable level 2
+
+        // new name field
+        var new_nameField = '<div class="st-form mb-2">'
+        new_nameField += '<label class="mb-1">Name'
+        new_nameField += '<span class="required">*</span>'
+        new_nameField += '</label>'
+        new_nameField += '<input placeholder="Name" type="text" class="form-control" value="">'
+        new_nameField += '</div>'
+
+        // new select box field
+        var new_selectboxField = '<div class="st-form mb-2">'
+        new_selectboxField += '<label class="mb-1">Option'
+        new_selectboxField += '<span class="required">*</span>'
+        new_selectboxField += '</label>'
+        new_selectboxField += '<select class="form-control">'
+        new_selectboxField += '<option disabled="">Select Type</option>'
+        new_selectboxField += '<option value="radio_buttons">Radio Buttons</option>'
+        new_selectboxField += '<option value="rectangle_list" selected="">Rectangle List</option>'
+        new_selectboxField += '<option value="dropdown">Dropdown</option>'
+        new_selectboxField += '</select>'
+        new_selectboxField += '</div>'
+
+        // new value field
+        var new_valueField = '<div class="form-item media-body">'
+        new_valueField += '<div class="st-form mb-2">'
+        new_valueField += '<label class="mb-1">Value'
+        new_valueField += '<span class="required">*</span>'
+        new_valueField += '</label>'
+        new_valueField += '<input placeholder="Name" type="text" class="form-control" value="">'
+        new_valueField += '</div>'
+        new_valueField += '<div class="delete-frac-item mb-2">'
+        new_valueField += '<a href="/" class="st-text-danger st-fw-600 text-decoration-none text-danger d-flex align-items-center delete-option-value">'
+        new_valueField += '<i class="feather-trash-2 icon me-1"></i>'
+        new_valueField += '<span>Delete Value</span>'
+        new_valueField += '</a>'
+        new_valueField += '</div>'
+        new_valueField += '</div>'
+
+        // get new option value
+        function getNewOptionValueField(nameForIsDefault) {
+            if (nameForIsDefault) {
+                // value html
+                var new_VALUE_HTML = '<div class="form-item-outer d-flex flex-wrap">'
+                new_VALUE_HTML += '<div class="move-icon">'
+                new_VALUE_HTML += '<i class="feather-move icon st-fs-20"></i>'
+                new_VALUE_HTML += '</div>'
+                new_VALUE_HTML += '<div class="form-item media-body">'
+                new_VALUE_HTML += new_valueField
+                new_VALUE_HTML += '</div>'
+                new_VALUE_HTML += '<div class="select-default ps-2">'
+                new_VALUE_HTML += '<label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer">'
+                new_VALUE_HTML += '<input type="radio" class="d-none" name="' + nameForIsDefault + '">'
+                new_VALUE_HTML += '<span class="box d-flex align-items-center justify-content-center border">'
+                new_VALUE_HTML += '<i class="feather-check icon position-relative"></i>'
+                new_VALUE_HTML += '</span>'
+                new_VALUE_HTML += '<span class="text text-capitalize st-fs-15 ms-2">default</span>'
+                new_VALUE_HTML += '</label>'
+                new_VALUE_HTML += '</div>'
+                new_VALUE_HTML += '</div>'
+
+                return new_VALUE_HTML
+            }
+        }
+
+        // get new option
+        function getNewOptionFields(nameForIsDefault) {
+            if (nameForIsDefault) {
+                var new_FIELD_HTML = '<div class="frac">'
+                new_FIELD_HTML += '<div class="frac-inner d-flex">'
+                new_FIELD_HTML += '<div class="move-icon">'
+                new_FIELD_HTML += '<i class="feather-move icon st-fs-20"></i>'
+                new_FIELD_HTML += '</div>'
+                new_FIELD_HTML += '<div class="d-flex flex-wrap media-body">'
+                new_FIELD_HTML += '<div class="form-item item-name">'
+                new_FIELD_HTML += new_nameField
+                new_FIELD_HTML += '<div class="delete-frac-item">'
+                new_FIELD_HTML += '<a href="/" class="st-text-danger st-fw-600 text-decoration-none text-danger d-flex align-items-center delete-option">'
+                new_FIELD_HTML += '<i class="feather-trash-2 st-fs-13 icon me-1"></i>'
+                new_FIELD_HTML += '<span>Delete Option</span>'
+                new_FIELD_HTML += '</a>'
+                new_FIELD_HTML += '</div>'
+                new_FIELD_HTML += '</div>'
+                new_FIELD_HTML += '<div class="form-item item-type">'
+                new_FIELD_HTML += new_selectboxField
+                new_FIELD_HTML += '</div>'
+                new_FIELD_HTML += '<div class="form-item item-values d-flex flex-wrap">'
+                new_FIELD_HTML += '<div class="all-form-fields media-body variations-sortable-l2">'
+                new_FIELD_HTML += getNewOptionValueField(nameForIsDefault)
+                new_FIELD_HTML += '</div>'
+                new_FIELD_HTML += '<div class="add-field w-100 mt-2">'
+                new_FIELD_HTML += '<p class="d-inline-flex align-items-center st-text-primary cursor-pointer add-new-option-value">'
+                new_FIELD_HTML += '<i class="feather-plus icon me-1"></i>'
+                new_FIELD_HTML += '<span>Add another field</span>'
+                new_FIELD_HTML += '</p>'
+                new_FIELD_HTML += '</div>'
+                new_FIELD_HTML += '</div>'
+                new_FIELD_HTML += '</div>'
+                new_FIELD_HTML += '</div>'
+                new_FIELD_HTML += '</div>'
+
+                return new_FIELD_HTML
+            }
+        }
+
+        // add new option
+        $(document).on("click", "#add-product-variant-view .add-new-option", function (ev) {
+            ev.preventDefault()
+
+            const fracLength = $("#add-product-variant-view .content-inner > .frac").length
+            const idVal = "is_default_" + (fracLength + 1)
+            console.log("idVal ", idVal);
+
+            $("#add-product-variant-view .content-inner > .frac:last-child").after(getNewOptionFields(idVal)) // adding new field
+
+            sortableLevel2() // initialize sortable level 2 again
+        });
+        // delete option
+        $(document).on("click", "#add-product-variant-view .delete-option", function (ev) {
+            ev.preventDefault()
+
+            $(this).closest(".frac").remove()
+        });
+
+        // add new option value
+        $(document).on("click", "#add-product-variant-view .add-new-option-value", function (ev) {
+            ev.preventDefault()
+
+            const id = $(this).closest(".form-item").find(">.all-form-fields .form-item-outer:first-child .select-default input").attr("name")
+
+            $(this).closest(".form-item").find(".all-form-fields").append(getNewOptionValueField(id)) // adding new field value
+        });
+        // delete option value
+        $(document).on("click", "#add-product-variant-view .delete-option-value", function (ev) {
+            ev.preventDefault()
+
+            $(this).closest(".form-item-outer").remove()
+        });
+
+        // on values change in the option name field
+        $(document).on("keyup", "#add-product-variant-view .form-item.item-name .st-form > input", function () {
+            const val = $(this).val()
+            if (val) {
+                $(this).removeClass("error")
+            } else {
+                $(this).addClass("error")
+            }
+        })
+        // on blur of the option name field
+        $(document).on("blur", "#add-product-variant-view .form-item.item-name .st-form > input", function () {
+            const val = $(this).val()
+            if (!val) {
+                $(this).addClass("error")
+            }
+        })
+
+        // on values change in the option value field
+        $(document).on("keyup", "#add-product-variant-view .all-form-fields .st-form > input", function () {
+            const val = $(this).val()
+            if (val) {
+                $(this).removeClass("error")
+            } else {
+                $(this).addClass("error")
+            }
+        })
+        // on blur of the option value field
+        $(document).on("blur", "#add-product-variant-view .all-form-fields .st-form > input", function () {
+            const val = $(this).val()
+            if (!val) {
+                $(this).addClass("error")
+            }
+        })
+
+        // save option details
+        $(document).on("click", ".save-options-details", function (ev) {
+            ev.preventDefault()
+
+            // checking for errors in the option name field
+            $("#add-product-variant-view .form-item.item-name .st-form > input").each(function (index, item) {
+                const itemNameVal = $(item).val()
+                if (itemNameVal) { // if all the name values exist
+                    $(this).removeClass("error")
+                } else {
+                    $(this).addClass("error")
+                }
+            })
+
+            // checking for errors in the option values fields
+            $("#add-product-variant-view .all-form-fields .st-form > input").each(function (index, item) {
+                const itemNameVal = $(item).val()
+                if (itemNameVal) { // if all the name values exist
+                    $(this).removeClass("error")
+                } else {
+                    $(this).addClass("error")
+                }
+            })
+
+
+            const nameElems = $("#add-product-variant-view .item-name > .st-form input")
+            const typeElems = $("#add-product-variant-view .item-type > .st-form select")
+            const nameElemsVals = []
+            const typeElemsVals = []
+
+            // getting name values
+            nameElems.each(function (index, elem) {
+                nameElemsVals.push($(elem).val())
+            })
+
+            // getting type values
+            typeElems.each(function (index, elem) {
+                typeElemsVals.push($(elem).val())
+            })
+
+            const allVariationsData = []
+            // getting type values
+            $("#add-product-variant-view .content-inner > .frac").each(function (index, elem) {
+                const nameElems = $(elem).find(".item-name > .st-form input")
+                const typeElems = $(elem).find(".item-type > .st-form select")
+                const valuesElems = $(elem).find(".all-form-fields .form-item-outer")
+
+                const allOptions = []
+                valuesElems.each(function (index, elem) {
+                    allOptions.push({
+                        is_default: $(elem).find(".select-default input").is(":checked"),
+                        option_variation_name: nameElems.val(),
+                        value: $(elem).find(".st-form > input").val()
+                    })
+                })
+
+                const mainData = {
+                    display_type: typeElems.val(),
+                    options: allOptions,
+                    variations_name: nameElems.val()
+                }
+                allVariationsData.push(mainData)
+            })
+            console.log("allVariationsData ", allVariationsData);
+        });
+
+        // getting variation page options data
+        (function () {
+            const variationsAvailable = [
+                {
+                    "display_type": "rectangle_list",
+                    "options": [
+                        {
+                            "is_default": true,
+                            "option_variation_name": "Color",
+                            "value": "Red"
+                        },
+                        {
+                            "is_default": false,
+                            "option_variation_name": "Color",
+                            "value": "Green"
+                        },
+                        {
+                            "is_default": false,
+                            "option_variation_name": "Color",
+                            "value": "Blue"
+                        },
+                        {
+                            "is_default": false,
+                            "option_variation_name": "Color",
+                            "value": "Purple"
+                        }
+                    ],
+                    "variations_name": "Color"
+                },
+                {
+                    "display_type": "rectangle_list",
+                    "options": [
+                        {
+                            "is_default": false,
+                            "option_variation_name": "Size",
+                            "value": "LG"
+                        },
+                        {
+                            "is_default": false,
+                            "option_variation_name": "Size",
+                            "value": "MD"
+                        },
+                        {
+                            "is_default": true,
+                            "option_variation_name": "Size",
+                            "value": "SM"
+                        },
+                        {
+                            "is_default": false,
+                            "option_variation_name": "Size",
+                            "value": "XS"
+                        }
+                    ],
+                    "variations_name": "Size"
+                },
+                {
+                    "display_type": "rectangle_list",
+                    "options": [
+                        {
+                            "is_default": false,
+                            "option_variation_name": "Is Available",
+                            "value": "Yes"
+                        },
+                        {
+                            "is_default": true,
+                            "option_variation_name": "Is Available",
+                            "value": "No"
+                        },
+                        {
+                            "is_default": false,
+                            "option_variation_name": "Is Available",
+                            "value": "Will Be"
+                        }
+                    ],
+                    "variations_name": "Is Available"
+                }
+            ]
+
+            function generateHTMLForOptions() {
+                // option link
+                function getOptionLink(dataId, text) {
+                    if (dataId && text) {
+                        var elem = '<a href="/" class="vov-link d-block" data-id="' + dataId + '">' + text + '</a>'
+                        return elem
+                    }
+                }
+                // options data
+                function getOptionData(name, value) {
+                    if (name && value) {
+                        var elem = '<div class="frac">'
+                        elem += '<p class="head st-fs-12 st-fw-600 st-text-color2 mb-1">' + name + '</p>'
+                        elem += '<p class="desc">' + value + '</p>'
+                        elem += '</div>'
+                        return elem
+                    }
+                }
+
+                // GENERATING HTML
+                var optionsMainData = []
+                for (var i = 0; i < variationsAvailable.length; i++) {
+                    const varItem = variationsAvailable[i];
+                    var varItemOptions = variationsAvailable[i].options
+                    var varItemOptionsValues = ""
+
+                    // setting options values
+                    varItemOptionsValues += '<div class="frac">'
+                    varItemOptionsValues += '<p class="head st-fs-12 st-fw-600 st-text-color2 mb-1">Option Values</p>'
+                    for (var j = 0; j < varItemOptions.length; j++) {
+                        const varOptionItem = varItemOptions[j];
+                        varItemOptionsValues += '<p class="desc">' + varOptionItem.value + '</p>'
+                    }
+                    varItemOptionsValues += '</div>'
+
+                    // setting overall values
+                    optionsMainData.push({
+                        links: getOptionLink(("item-" + i), varItem.variations_name),
+                        name: getOptionData("Option Name", varItem.variations_name),
+                        type: getOptionData("Option Type", varItem.display_type),
+                        options: varItemOptionsValues
+                    })
+                }
+                // generating main options html
+                var linksHTML = ""
+                var contentHTML = ""
+                for (let i = 0; i < optionsMainData.length; i++) {
+                    const dataItem = optionsMainData[i];
+
+                    var ctHTML = '<div class="content-item" data-id="item-' + i + '">'
+                    ctHTML += '<div class="inner d-flex flex-wrap">'
+                    ctHTML += (dataItem.name + dataItem.type + dataItem.options)
+                    ctHTML += '</div>'
+                    ctHTML += '</div>'
+
+                    contentHTML += ctHTML
+                    linksHTML += dataItem.links
+                }
+
+                // setting content html
+                $(".variation-options-view .vov-links-container").html(linksHTML)
+                $(".variation-options-view .content-sec").html(contentHTML)
+
+                // making the first element active for link and content item
+                $('.variation-options-view .content-item:first-child, .variation-options-view .vov-links-container > a:first-child').addClass("active")
+            }
+            generateHTMLForOptions()
+
+            const combinationsData = [
+                {
+                    "product_variation_id": 1818,
+                    "product_id": 403074203,
+                    "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1535,\"value\":\"Shiny Teal\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1542,\"value\":\"4\\\"\",\"is_default\":\"\"}]",
+                    "price_multiplier": 0,
+                    "cost_price": 0,
+                    "price": 24.99,
+                    "stock": 0,
+                    "is_default": 0,
+                    "sku": "HK 402 - 4\" Shiny Teal",
+                    "weight": "0.3",
+                    "dimensions": null,
+                    "upc": null,
+                    "description": null,
+                    "status": 1,
+                    "variation_image": "403074203-freezable-downstem-hk-402-4-shiny-teal101811174881.jpg",
+                    "variant": "Color: Shiny Teal,Size: 4\"",
+                    "material": null,
+                    "length": "",
+                    "width": "",
+                    "height": "",
+                    "is_deleted": 0,
+                    "ids": "1535-1542",
+                    "display_cost_price": "$0.00",
+                    "display_price": "$24.99"
+                },
+                {
+                    "product_variation_id": 1819,
+                    "product_id": 403074203,
+                    "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1539,\"value\":\"Shiny Purple\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1542,\"value\":\"4\\\"\",\"is_default\":\"\"}]",
+                    "price_multiplier": 0,
+                    "cost_price": 0,
+                    "price": 24.99,
+                    "stock": 0,
+                    "is_default": 0,
+                    "sku": "HK 402 - 4\" Shiny Purple",
+                    "weight": "0.3",
+                    "dimensions": null,
+                    "upc": null,
+                    "description": null,
+                    "status": 1,
+                    "variation_image": "403074203-freezable-downstem-hk-402-4-shiny-purple390399485527.jpg",
+                    "variant": "Color: Shiny Purple,Size: 4\"",
+                    "material": null,
+                    "length": "",
+                    "width": "",
+                    "height": "",
+                    "is_deleted": 0,
+                    "ids": "1539-1542",
+                    "display_cost_price": "$0.00",
+                    "display_price": "$24.99"
+                },
+                {
+                    "product_variation_id": 1820,
+                    "product_id": 403074203,
+                    "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1536,\"value\":\"UV Orange\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1542,\"value\":\"4\\\"\",\"is_default\":\"\"}]",
+                    "price_multiplier": 0,
+                    "cost_price": 0,
+                    "price": 24.99,
+                    "stock": 0,
+                    "is_default": 0,
+                    "sku": "HK 402 - 4\" UV Orange",
+                    "weight": "0.3",
+                    "dimensions": null,
+                    "upc": null,
+                    "description": null,
+                    "status": 1,
+                    "variation_image": "403074203-freezable-downstem-hk-402-4-uv-orange459646724243.jpg",
+                    "variant": "Color: UV Orange,Size: 4\"",
+                    "material": null,
+                    "length": "",
+                    "width": "",
+                    "height": "",
+                    "is_deleted": 0,
+                    "ids": "1536-1542",
+                    "display_cost_price": "$0.00",
+                    "display_price": "$24.99"
+                },
+                {
+                    "product_variation_id": 1821,
+                    "product_id": 403074203,
+                    "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1539,\"value\":\"Shiny Purple\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1541,\"value\":\"3.5\\\"\",\"is_default\":\"\"}]",
+                    "price_multiplier": 0,
+                    "cost_price": 0,
+                    "price": 24.99,
+                    "stock": 0,
+                    "is_default": 0,
+                    "sku": "HK 402 - 3.5\" Shiny Purple",
+                    "weight": "0.3",
+                    "dimensions": null,
+                    "upc": null,
+                    "description": null,
+                    "status": 1,
+                    "variation_image": "403074203-freezable-downstem-hk-402-3-5-shiny-purple387184618071.jpg",
+                    "variant": "Color: Shiny Purple,Size: 3.5\"",
+                    "material": null,
+                    "length": "",
+                    "width": "",
+                    "height": "",
+                    "is_deleted": 0,
+                    "ids": "1539-1541",
+                    "display_cost_price": "$0.00",
+                    "display_price": "$24.99"
+                },
+                {
+                    "product_variation_id": 1822,
+                    "product_id": 403074203,
+                    "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1534,\"value\":\"UV Slime\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1542,\"value\":\"4\\\"\",\"is_default\":\"\"}]",
+                    "price_multiplier": 0,
+                    "cost_price": 0,
+                    "price": 24.99,
+                    "stock": 5,
+                    "is_default": 0,
+                    "sku": "HK 402 - 4\" UV Slime",
+                    "weight": "0.3",
+                    "dimensions": null,
+                    "upc": null,
+                    "description": null,
+                    "status": 1,
+                    "variation_image": "403074203-freezable-downstem-hk-402-4-uv-slime624501460436.jpg",
+                    "variant": "Color: UV Slime,Size: 4\"",
+                    "material": null,
+                    "length": "",
+                    "width": "",
+                    "height": "",
+                    "is_deleted": 0,
+                    "ids": "1534-1542",
+                    "display_cost_price": "$0.00",
+                    "display_price": "$24.99"
+                },
+                {
+                    "product_variation_id": 1823,
+                    "product_id": 403074203,
+                    "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1533,\"value\":\"Green\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1542,\"value\":\"4\\\"\",\"is_default\":\"\"}]",
+                    "price_multiplier": 0,
+                    "cost_price": 0,
+                    "price": 24.99,
+                    "stock": 4,
+                    "is_default": 0,
+                    "sku": "HK 402 - 4\" Green",
+                    "weight": "0.3",
+                    "dimensions": null,
+                    "upc": null,
+                    "description": null,
+                    "status": 1,
+                    "variation_image": "403074203-freezable-downstem-hk-402-4-green669009482538.jpg",
+                    "variant": "Color: Green,Size: 4\"",
+                    "material": null,
+                    "length": "",
+                    "width": "",
+                    "height": "",
+                    "is_deleted": 0,
+                    "ids": "1533-1542",
+                    "display_cost_price": "$0.00",
+                    "display_price": "$24.99"
+                },
+                {
+                    "product_variation_id": 1824,
+                    "product_id": 403074203,
+                    "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1535,\"value\":\"Shiny Teal\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1541,\"value\":\"3.5\\\"\",\"is_default\":\"\"}]",
+                    "price_multiplier": 0,
+                    "cost_price": 0,
+                    "price": 24.99,
+                    "stock": 5,
+                    "is_default": 0,
+                    "sku": "HK 402 - 3.5\" Shiny Teal",
+                    "weight": "0.3",
+                    "dimensions": null,
+                    "upc": null,
+                    "description": null,
+                    "status": 1,
+                    "variation_image": "403074203-freezable-downstem-hk-402-3-5-shiny-teal312317264859.jpg",
+                    "variant": "Color: Shiny Teal,Size: 3.5\"",
+                    "material": null,
+                    "length": "",
+                    "width": "",
+                    "height": "",
+                    "is_deleted": 0,
+                    "ids": "1535-1541",
+                    "display_cost_price": "$0.00",
+                    "display_price": "$24.99"
+                },
+                {
+                    "product_variation_id": 1825,
+                    "product_id": 403074203,
+                    "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1534,\"value\":\"UV Slime\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1541,\"value\":\"3.5\\\"\",\"is_default\":\"\"}]",
+                    "price_multiplier": 0,
+                    "cost_price": 0,
+                    "price": 24.99,
+                    "stock": 5,
+                    "is_default": 0,
+                    "sku": "HK 402 - 3.5\" UV Slime",
+                    "weight": "0.3",
+                    "dimensions": null,
+                    "upc": null,
+                    "description": null,
+                    "status": 1,
+                    "variation_image": "403074203-freezable-downstem-hk-402-3-5-uv-slime182151470702.jpg",
+                    "variant": "Color: UV Slime,Size: 3.5\"",
+                    "material": null,
+                    "length": "",
+                    "width": "",
+                    "height": "",
+                    "is_deleted": 0,
+                    "ids": "1534-1541",
+                    "display_cost_price": "$0.00",
+                    "display_price": "$24.99"
+                },
+                {
+                    "product_variation_id": 1826,
+                    "product_id": 403074203,
+                    "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1536,\"value\":\"UV Orange\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1541,\"value\":\"3.5\\\"\",\"is_default\":\"\"}]",
+                    "price_multiplier": 0,
+                    "cost_price": 0,
+                    "price": 24.99,
+                    "stock": 5,
+                    "is_default": 0,
+                    "sku": "HK 402 - 3.5\" UV Orange",
+                    "weight": "0.3",
+                    "dimensions": null,
+                    "upc": null,
+                    "description": null,
+                    "status": 1,
+                    "variation_image": "403074203-freezable-downstem-hk-402-3-5-uv-orange178804326029.jpg",
+                    "variant": "Color: UV Orange,Size: 3.5\"",
+                    "material": null,
+                    "length": "",
+                    "width": "",
+                    "height": "",
+                    "is_deleted": 0,
+                    "ids": "1536-1541",
+                    "display_cost_price": "$0.00",
+                    "display_price": "$24.99"
+                },
+                {
+                    "product_variation_id": 1827,
+                    "product_id": 403074203,
+                    "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1533,\"value\":\"Green\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1541,\"value\":\"3.5\\\"\",\"is_default\":\"\"}]",
+                    "price_multiplier": 0,
+                    "cost_price": 0,
+                    "price": 24.99,
+                    "stock": 5,
+                    "is_default": 0,
+                    "sku": "HK 402 - 3.5\" Green",
+                    "weight": "0.3",
+                    "dimensions": null,
+                    "upc": null,
+                    "description": null,
+                    "status": 1,
+                    "variation_image": "403074203-freezable-downstem-hk-402-3-5-green549183977587.jpg",
+                    "variant": "Color: Green,Size: 3.5\"",
+                    "material": null,
+                    "length": "",
+                    "width": "",
+                    "height": "",
+                    "is_deleted": 0,
+                    "ids": "1533-1541",
+                    "display_cost_price": "$0.00",
+                    "display_price": "$24.99"
+                },
+                {
+                    "product_variation_id": 1828,
+                    "product_id": 403074203,
+                    "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1538,\"value\":\"Shiny Orange\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1541,\"value\":\"3.5\\\"\",\"is_default\":\"\"}]",
+                    "price_multiplier": 0,
+                    "cost_price": 0,
+                    "price": 24.99,
+                    "stock": 5,
+                    "is_default": 0,
+                    "sku": "HK 402 - 3.5\" Shiny Orange",
+                    "weight": "0.3",
+                    "dimensions": null,
+                    "upc": null,
+                    "description": null,
+                    "status": 1,
+                    "variation_image": "403074203-freezable-downstem-hk-402-3-5-shiny-orange256811506369.jpg",
+                    "variant": "Color: Shiny Orange,Size: 3.5\"",
+                    "material": null,
+                    "length": "",
+                    "width": "",
+                    "height": "",
+                    "is_deleted": 0,
+                    "ids": "1538-1541",
+                    "display_cost_price": "$0.00",
+                    "display_price": "$24.99"
+                },
+                {
+                    "product_variation_id": 1829,
+                    "product_id": 403074203,
+                    "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1538,\"value\":\"Shiny Orange\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1540,\"value\":\"3\\\"\",\"is_default\":\"\"}]",
+                    "price_multiplier": 0,
+                    "cost_price": 0,
+                    "price": 24.99,
+                    "stock": 5,
+                    "is_default": 0,
+                    "sku": "HK 402 - 3\" Shiny Orange",
+                    "weight": "0.3",
+                    "dimensions": null,
+                    "upc": null,
+                    "description": null,
+                    "status": 1,
+                    "variation_image": "403074203-freezable-downstem-hk-402-3-shiny-orange408438867663.jpg",
+                    "variant": "Color: Shiny Orange,Size: 3\"",
+                    "material": null,
+                    "length": "",
+                    "width": "",
+                    "height": "",
+                    "is_deleted": 0,
+                    "ids": "1538-1540",
+                    "display_cost_price": "$0.00",
+                    "display_price": "$24.99"
+                },
+                {
+                    "product_variation_id": 1830,
+                    "product_id": 403074203,
+                    "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1537,\"value\":\"Blue\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1540,\"value\":\"3\\\"\",\"is_default\":\"\"}]",
+                    "price_multiplier": 0,
+                    "cost_price": 0,
+                    "price": 24.99,
+                    "stock": 5,
+                    "is_default": 0,
+                    "sku": "HK 402 - 3\" Blue",
+                    "weight": "0.3",
+                    "dimensions": null,
+                    "upc": null,
+                    "description": null,
+                    "status": 1,
+                    "variation_image": "403074203-freezable-downstem-hk-402-3-blue736056602369.jpg",
+                    "variant": "Color: Blue,Size: 3\"",
+                    "material": null,
+                    "length": "",
+                    "width": "",
+                    "height": "",
+                    "is_deleted": 0,
+                    "ids": "1537-1540",
+                    "display_cost_price": "$0.00",
+                    "display_price": "$24.99"
+                },
+                {
+                    "product_variation_id": 1831,
+                    "product_id": 403074203,
+                    "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1536,\"value\":\"UV Orange\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1540,\"value\":\"3\\\"\",\"is_default\":\"\"}]",
+                    "price_multiplier": 0,
+                    "cost_price": 0,
+                    "price": 24.99,
+                    "stock": 0,
+                    "is_default": 0,
+                    "sku": "HK 402 - 3\" UV Orange",
+                    "weight": "0.3",
+                    "dimensions": null,
+                    "upc": null,
+                    "description": null,
+                    "status": 1,
+                    "variation_image": null,
+                    "variant": "Color: UV Orange,Size: 3\"",
+                    "material": null,
+                    "length": "",
+                    "width": "",
+                    "height": "",
+                    "is_deleted": 0,
+                    "ids": "1536-1540",
+                    "display_cost_price": "$0.00",
+                    "display_price": "$24.99"
+                },
+                {
+                    "product_variation_id": 1832,
+                    "product_id": 403074203,
+                    "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1535,\"value\":\"Shiny Teal\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1540,\"value\":\"3\\\"\",\"is_default\":\"\"}]",
+                    "price_multiplier": 0,
+                    "cost_price": 0,
+                    "price": 24.99,
+                    "stock": 0,
+                    "is_default": 0,
+                    "sku": "HK 402 - 3\" Shiny Teal",
+                    "weight": "0.3",
+                    "dimensions": null,
+                    "upc": null,
+                    "description": null,
+                    "status": 1,
+                    "variation_image": "403074203-freezable-downstem-hk-402-3-shiny-teal785463218305.jpg",
+                    "variant": "Color: Shiny Teal,Size: 3\"",
+                    "material": null,
+                    "length": "",
+                    "width": "",
+                    "height": "",
+                    "is_deleted": 0,
+                    "ids": "1535-1540",
+                    "display_cost_price": "$0.00",
+                    "display_price": "$24.99"
+                },
+                {
+                    "product_variation_id": 1833,
+                    "product_id": 403074203,
+                    "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1534,\"value\":\"UV Slime\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1540,\"value\":\"3\\\"\",\"is_default\":\"\"}]",
+                    "price_multiplier": 0,
+                    "cost_price": 0,
+                    "price": 24.99,
+                    "stock": 5,
+                    "is_default": 0,
+                    "sku": "HK 402 - 3\" UV Slime",
+                    "weight": "0.3",
+                    "dimensions": null,
+                    "upc": null,
+                    "description": null,
+                    "status": 1,
+                    "variation_image": "403074203-freezable-downstem-hk-402-3-uv-slime403393556312.jpg",
+                    "variant": "Color: UV Slime,Size: 3\"",
+                    "material": null,
+                    "length": "",
+                    "width": "",
+                    "height": "",
+                    "is_deleted": 0,
+                    "ids": "1534-1540",
+                    "display_cost_price": "$0.00",
+                    "display_price": "$24.99"
+                },
+                {
+                    "product_variation_id": 1834,
+                    "product_id": 403074203,
+                    "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1533,\"value\":\"Green\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1540,\"value\":\"3\\\"\",\"is_default\":\"\"}]",
+                    "price_multiplier": 0,
+                    "cost_price": 0,
+                    "price": 24.99,
+                    "stock": 4,
+                    "is_default": 0,
+                    "sku": "HK 402 - 3\" Green",
+                    "weight": "0.3",
+                    "dimensions": null,
+                    "upc": null,
+                    "description": null,
+                    "status": 1,
+                    "variation_image": "403074203-freezable-downstem-hk-402-3-green510302202736.jpg",
+                    "variant": "Color: Green,Size: 3\"",
+                    "material": null,
+                    "length": "",
+                    "width": "",
+                    "height": "",
+                    "is_deleted": 0,
+                    "ids": "1533-1540",
+                    "display_cost_price": "$0.00",
+                    "display_price": "$24.99"
+                }
+            ]
+            function generateHTMLForCombinations() {
+                const combinationsData = [
+                    {
+                        "product_variation_id": 1818,
+                        "product_id": 403074203,
+                        "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1535,\"value\":\"Shiny Teal\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1542,\"value\":\"4\\\"\",\"is_default\":\"\"}]",
+                        "price_multiplier": 0,
+                        "cost_price": 0,
+                        "price": 24.99,
+                        "stock": 0,
+                        "is_default": 0,
+                        "sku": "HK 402 - 4\" Shiny Teal",
+                        "weight": "0.3",
+                        "dimensions": null,
+                        "upc": null,
+                        "description": null,
+                        "status": 1,
+                        "variation_image": "403074203-freezable-downstem-hk-402-4-shiny-teal101811174881.jpg",
+                        "variant": "Color: Shiny Teal,Size: 4\"",
+                        "material": null,
+                        "length": "",
+                        "width": "",
+                        "height": "",
+                        "is_deleted": 0,
+                        "ids": "1535-1542",
+                        "display_cost_price": "$0.00",
+                        "display_price": "$24.99"
+                    },
+                    {
+                        "product_variation_id": 1819,
+                        "product_id": 403074203,
+                        "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1539,\"value\":\"Shiny Purple\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1542,\"value\":\"4\\\"\",\"is_default\":\"\"}]",
+                        "price_multiplier": 0,
+                        "cost_price": 0,
+                        "price": 24.99,
+                        "stock": 0,
+                        "is_default": 0,
+                        "sku": "HK 402 - 4\" Shiny Purple",
+                        "weight": "0.3",
+                        "dimensions": null,
+                        "upc": null,
+                        "description": null,
+                        "status": 1,
+                        "variation_image": "403074203-freezable-downstem-hk-402-4-shiny-purple390399485527.jpg",
+                        "variant": "Color: Shiny Purple,Size: 4\"",
+                        "material": null,
+                        "length": "",
+                        "width": "",
+                        "height": "",
+                        "is_deleted": 0,
+                        "ids": "1539-1542",
+                        "display_cost_price": "$0.00",
+                        "display_price": "$24.99"
+                    },
+                    {
+                        "product_variation_id": 1820,
+                        "product_id": 403074203,
+                        "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1536,\"value\":\"UV Orange\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1542,\"value\":\"4\\\"\",\"is_default\":\"\"}]",
+                        "price_multiplier": 0,
+                        "cost_price": 0,
+                        "price": 24.99,
+                        "stock": 0,
+                        "is_default": 0,
+                        "sku": "HK 402 - 4\" UV Orange",
+                        "weight": "0.3",
+                        "dimensions": null,
+                        "upc": null,
+                        "description": null,
+                        "status": 1,
+                        "variation_image": "403074203-freezable-downstem-hk-402-4-uv-orange459646724243.jpg",
+                        "variant": "Color: UV Orange,Size: 4\"",
+                        "material": null,
+                        "length": "",
+                        "width": "",
+                        "height": "",
+                        "is_deleted": 0,
+                        "ids": "1536-1542",
+                        "display_cost_price": "$0.00",
+                        "display_price": "$24.99"
+                    },
+                    {
+                        "product_variation_id": 1821,
+                        "product_id": 403074203,
+                        "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1539,\"value\":\"Shiny Purple\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1541,\"value\":\"3.5\\\"\",\"is_default\":\"\"}]",
+                        "price_multiplier": 0,
+                        "cost_price": 0,
+                        "price": 24.99,
+                        "stock": 0,
+                        "is_default": 0,
+                        "sku": "HK 402 - 3.5\" Shiny Purple",
+                        "weight": "0.3",
+                        "dimensions": null,
+                        "upc": null,
+                        "description": null,
+                        "status": 1,
+                        "variation_image": "403074203-freezable-downstem-hk-402-3-5-shiny-purple387184618071.jpg",
+                        "variant": "Color: Shiny Purple,Size: 3.5\"",
+                        "material": null,
+                        "length": "",
+                        "width": "",
+                        "height": "",
+                        "is_deleted": 0,
+                        "ids": "1539-1541",
+                        "display_cost_price": "$0.00",
+                        "display_price": "$24.99"
+                    },
+                    {
+                        "product_variation_id": 1822,
+                        "product_id": 403074203,
+                        "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1534,\"value\":\"UV Slime\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1542,\"value\":\"4\\\"\",\"is_default\":\"\"}]",
+                        "price_multiplier": 0,
+                        "cost_price": 0,
+                        "price": 24.99,
+                        "stock": 5,
+                        "is_default": 0,
+                        "sku": "HK 402 - 4\" UV Slime",
+                        "weight": "0.3",
+                        "dimensions": null,
+                        "upc": null,
+                        "description": null,
+                        "status": 1,
+                        "variation_image": "403074203-freezable-downstem-hk-402-4-uv-slime624501460436.jpg",
+                        "variant": "Color: UV Slime,Size: 4\"",
+                        "material": null,
+                        "length": "",
+                        "width": "",
+                        "height": "",
+                        "is_deleted": 0,
+                        "ids": "1534-1542",
+                        "display_cost_price": "$0.00",
+                        "display_price": "$24.99"
+                    },
+                    {
+                        "product_variation_id": 1823,
+                        "product_id": 403074203,
+                        "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1533,\"value\":\"Green\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1542,\"value\":\"4\\\"\",\"is_default\":\"\"}]",
+                        "price_multiplier": 0,
+                        "cost_price": 0,
+                        "price": 24.99,
+                        "stock": 4,
+                        "is_default": 0,
+                        "sku": "HK 402 - 4\" Green",
+                        "weight": "0.3",
+                        "dimensions": null,
+                        "upc": null,
+                        "description": null,
+                        "status": 1,
+                        "variation_image": "403074203-freezable-downstem-hk-402-4-green669009482538.jpg",
+                        "variant": "Color: Green,Size: 4\"",
+                        "material": null,
+                        "length": "",
+                        "width": "",
+                        "height": "",
+                        "is_deleted": 0,
+                        "ids": "1533-1542",
+                        "display_cost_price": "$0.00",
+                        "display_price": "$24.99"
+                    },
+                    {
+                        "product_variation_id": 1824,
+                        "product_id": 403074203,
+                        "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1535,\"value\":\"Shiny Teal\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1541,\"value\":\"3.5\\\"\",\"is_default\":\"\"}]",
+                        "price_multiplier": 0,
+                        "cost_price": 0,
+                        "price": 24.99,
+                        "stock": 5,
+                        "is_default": 0,
+                        "sku": "HK 402 - 3.5\" Shiny Teal",
+                        "weight": "0.3",
+                        "dimensions": null,
+                        "upc": null,
+                        "description": null,
+                        "status": 1,
+                        "variation_image": "403074203-freezable-downstem-hk-402-3-5-shiny-teal312317264859.jpg",
+                        "variant": "Color: Shiny Teal,Size: 3.5\"",
+                        "material": null,
+                        "length": "",
+                        "width": "",
+                        "height": "",
+                        "is_deleted": 0,
+                        "ids": "1535-1541",
+                        "display_cost_price": "$0.00",
+                        "display_price": "$24.99"
+                    },
+                    {
+                        "product_variation_id": 1825,
+                        "product_id": 403074203,
+                        "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1534,\"value\":\"UV Slime\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1541,\"value\":\"3.5\\\"\",\"is_default\":\"\"}]",
+                        "price_multiplier": 0,
+                        "cost_price": 0,
+                        "price": 24.99,
+                        "stock": 5,
+                        "is_default": 0,
+                        "sku": "HK 402 - 3.5\" UV Slime",
+                        "weight": "0.3",
+                        "dimensions": null,
+                        "upc": null,
+                        "description": null,
+                        "status": 1,
+                        "variation_image": "403074203-freezable-downstem-hk-402-3-5-uv-slime182151470702.jpg",
+                        "variant": "Color: UV Slime,Size: 3.5\"",
+                        "material": null,
+                        "length": "",
+                        "width": "",
+                        "height": "",
+                        "is_deleted": 0,
+                        "ids": "1534-1541",
+                        "display_cost_price": "$0.00",
+                        "display_price": "$24.99"
+                    },
+                    {
+                        "product_variation_id": 1826,
+                        "product_id": 403074203,
+                        "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1536,\"value\":\"UV Orange\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1541,\"value\":\"3.5\\\"\",\"is_default\":\"\"}]",
+                        "price_multiplier": 0,
+                        "cost_price": 0,
+                        "price": 24.99,
+                        "stock": 5,
+                        "is_default": 0,
+                        "sku": "HK 402 - 3.5\" UV Orange",
+                        "weight": "0.3",
+                        "dimensions": null,
+                        "upc": null,
+                        "description": null,
+                        "status": 1,
+                        "variation_image": "403074203-freezable-downstem-hk-402-3-5-uv-orange178804326029.jpg",
+                        "variant": "Color: UV Orange,Size: 3.5\"",
+                        "material": null,
+                        "length": "",
+                        "width": "",
+                        "height": "",
+                        "is_deleted": 0,
+                        "ids": "1536-1541",
+                        "display_cost_price": "$0.00",
+                        "display_price": "$24.99"
+                    },
+                    {
+                        "product_variation_id": 1827,
+                        "product_id": 403074203,
+                        "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1533,\"value\":\"Green\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1541,\"value\":\"3.5\\\"\",\"is_default\":\"\"}]",
+                        "price_multiplier": 0,
+                        "cost_price": 0,
+                        "price": 24.99,
+                        "stock": 5,
+                        "is_default": 0,
+                        "sku": "HK 402 - 3.5\" Green",
+                        "weight": "0.3",
+                        "dimensions": null,
+                        "upc": null,
+                        "description": null,
+                        "status": 1,
+                        "variation_image": "403074203-freezable-downstem-hk-402-3-5-green549183977587.jpg",
+                        "variant": "Color: Green,Size: 3.5\"",
+                        "material": null,
+                        "length": "",
+                        "width": "",
+                        "height": "",
+                        "is_deleted": 0,
+                        "ids": "1533-1541",
+                        "display_cost_price": "$0.00",
+                        "display_price": "$24.99"
+                    },
+                    {
+                        "product_variation_id": 1828,
+                        "product_id": 403074203,
+                        "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1538,\"value\":\"Shiny Orange\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1541,\"value\":\"3.5\\\"\",\"is_default\":\"\"}]",
+                        "price_multiplier": 0,
+                        "cost_price": 0,
+                        "price": 24.99,
+                        "stock": 5,
+                        "is_default": 0,
+                        "sku": "HK 402 - 3.5\" Shiny Orange",
+                        "weight": "0.3",
+                        "dimensions": null,
+                        "upc": null,
+                        "description": null,
+                        "status": 1,
+                        "variation_image": "403074203-freezable-downstem-hk-402-3-5-shiny-orange256811506369.jpg",
+                        "variant": "Color: Shiny Orange,Size: 3.5\"",
+                        "material": null,
+                        "length": "",
+                        "width": "",
+                        "height": "",
+                        "is_deleted": 0,
+                        "ids": "1538-1541",
+                        "display_cost_price": "$0.00",
+                        "display_price": "$24.99"
+                    },
+                    {
+                        "product_variation_id": 1829,
+                        "product_id": 403074203,
+                        "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1538,\"value\":\"Shiny Orange\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1540,\"value\":\"3\\\"\",\"is_default\":\"\"}]",
+                        "price_multiplier": 0,
+                        "cost_price": 0,
+                        "price": 24.99,
+                        "stock": 5,
+                        "is_default": 0,
+                        "sku": "HK 402 - 3\" Shiny Orange",
+                        "weight": "0.3",
+                        "dimensions": null,
+                        "upc": null,
+                        "description": null,
+                        "status": 1,
+                        "variation_image": "403074203-freezable-downstem-hk-402-3-shiny-orange408438867663.jpg",
+                        "variant": "Color: Shiny Orange,Size: 3\"",
+                        "material": null,
+                        "length": "",
+                        "width": "",
+                        "height": "",
+                        "is_deleted": 0,
+                        "ids": "1538-1540",
+                        "display_cost_price": "$0.00",
+                        "display_price": "$24.99"
+                    },
+                    {
+                        "product_variation_id": 1830,
+                        "product_id": 403074203,
+                        "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1537,\"value\":\"Blue\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1540,\"value\":\"3\\\"\",\"is_default\":\"\"}]",
+                        "price_multiplier": 0,
+                        "cost_price": 0,
+                        "price": 24.99,
+                        "stock": 5,
+                        "is_default": 0,
+                        "sku": "HK 402 - 3\" Blue",
+                        "weight": "0.3",
+                        "dimensions": null,
+                        "upc": null,
+                        "description": null,
+                        "status": 1,
+                        "variation_image": "403074203-freezable-downstem-hk-402-3-blue736056602369.jpg",
+                        "variant": "Color: Blue,Size: 3\"",
+                        "material": null,
+                        "length": "",
+                        "width": "",
+                        "height": "",
+                        "is_deleted": 0,
+                        "ids": "1537-1540",
+                        "display_cost_price": "$0.00",
+                        "display_price": "$24.99"
+                    },
+                    {
+                        "product_variation_id": 1831,
+                        "product_id": 403074203,
+                        "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1536,\"value\":\"UV Orange\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1540,\"value\":\"3\\\"\",\"is_default\":\"\"}]",
+                        "price_multiplier": 0,
+                        "cost_price": 0,
+                        "price": 24.99,
+                        "stock": 0,
+                        "is_default": 0,
+                        "sku": "HK 402 - 3\" UV Orange",
+                        "weight": "0.3",
+                        "dimensions": null,
+                        "upc": null,
+                        "description": null,
+                        "status": 1,
+                        "variation_image": null,
+                        "variant": "Color: UV Orange,Size: 3\"",
+                        "material": null,
+                        "length": "",
+                        "width": "",
+                        "height": "",
+                        "is_deleted": 0,
+                        "ids": "1536-1540",
+                        "display_cost_price": "$0.00",
+                        "display_price": "$24.99"
+                    },
+                    {
+                        "product_variation_id": 1832,
+                        "product_id": 403074203,
+                        "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1535,\"value\":\"Shiny Teal\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1540,\"value\":\"3\\\"\",\"is_default\":\"\"}]",
+                        "price_multiplier": 0,
+                        "cost_price": 0,
+                        "price": 24.99,
+                        "stock": 0,
+                        "is_default": 0,
+                        "sku": "HK 402 - 3\" Shiny Teal",
+                        "weight": "0.3",
+                        "dimensions": null,
+                        "upc": null,
+                        "description": null,
+                        "status": 1,
+                        "variation_image": "403074203-freezable-downstem-hk-402-3-shiny-teal785463218305.jpg",
+                        "variant": "Color: Shiny Teal,Size: 3\"",
+                        "material": null,
+                        "length": "",
+                        "width": "",
+                        "height": "",
+                        "is_deleted": 0,
+                        "ids": "1535-1540",
+                        "display_cost_price": "$0.00",
+                        "display_price": "$24.99"
+                    },
+                    {
+                        "product_variation_id": 1833,
+                        "product_id": 403074203,
+                        "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1534,\"value\":\"UV Slime\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1540,\"value\":\"3\\\"\",\"is_default\":\"\"}]",
+                        "price_multiplier": 0,
+                        "cost_price": 0,
+                        "price": 24.99,
+                        "stock": 5,
+                        "is_default": 0,
+                        "sku": "HK 402 - 3\" UV Slime",
+                        "weight": "0.3",
+                        "dimensions": null,
+                        "upc": null,
+                        "description": null,
+                        "status": 1,
+                        "variation_image": "403074203-freezable-downstem-hk-402-3-uv-slime403393556312.jpg",
+                        "variant": "Color: UV Slime,Size: 3\"",
+                        "material": null,
+                        "length": "",
+                        "width": "",
+                        "height": "",
+                        "is_deleted": 0,
+                        "ids": "1534-1540",
+                        "display_cost_price": "$0.00",
+                        "display_price": "$24.99"
+                    },
+                    {
+                        "product_variation_id": 1834,
+                        "product_id": 403074203,
+                        "variation_combination": "[{\"option_variation_name\":\"Color\",\"id\":1533,\"value\":\"Green\",\"is_default\":\"\"},{\"option_variation_name\":\"Size\",\"id\":1540,\"value\":\"3\\\"\",\"is_default\":\"\"}]",
+                        "price_multiplier": 0,
+                        "cost_price": 0,
+                        "price": 24.99,
+                        "stock": 4,
+                        "is_default": 0,
+                        "sku": "HK 402 - 3\" Green",
+                        "weight": "0.3",
+                        "dimensions": null,
+                        "upc": null,
+                        "description": null,
+                        "status": 1,
+                        "variation_image": "403074203-freezable-downstem-hk-402-3-green510302202736.jpg",
+                        "variant": "Color: Green,Size: 3\"",
+                        "material": null,
+                        "length": "",
+                        "width": "",
+                        "height": "",
+                        "is_deleted": 0,
+                        "ids": "1533-1540",
+                        "display_cost_price": "$0.00",
+                        "display_price": "$24.99"
+                    }
+                ]
+                // get enable td html
+                function getEnableTD() {
+                    var td = '<td class="column__Enable text-center">'
+                    td += '<label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer">'
+                    td += '<input type="checkbox" class="d-none all-checkboxes-selector-checkbox" checked="">'
+                    td += '<span class="box d-flex align-items-center justify-content-center border" style="height: 22px; width: 22px;">'
+                    td += '<i class="feather-check icon st-fs-14"></i>'
+                    td += '</span>'
+                    td += '</label>'
+                    td += '</td>'
+                    return td
+                }
+
+                // get image td html
+                function getImageTD(imgUrl) {
+                    if (imgUrl) {
+                        var td = '<td class="column__Image no-pad">'
+                        td += '<div class="img-container d-flex align-items-center justify-content-center cursor-pointer" title="Change Image">'
+                        td += '<img src="' + imgUrl + '" alt="product img" class="img-fluid img-fluid-height">'
+                        td += '</div>'
+                        td += '</td>'
+                        return td
+                    } else {
+                        var td = '<td class="column__Image no-pad">'
+                        td += '<label class="img-container d-flex align-items-center justify-content-center cursor-pointer" title="Add Image">'
+                        td += '<input type="file" accept="image/png, image/gif, image/jpeg" hidden="">'
+                        td += '<i class="feather-camera icon"></i>'
+                        td += '</label>'
+                        td += '</td>'
+                        return td
+                    }
+                }
+
+                // get variant td html
+                function getVariantTD(content, dataTitle) {
+                    var td = '<td class="column__Variant text-capitalize" title="' + dataTitle + '">'
+                    td += content
+                    td += '</td>'
+                    return td
+                }
+
+                // get sku td html
+                function getSkuTD(placeholder, value) {
+                    var td = '<td class="column__Sku no-pad has-input">'
+                    td += '<input type="text" placeholder="' + placeholder + '" value="' + value + '">'
+                    td += '</td>'
+                    return td
+                }
+
+                // get weight td html
+                function getWeightTD(placeholder, value) {
+                    var td = '<td class="column__Weight no-pad has-input">'
+                    td += '<input type="number" min="0" placeholder="' + placeholder + '" value="' + value + '">'
+                    td += '</td>'
+                    return td
+                }
+
+                // get cost td html
+                function getCostTD(placeholder, value) {
+                    var td = '<td class="column__Cost no-pad has-input">'
+                    td += '<input type="number" min="0" placeholder="' + placeholder + '" value="' + value + '">'
+                    td += '</td>'
+                    return td
+                }
+
+                // get price td html
+                function getPriceTD(placeholder, value) {
+                    var td = '<td class="column__Price no-pad has-input">'
+                    td += '<input type="number" min="0" placeholder="' + placeholder + '" value="' + value + '">'
+                    td += '</td>'
+                    return td
+                }
+
+                // get stock td html
+                function getStockTD(placeholder, value) {
+                    var td = '<td class="column__Stock no-pad has-input">'
+                    td += '<input type="number" min="0" placeholder="' + placeholder + '" value="' + value + '">'
+                    td += '</td>'
+
+                    return td
+                }
+
+                // get actions td html
+                function getActionsTD(dataIds) {
+                    var td = '<td class="column__actions">'
+                    td += '<div class="d-flex">'
+                    td += '<button type="button" class="st-round-btn st-btn-secondary st-btn-xs d-flex align-items-center justify-content-center me-2 open-edit-more-details-modal" data-id="' + dataIds + '">'
+                    td += '<i class="feather-edit-2 icon"></i>'
+                    td += '</button>'
+                    td += '<button type="button" class="st-round-btn st-btn-secondary st-btn-xs d-flex align-items-center justify-content-center me-2">'
+                    td += '<i class="feather-eye-off icon"></i>'
+                    td += '</button>'
+                    td += '</div>'
+                    td += '</td>'
+                    return td
+                }
+
+                var finalHTML = ""
+                for (let i = 0; i < combinationsData.length; i++) {
+                    const combiItem = combinationsData[i];
+                    const combiItemJSON = JSON.stringify(combiItem)
+                    const variations = JSON.parse(combiItem.variation_combination)
+                    var combiHtml = ""
+                    var variationOptionsHtml = ""
+
+                    // generating content for variants
+                    for (let j = 0; j < variations.length; j++) {
+                        const variItem = variations[j];
+                        const data = variItem.option_variation_name + ": " + variItem.value
+                        variationOptionsHtml += '<p>' + data + '</p>'
+                    }
+                    // console.log("combiItem ", combiItem);
+
+                    combiHtml += '<tr>'
+                    combiHtml += getEnableTD()
+                    combiHtml += getImageTD(combiItem.variation_image)
+                    combiHtml += getVariantTD(variationOptionsHtml, combiItem.variant)
+                    combiHtml += getSkuTD("", combiItem.sku)
+                    combiHtml += getWeightTD("", combiItem.weight)
+                    combiHtml += getCostTD("", combiItem.cost_price ? combiItem.cost_price : "")
+                    combiHtml += getPriceTD("", combiItem.price)
+                    combiHtml += getStockTD("", combiItem.stock ? combiItem.stock : "")
+                    combiHtml += getActionsTD(combiItem.product_variation_id)
+                    combiHtml += '</tr>'
+
+                    finalHTML += combiHtml
+                }
+
+                // appending html
+                $("#nav-variations .btns span").text(" (" + combinationsData.length + "combinations)")
+                $("#nav-variations .products-variants-table tbody").html(finalHTML)
+            }
+            generateHTMLForCombinations()
+
+            $('.products-variants-table .open-edit-more-details-modal').on("click", function (ev) {
+                ev.preventDefault()
+                const dataId = $(this).attr("data-id")
+
+                // openning modal
+                var myModalEl = document.getElementById('editVariationDetailsModal')
+                var myModal = new bootstrap.Modal(myModalEl, {})
+                myModal.show()
+                myModalEl.addEventListener('shown.bs.modal', function () {
+                    setTimeout(() => {
+                        // getting single item details
+                        for (let i = 0; i < combinationsData.length; i++) {
+                            const combiItem = combinationsData[i];
+                            if (combiItem.product_variation_id === dataId) {
+                                // populating data to the modal fields
+                                $('#editVariationDetailsModal [name="length"]')[0].value = (combiItem.length)
+                                $('#editVariationDetailsModal [name="width"]')[0].value = (combiItem.width)
+                                $('#editVariationDetailsModal [name="height"]')[0].value = (combiItem.height)
+                                $('#editVariationDetailsModal [name="upc"]')[0].value = (combiItem.upc)
+                                $('#editVariationDetailsModal [name="description"]')[0].value = (combiItem.description)
+                            }
+                        }
+                    }, 200);
+                })
+
+            })
+        })();
+
+        // setting dynamic attributes values
+        (function () {
+            const attributes = [
+                {
+                    "attribute_id": 1,
+                    "attribute_name": "Material",
+                    "status": 1
+                }
+            ]
+
+            // get attribute item
+            function getAttrItem(name,) {
+                var attrFormItem = '<div class="st-form st-form-with-label-left d-flex flex-wrap ">'
+                attrFormItem += '<label>' + name + '</label>'
+                attrFormItem += '<div class="media-body st-form-input-container">'
+                attrFormItem += '<input type="text" class="form-control" placeholder="' + name + '" name="' + name + '">'
+                attrFormItem += '</div>'
+                attrFormItem += '</div>'
+                return attrFormItem
+            }
+
+            var attrsHTML = ""
+            for (let i = 0; i < attributes.length; i++) {
+                const attrItem = attributes[i];
+
+                attrsHTML += getAttrItem(attrItem.attribute_name)
+            }
+
+            // appending attributes html
+            $(".products-custom-attributes").html(attrsHTML)
+        })();
+
+    })();
+    // PAGE - products: add/edit ribbon
+    (function () {
+        // change on click | add ribbon
+        $('.add-new-ribbon').on("click", function (ev) {
+            ev.preventDefault()
+            $(this).closest(".pbb2-inner").hide().next().fadeIn(200)
+        })
+
+        // change on click | remove ribbon
+        $('.remove-the-ribbon').on("click", function (ev) {
+            ev.preventDefault()
+            $(this).closest(".pbb2-inner").hide().prev().fadeIn(200)
+        })
+
+        // change on click | more options show
+        $('.show-more-ribbon-options-btn').on("click", function (ev) {
+            ev.preventDefault()
+            if ($(">span", this).text() === "Show More Options") {
+                $(">span", this).text("Hide More Options")
+                $(this).closest(".btns").next(".show-more-ribbon-options").fadeIn(200)
+            } else {
+                $(">span", this).text("Show More Options")
+                $(this).closest(".btns").next(".show-more-ribbon-options").fadeOut(200)
+            }
+        })
+        // change on click | more options show
+        $('#ribbonDisableToCart').on("change", function (ev) {
+            if ($(this).is(":checked")) {
+                $(".disable-cart-description-view").fadeIn(100)
+            } else {
+                $(".disable-cart-description-view").fadeOut(100)
+            }
+        })
+
+        // change on change | ribbon name
+        $('.ribbon-name-field > input').on("keyup", function () {
+            const val = $(this).val()
+            // setting badge text
+            if (val) {
+                $(".add-ribbon-view .preview-sec .ribbon-stripe").text(val)
+            } else {
+                $(".add-ribbon-view .preview-sec .ribbon-stripe").text("Your Text")
+            }
+        })
+
+        // change on click | color click
+        $('.add-ribbon-view .ribbon-pre-defined-colors > .color-item:not(.custom-color)').on("click", function (ev) {
+            ev.preventDefault()
+            const styleBG = $(this).attr("data-bg")
+            $(this).addClass("active").siblings().removeClass("active")
+            // hiding custom color element
+            $(this).closest(".ribbon-color-container").find(".ribbon-color-field-container").hide()
+
+            // setting custom color value
+            $(this).closest(".ribbon-color-container").find(".ribbon-color-field-container input").val(styleBG)
+
+            // setting badge bg
+            $(".add-ribbon-view .preview-sec .ribbon-stripe").css({
+                backgroundColor: styleBG
+            })
+        })
+        // change on click | custom color click
+        $('.add-ribbon-view .ribbon-pre-defined-colors > .color-item.custom-color').on("click", function (ev) {
+            ev.preventDefault()
+            $(this).addClass("active").siblings().removeClass("active")
+            // showing element
+            $(this).closest(".ribbon-color-container").find(".ribbon-color-field-container").fadeIn(200)
+        })
+        // change on change | custom color getting
+        $('.add-ribbon-view .ribbon-color-field-container input').on("keyup", function (ev) {
+            const val = $(this).val()
+            // setting badge bg after some time
+            if (val) {
+                setTimeout(() => {
+                    $(".add-ribbon-view .preview-sec .ribbon-stripe").css({
+                        backgroundColor: val
+                    })
+                }, 200);
+            }
         })
     })();
 
@@ -480,201 +2089,6 @@ $(function () {
             ev.preventDefault()
             $('form#create-blog-form [type="submit"]').trigger('click') // form submission
         })
-
-        // validation
-        $("#create-blog-form").validate({
-            // debug: true,
-
-
-            // on submit
-            submitHandler: function (form) {
-                console.log("form ", form)
-                form.submit();
-            }
-        })
-    })();
-
-    // PAGE - Products | variations
-    (function () {
-        function sortableLevel1() {
-            $(".variations-sortable-l1").sortable({
-                handle: "> .frac-inner > .move-icon",
-            });
-        }
-        function sortableLevel2() {
-            $(".variations-sortable-l2").sortable({
-                handle: "> .move-icon",
-            });
-        }
-        sortableLevel1() // initialize sortable level 1
-        sortableLevel2() // initialize sortable level 2
-
-
-        // new name field
-        var new_nameField = '<div class="st-form mb-2">'
-        new_nameField += '<label class="mb-1">Name'
-        new_nameField += '<span class="required">*</span>'
-        new_nameField += '</label>'
-        new_nameField += '<input placeholder="Name" type="text" class="form-control" value="">'
-        new_nameField += '</div>'
-
-        // new select box field
-        var new_selectboxField = '<div class="st-form mb-2">'
-        new_selectboxField += '<label class="mb-1">Option'
-        new_selectboxField += '<span class="required">*</span>'
-        new_selectboxField += '</label>'
-        new_selectboxField += '<select class="form-control">'
-        new_selectboxField += '<option disabled="">Select Type</option>'
-        new_selectboxField += '<option value="radio_buttons">Radio Buttons</option>'
-        new_selectboxField += '<option value="rectangle_list" selected="">Rectangle List</option>'
-        new_selectboxField += '<option value="dropdown">Dropdown</option>'
-        new_selectboxField += '</select>'
-        new_selectboxField += '</div>'
-
-        // new value field
-        var new_valueField = '<div class="form-item media-body">'
-        new_valueField += '<div class="st-form mb-2">'
-        new_valueField += '<label class="mb-1">Value'
-        new_valueField += '<span class="required">*</span>'
-        new_valueField += '</label>'
-        new_valueField += '<input placeholder="Name" type="text" class="form-control" value="">'
-        new_valueField += '</div>'
-        new_valueField += '<div class="delete-frac-item mb-2">'
-        new_valueField += '<a href="/" class="st-text-danger st-fw-600 text-decoration-none text-danger d-flex align-items-center delete-option-value">'
-        new_valueField += '<i class="feather-trash-2 icon me-1"></i>'
-        new_valueField += '<span>Delete Value</span>'
-        new_valueField += '</a>'
-        new_valueField += '</div>'
-        new_valueField += '</div>'
-
-        // value html
-        var new_VALUE_HTML = '<div class="form-item-outer d-flex flex-wrap">'
-        new_VALUE_HTML += '<div class="move-icon">'
-        new_VALUE_HTML += '<i class="feather-move icon st-fs-20"></i>'
-        new_VALUE_HTML += '</div>'
-        new_VALUE_HTML += '<div class="form-item media-body">'
-        new_VALUE_HTML += new_valueField
-        new_VALUE_HTML += '</div>'
-        new_VALUE_HTML += '<div class="select-default ps-2">'
-        new_VALUE_HTML += '<label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer">'
-        new_VALUE_HTML += '<input type="radio" class="d-none">'
-        new_VALUE_HTML += '<span class="box d-flex align-items-center justify-content-center border">'
-        new_VALUE_HTML += '<i class="feather-check icon position-relative"></i>'
-        new_VALUE_HTML += '</span>'
-        new_VALUE_HTML += '<span class="text text-capitalize st-fs-15 ms-2">default</span>'
-        new_VALUE_HTML += '</label>'
-        new_VALUE_HTML += '</div>'
-        new_VALUE_HTML += '</div>'
-
-        var new_FIELD_HTML = '<div class="frac">'
-        new_FIELD_HTML += '<div class="frac-inner d-flex">'
-        new_FIELD_HTML += '<div class="move-icon">'
-        new_FIELD_HTML += '<i class="feather-move icon st-fs-20"></i>'
-        new_FIELD_HTML += '</div>'
-        new_FIELD_HTML += '<div class="d-flex flex-wrap media-body">'
-        new_FIELD_HTML += '<div class="form-item item-name">'
-        new_FIELD_HTML += new_nameField
-        new_FIELD_HTML += '<div class="delete-frac-item">'
-        new_FIELD_HTML += '<a href="/" class="st-text-danger st-fw-600 text-decoration-none text-danger d-flex align-items-center delete-option">'
-        new_FIELD_HTML += '<i class="feather-trash-2 st-fs-13 icon me-1"></i>'
-        new_FIELD_HTML += '<span>Delete Option</span>'
-        new_FIELD_HTML += '</a>'
-        new_FIELD_HTML += '</div>'
-        new_FIELD_HTML += '</div>'
-        new_FIELD_HTML += '<div class="form-item item-type">'
-        new_FIELD_HTML += new_selectboxField
-        new_FIELD_HTML += '</div>'
-        new_FIELD_HTML += '<div class="form-item item-values d-flex flex-wrap">'
-        new_FIELD_HTML += '<div class="all-form-fields media-body variations-sortable-l2">'
-        new_FIELD_HTML += new_VALUE_HTML
-        new_FIELD_HTML += '</div>'
-        new_FIELD_HTML += '<div class="add-field w-100 mt-2">'
-        new_FIELD_HTML += '<p class="d-inline-flex align-items-center st-text-primary cursor-pointer add-new-option-value">'
-        new_FIELD_HTML += '<i class="feather-plus icon me-1"></i>'
-        new_FIELD_HTML += '<span>Add another field</span>'
-        new_FIELD_HTML += '</p>'
-        new_FIELD_HTML += '</div>'
-        new_FIELD_HTML += '</div>'
-        new_FIELD_HTML += '</div>'
-        new_FIELD_HTML += '</div>'
-        new_FIELD_HTML += '</div>'
-
-        // add new option
-        $(document).on("click", "#add-product-variant-view .add-new-option", function (ev) {
-            ev.preventDefault()
-
-            $("#add-product-variant-view .content-inner > .frac:last-child").after(new_FIELD_HTML) // adding new field
-
-            sortableLevel2() // initialize sortable level 2 again
-        });
-        // delete option
-        $(document).on("click", "#add-product-variant-view .delete-option", function (ev) {
-            ev.preventDefault()
-
-            $(this).closest(".frac").remove()
-        });
-
-        // add new option value
-        $(document).on("click", "#add-product-variant-view .add-new-option-value", function (ev) {
-            ev.preventDefault()
-
-            $(this).closest(".form-item").find(".all-form-fields").append(new_VALUE_HTML)
-            // $("#add-product-variant-view .all-form-fields > .form-item-outer:last-child").after(new_VALUE_HTML) // adding new field value
-        });
-        // delete option value
-        $(document).on("click", "#add-product-variant-view .delete-option-value", function (ev) {
-            ev.preventDefault()
-
-            $(this).closest(".form-item-outer").remove()
-        });
-
-        // save option details
-        $(document).on("click", ".save-options-details", function (ev) {
-            ev.preventDefault()
-
-            const nameElems = $("#add-product-variant-view .item-name > .st-form input")
-            const typeElems = $("#add-product-variant-view .item-type > .st-form select")
-            const nameElemsVals = []
-            const typeElemsVals = []
-
-            // getting name values
-            nameElems.each(function (index, elem) {
-                nameElemsVals.push($(elem).val())
-            })
-
-            // getting type values
-            typeElems.each(function (index, elem) {
-                typeElemsVals.push($(elem).val())
-            })
-
-            const allData = []
-            // getting type values
-            $("#add-product-variant-view .content-inner > .frac").each(function (index, elem) {
-                const nameElems = $(elem).find(".item-name > .st-form input")
-                const typeElems = $(elem).find(".item-type > .st-form select")
-                const valuesElems = $(elem).find(".all-form-fields .form-item-outer")
-
-                const allOptions = []
-                valuesElems.each(function (index, elem) {
-                    allOptions.push({
-                        is_default: $(elem).find(".select-default input").is(":checked"),
-                        option_variation_name: nameElems.val(),
-                        value: $(elem).find(".st-form > input").val()
-                    })
-                })
-
-                const mainData = {
-                    display_type: typeElems.val(),
-                    options: allOptions,
-                    variations_name: nameElems.val()
-                }
-                allData.push(mainData)
-            })
-
-            console.log("allData ", allData);
-        });
-
-
     })();
 
 });

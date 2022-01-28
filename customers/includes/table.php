@@ -14,46 +14,44 @@
         <tr>
             <th width="35">
                 <label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer">
-                    <input
-                        type="checkbox"
-                        class="d-none" 
-                    />
-                    <span class="box d-flex align-items-center justify-content-center border" style="height: 17px; width: 17px">
+                    <input type="checkbox" class="d-none" />
+                    <span class="box d-flex align-items-center justify-content-center border"
+                        style="height: 17px; width: 17px">
                         <i class="feather-check st-fs-11 icon position-relative"></i>
                     </span>
                 </label>
             </th>
-            <th>
+            <th data-st-table-for="column__customerName">
                 <p class="text-capitalize">
                     Customer
                 </p>
             </th>
 
-            <th>
+            <th data-st-table-for="column__email">
                 <p class="text-capitalize">
                     Email
                 </p>
             </th>
 
-            <th>
+            <th data-st-table-for="column__type">
                 <p class="text-capitalize">
                     Type
                 </p>
             </th>
 
-            <th>
+            <th data-st-table-for="column__twoFactors">
                 <p class="text-capitalize">
                     Two Factors
                 </p>
             </th>
 
-            <th>
+            <th data-st-table-for="column__lastActive">
                 <p class="text-capitalize">
                     Last Active
                 </p>
             </th>
 
-            <th>
+            <th data-st-table-for="column__status">
                 <p class="text-capitalize">
                     Status
                 </p>
@@ -66,50 +64,47 @@
         <tr>
             <td class="column__checkbox">
                 <label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer">
-                    <input
-                        type="checkbox"
-                        class="d-none" 
-                    />
-                    <span class="box d-flex align-items-center justify-content-center border" style="height: 17px; width: 17px">
+                    <input type="checkbox" class="d-none" />
+                    <span class="box d-flex align-items-center justify-content-center border"
+                        style="height: 17px; width: 17px">
                         <i class="feather-check st-fs-11 icon position-relative"></i>
                     </span>
                 </label>
             </td>
 
-            <td class="column__customername">
-                <a class="hover-underline-link st-text-primary" href="http://localhost/commercey-html/customers/edit.php">
+            <td class="column__customerName" data-st-table-for="column__customerName">
+                <a class="hover-underline-link st-text-primary"
+                    href="http://localhost/commercey-html/customers/edit.php">
                     Adriene Carroll
                 </a>
             </td>
 
-            <td class="column__email">
+            <td class="column__email" data-st-table-for="column__email">
                 <p class="">kikicarroll@me.com</p>
             </td>
 
-            <td class="column__type">
+            <td class="column__type" data-st-table-for="column__type">
                 <p class="st-text-primary">New</p>
             </td>
 
-            <td class="column__two-factors">
+            <td class="column__twoFactors" data-st-table-for="column__twoFactors">
                 <p class="text-capitalize">No</p>
             </td>
 
-            <td class="column__last-active">
+            <td class="column__lastActive" data-st-table-for="column__lastActive">
                 <p class="text-capitalize">January 10, 2022 04:15 pm</p>
             </td>
 
-            <td class="column__status">
+            <td class="column__status" data-st-table-for="column__status">
                 <p class="text-capitalize">Inactive</p>
             </td>
-            
+
             <td class="column__actions">
                 <div class="d-flex justify-content-end">
-                    <button 
+                    <button
                         class="st-round-btn st-btn-transparent st-btn-xs d-flex align-items-center justify-content-center"
-                        data-toggle="tooltip"
-                        data-placement="right"
-                        title="Delete">
-                        <i class="feather-trash icon"></i>                    
+                        data-toggle="tooltip" data-placement="right" title="Delete">
+                        <i class="feather-trash icon"></i>
                     </button>
                 </div>
             </td>

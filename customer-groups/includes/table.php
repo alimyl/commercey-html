@@ -24,31 +24,31 @@
                 </label>
             </th>
 
-            <th>
+            <th data-st-table-for="column__groupName">
                 <p class="text-capitalize">
                     Group
                 </p>
             </th>
 
-            <th>
+            <th data-st-table-for="column__discountPercent">
                 <p class="text-capitalize">
                     Discount Percent
                 </p>
             </th>
 
-            <th>
+            <th data-st-table-for="column__discountValue">
                 <p class="text-capitalize">
                     Discount Value
                 </p>
             </th>
 
-            <th>
+            <th data-st-table-for="column__twoFactor">
                 <p class="text-capitalize">
                     Two Factors
                 </p>
             </th>
 
-            <th>
+            <th data-st-table-for="column__status">
                 <p class="text-capitalize">
                     Status
                 </p>
@@ -71,23 +71,23 @@
                 </label>
             </td>
 
-            <td class="column__groupName">
+            <td class="column__groupName" data-st-table-for="column__groupName">
                 <p class="">Normal</p>
             </td>
 
-            <td class="column__email">
+            <td class="column__discountPercent" data-st-table-for="column__discountPercent">
                 <p class="">Yes</p>
             </td>
 
-            <td class="column__discountPercent">
+            <td class="column__discountValue" data-st-table-for="column__discountValue">
                 <p class="">0</p>
             </td>
 
-            <td class="column__discountValue">
+            <td class="column__twoFactor" data-st-table-for="column__twoFactor">
                 <p class="text-capitalize">Active</p>
             </td>
 
-            <td class="column__status">
+            <td class="column__status" data-st-table-for="column__status">
                 <p class="text-capitalize">Inactive</p>
             </td>
             

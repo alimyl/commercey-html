@@ -7,7 +7,7 @@
             <!-- form-item -->
             <div class="st-form st-form-with-label-left d-flex flex-wrap">
                 <label>
-                    coupons code
+                    Coupon Code
                     <span class="required ms-1 st-fs-12">(required)</span>
                 </label>
                 <div class="media-body st-form-input-container">
@@ -16,17 +16,33 @@
             </div>
 
             <!-- form-item -->
-            <div class="st-form st-form-with-label-left d-flex flex-wrap">
+            <div class="st-form st-form-with-label-left d-flex flex-wrap coupons-discount-type">
                 <label>
                     Discount Type
                     <span class="required ms-1 st-fs-12">(required)</span>
                 </label>
                 <div class="media-body st-form-input-container">
-                    <select class="form-control">
-                        <option disabled="" value="">Select Discount Type</option>
+                    <select class="form-control" id="discountType">
+                        <option disabled>Select Discount Type</option>
+                        <option value="value" selected>Value</option>
                         <option value="percent">Percent</option>
-                        <option value="value">Value</option>
                     </select>
+                </div>
+            </div>
+            <!-- hidden discount fields | value -->
+            <div class="st-form ps-3 st-form-with-label-left no-arrows d-flex flex-wrap coupons-discount-type-value">
+                <label>Value</label>
+                <div class="media-body st-form-input-container">
+                    <input type="number" class="form-control" placeholder="Value" id="couponDiscountValue"
+                        name="couponDiscountValue">
+                </div>
+            </div>
+            <!-- hidden discount fields | percent -->
+            <div class="st-form ps-3 st-form-with-label-left no-arrows d-none flex-wrap coupons-discount-type-percent">
+                <label>Percent</label>
+                <div class="media-body st-form-input-container">
+                    <input type="number" class="form-control" placeholder="Percent" id="couponDiscountPercent"
+                        name="couponDiscountPercent">
                 </div>
             </div>
 
@@ -37,7 +53,7 @@
                     <span class="required ms-1 st-fs-12">(required)</span>
                 </label>
                 <div class="media-body st-form-input-container">
-                    <input type="text" class="form-control" placeholder="YYYY-MM-DD" value="">
+                    <input type="text" class="form-control" placeholder="YYYY-MM-DD" id="coupons-date-picker">
                 </div>
             </div>
 
@@ -47,8 +63,8 @@
                     Category
                     <span class="required ms-1 st-fs-12">(required)</span>
                 </label>
-                <div class="media-body st-form-input-container">
-                    <select class="form-control">
+                <div class="media-body st-form-input-container text-start">
+                    <select class="form-control coupons-category-select" name="category[]" multiple="multiple">
                         <option disabled="" value="">Select Category</option>
                         <option value="1">Category 1</option>
                         <option value="2">Category 2</option>
@@ -88,7 +104,7 @@
 
             <!-- form-item -->
             <div class="st-form st-form-with-label-left d-flex flex-wrap">
-                <label>
+                <label class="pt-0">
                     Minimum Order Amount
                     <span class="required ms-1 st-fs-12">(required)</span>
                 </label>
@@ -99,14 +115,17 @@
 
             <!-- form-item -->
             <div class="st-form st-form-with-label-left d-flex flex-wrap">
-                <label>
+                <label class="d-flex align-items-center justify-content-end" style="padding-top: 2px;">
                     Auto Apply
-                    <span class="info-icon cursor-pointer st-text-primary ms-2 position-relative" style="top: 2px">
+                    <span class="info-icon cursor-pointer st-text-primary ms-2 position-relative st-fs-15"
+                        style="top: 2px" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="The coupon will apply automatically when a user meets the requirements">
                         <i class="feather-info icon"></i>
                     </span>
                 </label>
                 <div class="media-body st-form-input-container text-start">
-                    <label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer position-relative" style="top: 3px;">
+                    <label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer position-relative"
+                        style="top: 3px;">
                         <input type="checkbox" class="d-none" value="false">
                         <span class="box d-flex align-items-center justify-content-center border">
                             <i class="feather-check icon position-relative"></i>
@@ -117,11 +136,12 @@
 
             <!-- form-item -->
             <div class="st-form st-form-with-label-left d-flex flex-wrap">
-                <label>
+                <label style="padding-top: 2px;">
                     Free Shipping
                 </label>
                 <div class="media-body st-form-input-container text-start">
-                    <label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer position-relative" style="top: 3px;">
+                    <label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer position-relative"
+                        style="top: 3px;">
                         <input type="checkbox" class="d-none" value="false">
                         <span class="box d-flex align-items-center justify-content-center border">
                             <i class="feather-check icon position-relative"></i>
@@ -132,11 +152,12 @@
 
             <!-- form-item -->
             <div class="st-form st-form-with-label-left d-flex flex-wrap">
-                <label>
+                <label style="padding-top: 2px;">
                     Single Use
                 </label>
                 <div class="media-body st-form-input-container text-start">
-                    <label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer position-relative" style="top: 3px;">
+                    <label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer position-relative"
+                        style="top: 3px;">
                         <input type="checkbox" class="d-none" value="false">
                         <span class="box d-flex align-items-center justify-content-center border">
                             <i class="feather-check icon position-relative"></i>
@@ -147,11 +168,12 @@
 
             <!-- form-item -->
             <div class="st-form st-form-with-label-left d-flex flex-wrap">
-                <label>
+                <label style="padding-top: 2px;">
                     Single Use Per User
                 </label>
                 <div class="media-body st-form-input-container text-start">
-                    <label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer position-relative" style="top: 3px;">
+                    <label class="st-checkbox st-checkbox-primary d-inline-flex cursor-pointer position-relative"
+                        style="top: 3px;">
                         <input type="checkbox" class="d-none" value="false">
                         <span class="box d-flex align-items-center justify-content-center border">
                             <i class="feather-check icon position-relative"></i>
