@@ -68,14 +68,16 @@
                                                                 </div>
                                                             </div>
                                                             <div class="btn-sec">
-                                                                <button class="st-btn st-btn-sm">
+                                                                <button
+                                                                    class="st-btn st-btn-sm show-add-domain-section">
                                                                     Add Domain
                                                                 </button>
                                                             </div>
                                                         </div>
 
                                                         <!-- add domain details -->
-                                                        <div class="pbb2-inner">
+                                                        <div class="pbb2-inner add-domain-info-main"
+                                                            style="display: none;">
                                                             <div class="text-sec media-body pe-3">
                                                                 <div class="app-header-wrapper heading-sm mb-2">
                                                                     <p
@@ -96,7 +98,7 @@
                                                                             name="domain" value=""></div>
                                                                     <div class="btns d-flex pt-2"><button type="submit"
                                                                             class="st-btn st-btn-primary st-btn-sm me-2 ">Save</button><button
-                                                                            class="st-btn st-btn-link st-btn-sm no-min-width">Cancel</button>
+                                                                            class="st-btn st-btn-link st-btn-sm no-min-width hide-add-domain-section">Cancel</button>
                                                                     </div>
                                                                 </form>
                                                             </div>
@@ -128,7 +130,7 @@
                                                                         <span class="ms-1">Return-Path verified</span>
                                                                     </p>
                                                                     <p
-                                                                        class="info-link d-flex align-items-center st-text-primary st-fw-600 cursor-pointer hover-underline-link me-3">
+                                                                        class="info-link d-flex align-items-center st-text-primary st-fw-600 cursor-pointer hover-underline-link me-3 show-dns-settings-section">
                                                                         DNS Settings</p>
                                                                     <p class="st-round-btn st-btn-transparent st-btn-xs d-flex align-items-center justify-content-center cursor-pointer"
                                                                         title="remove">
@@ -136,14 +138,12 @@
                                                                     </p>
                                                                 </div>
                                                             </div>
-
-                                                            <!-- bottom sec -->
-
                                                         </div>
                                                     </div>
 
                                                     <!-- border box | domain settings -->
-                                                    <div class="page-border-box2 mb-3 mb-md-4 domain-settings">
+                                                    <div class="page-border-box2 mb-3 mb-md-4 domain-settings"
+                                                        style="display: none;">
                                                         <div class="pbb2-inner">
                                                             <div
                                                                 class="app-header-wrapper heading-sm d-flex align-items-start mb-2">
@@ -152,7 +152,7 @@
                                                                         style="text-transform: initial;">ruhlistic.com</span>
                                                                 </p>
                                                                 <a href="/"
-                                                                    class="text-decoration-none d-inline-flex align-items-center ms-auto st-text-primary mt-1">
+                                                                    class="text-decoration-none d-inline-flex align-items-center ms-auto st-text-primary mt-1 hide-dns-settings-section">
                                                                     <i class="feather-x icon"></i>
                                                                     <span class="ms-1">Close Settings</span>
                                                                 </a>
@@ -354,8 +354,8 @@
                                                     </div>
 
                                                     <!-- border box | sender info -->
-                                                    <div
-                                                        class="page-border-box2 mb-3 mb-md-4 edit-senders-info not-available">
+                                                    <!-- <div class="page-border-box2 mb-3 mb-md-4 edit-senders-info not-available"> -->
+                                                    <div class="page-border-box2 mb-3 mb-md-4 edit-senders-info">
                                                         <div class="pbb2-inner d-flex">
                                                             <div class="text-sec media-body pe-3">
                                                                 <div class="app-header-wrapper heading-sm mb-2">
@@ -381,12 +381,16 @@
                                                                 <p class="add-info text-black-50">Replies to your emails
                                                                     are delivered to info@ruhlistic.com</p>
                                                             </div>
-                                                            <div class="btn-sec"><button
-                                                                    class="st-btn st-btn-sm">Edit</button></div>
+                                                            <div class="btn-sec">
+                                                                <button
+                                                                    class="st-btn st-btn-sm show-senders-info-section">Edit</button>
+                                                            </div>
                                                         </div>
                                                     </div>
+
                                                     <!-- border box | edit sender info -->
-                                                    <div class="page-border-box2 mb-3 mb-md-4 edit-senders-info">
+                                                    <div class="page-border-box2 mb-3 mb-md-4 edit-senders-info"
+                                                        style="display: none;">
                                                         <div class="pbb2-inner d-flex">
                                                             <div class="text-sec media-body pe-3">
                                                                 <div class="app-header-wrapper heading-sm mb-2">
@@ -418,7 +422,7 @@
                                                                         </div>
                                                                         <div class="btns d-flex"><button type="submit"
                                                                                 class="st-btn st-btn-primary st-btn-sm me-2 ">Save</button><button
-                                                                                class="st-btn st-btn-link st-btn-sm no-min-width">Cancel</button>
+                                                                                class="st-btn st-btn-link st-btn-sm no-min-width hide-senders-info-section">Cancel</button>
                                                                         </div>
                                                                     </form>
                                                                 </div>
@@ -584,12 +588,13 @@
                                                                 <p class="add-info text-black-50">Admin notifications
                                                                     are sent to info@ruhlistic.com</p>
                                                             </div>
-                                                            <div class="btn-sec"><button
-                                                                    class="st-btn st-btn-sm">Edit</button></div>
+                                                            <div class="btn-sec">
+                                                                <button class="st-btn st-btn-sm show-admin-email-address-section">Edit</button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <!-- border box | edit admin email address -->
-                                                    <div class="page-border-box2 mb-3 mb-md-4 add-admin-email-address">
+                                                    <div class="page-border-box2 mb-3 mb-md-4 add-admin-email-address" style="display: none;">
                                                         <div class="pbb2-inner">
                                                             <div class="app-header-wrapper heading-sm mb-2">
                                                                 <p class="app-heading text-capitalize mb-2">Admin email
@@ -608,24 +613,13 @@
                                                                 <div class="text mb-2">
                                                                     <p
                                                                         class="d-inline-flex align-items-center st-text-primary st-fw-600 cursor-pointer">
-                                                                        <svg width="15" height="15" viewBox="0 0 24 24"
-                                                                            fill="none" stroke="currentColor"
-                                                                            stroke-width="2" stroke-linecap="round"
-                                                                            stroke-linejoin="round"
-                                                                            class="feather feather-plus icon">
-                                                                            <g>
-                                                                                <line x1="12" y1="5" x2="12" y2="19">
-                                                                                </line>
-                                                                                <line x1="5" y1="12" x2="19" y2="12">
-                                                                                </line>
-                                                                            </g>
-                                                                        </svg>
+                                                                        <i class="feather-plus icon"></i>
                                                                         <span class="ms-2">Add Email Address</span>
                                                                     </p>
                                                                 </div>
                                                                 <div class="btns d-flex pt-1"><button
                                                                         class="st-btn st-btn-primary st-btn-sm me-2 ">Save</button><button
-                                                                        class="st-btn st-btn-link st-btn-sm no-min-width">Cancel</button>
+                                                                        class="st-btn st-btn-link st-btn-sm no-min-width hide-admin-email-address-section">Cancel</button>
                                                                 </div>
                                                             </div>
                                                         </div>

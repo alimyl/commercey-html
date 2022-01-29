@@ -11,7 +11,7 @@
             <!-- form item -->
             <div class="st-form input-container-with-text-length has-limit">
                 <label>Page Title</label>
-                <input type="text" class="form-control" placeholder="Page Title" id="metaTitle" name="metaTitle" value="">
+                <input type="text" class="form-control" placeholder="Page Title" id="metaTitle" name="metaTitle" value="" maxlength="55">
                 <div class="text-length">
                     <p class="">0 of 55 characters used</p>
                 </div>
@@ -20,7 +20,7 @@
             <!-- form item -->
             <div class="st-form mb-0 input-container-with-text-length has-limit">
                 <label>Meta Description</label>
-                <textarea type="text" class="form-control" rows="4" placeholder="Meta Description" id="metaDescription" name="metaDescription"></textarea>
+                <textarea type="text" class="form-control" rows="4" placeholder="Meta Description" id="metaDescription" name="metaDescription" maxlength="400"></textarea>
                 <div class="text-length">
                     <p class="">0 of 400 characters used</p>
                 </div>
